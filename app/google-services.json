@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408277373539",
+    "project_id": "optimeter",
+    "storage_bucket": "optimeter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408277373539:android:536c84e656cf32bd1c9e56",
+        "android_client_info": {
+          "package_name": "com.optimeter.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgjGaopKjrCEqhiGjKBjLLEsKsoa0c8w8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

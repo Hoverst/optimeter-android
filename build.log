@@ -1,0 +1,74 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:processDebugGoogleServices UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeDebugStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:kspDebugKotlin
+
+> Task :app:compileDebugKotlin
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/components/MeterCard.kt:110:79 'TrendingUp: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.TrendingUp
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/components/MeterCard.kt:110:109 'TrendingDown: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.TrendingDown
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/AddReadingTab.kt:223:56 'toLowerCase(): String' is deprecated. Use lowercase() instead.
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/AddReadingTab.kt:223:70 'capitalize(): String' is deprecated. Use replaceFirstChar instead.
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/AddReadingTab.kt:257:57 'toLowerCase(): String' is deprecated. Use lowercase() instead.
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/AddReadingTab.kt:257:71 'capitalize(): String' is deprecated. Use replaceFirstChar instead.
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/HomeTab.kt:24:5 Parameter 'userName' is never used
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/SettingsTab.kt:36:5 Parameter 'onNavigateToIoTDevices' is never used
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/SettingsTab.kt:46:9 Variable 'userEmail' is never used
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/SettingsTab.kt:47:9 Variable 'userId' is never used
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/StatisticsTab.kt:57:9 Variable 'themeColor' is never used
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/presentation/dashboard/tabs/StatisticsTab.kt:136:44 'TrendingUp: ImageVector' is deprecated. Use the AutoMirrored version at Icons.AutoMirrored.Filled.TrendingUp
+w: file:///C:/Users/DEUS/Desktop/Optimeter/app/src/main/java/com/optimeter/app/ui/theme/Theme.kt:67:20 'setter for statusBarColor: Int' is deprecated. Deprecated in Java
+
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+
+> Task :app:hiltAggregateDepsDebug UP-TO-DATE
+> Task :app:hiltJavaCompileDebug UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:transformDebugClassesWithAsm
+> Task :app:dexBuilderDebug
+> Task :app:mergeProjectDexDebug
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 6s
+42 actionable tasks: 12 executed, 30 up-to-date
