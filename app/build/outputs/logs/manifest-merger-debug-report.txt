@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-45:12
-INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [androidx.camera:camera-video:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b1e6e88befb6fac3f646057d457941bf\transformed\camera-video-1.3.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-lifecycle:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\aef49d23b903193d2c5852a47599fb4c\transformed\camera-lifecycle-1.3.4\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.camera:camera-camera2:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\1307907c2152440320db453055d69bd2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:17:1-36:12
@@ -229,8 +229,8 @@ ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:20:19-63
 application
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:22:5-43:19
-INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:22:5-43:19
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:22:5-44:19
+INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:22:5-44:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\1307907c2152440320db453055d69bd2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-camera2:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\1307907c2152440320db453055d69bd2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:23:5-34:19
 MERGED from [androidx.camera:camera-core:1.3.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\22446b30cfed7c67a752b3e842d0cdc1\transformed\camera-core-1.3.4\AndroidManifest.xml:23:5-34:19
@@ -326,35 +326,37 @@ MERGED from [com.google.android.odml:image:1.0.0-beta1] C:\Users\Lenovo\.gradle\
 	android:roundIcon
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:29:9-54
 	tools:targetApi
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:32:9-29
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:33:9-29
 	android:icon
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:27:9-43
 	android:allowBackup
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:24:9-35
 	android:theme
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:31:9-47
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:32:9-47
+	android:networkSecurityConfig
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:31:9-69
 	android:dataExtractionRules
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:25:9-65
 	android:name
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:23:9-37
 activity#com.optimeter.app.MainActivity
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:34:9-42:20
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:35:9-43:20
 	android:exported
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:36:13-36
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:37:13-36
 	android:theme
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:37:13-51
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:38:13-51
 	android:name
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:35:13-41
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:36:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:38:13-41:29
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:39:13-42:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:39:17-69
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:40:17-69
 	android:name
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:39:25-66
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:40:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:40:17-77
+ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:41:17-77
 	android:name
-		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:40:27-74
+		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:41:27-74
 uses-sdk
 INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml

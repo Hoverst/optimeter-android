@@ -34,14 +34,13 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getHomes(userId: String): Flow<List<Home>> {
-        // Backend currently returns homes for all users; userId can be
-        // used later for filtering once auth is added.
+    override fun getHomes(): Flow<List<Home>> {
+        // Backend currently returns homes for all users.
         return flow {
             val homes = api.getHomes().map { dto ->
                 Home(
                     id = dto.id,
-                    userId = userId,
+                    userId = "",
                     name = dto.name,
                     address = dto.address,
                     // createdAt comes as ISO-8601 string; we keep the

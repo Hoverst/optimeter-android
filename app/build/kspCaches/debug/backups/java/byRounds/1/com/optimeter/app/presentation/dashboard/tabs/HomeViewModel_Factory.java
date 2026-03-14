@@ -1,6 +1,5 @@
 package com.optimeter.app.presentation.dashboard.tabs;
 
-import com.optimeter.app.domain.repository.AuthRepository;
 import com.optimeter.app.domain.repository.HomeRepository;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -26,26 +25,20 @@ import javax.inject.Provider;
 public final class HomeViewModel_Factory implements Factory<HomeViewModel> {
   private final Provider<HomeRepository> homeRepositoryProvider;
 
-  private final Provider<AuthRepository> authRepositoryProvider;
-
-  public HomeViewModel_Factory(Provider<HomeRepository> homeRepositoryProvider,
-      Provider<AuthRepository> authRepositoryProvider) {
+  public HomeViewModel_Factory(Provider<HomeRepository> homeRepositoryProvider) {
     this.homeRepositoryProvider = homeRepositoryProvider;
-    this.authRepositoryProvider = authRepositoryProvider;
   }
 
   @Override
   public HomeViewModel get() {
-    return newInstance(homeRepositoryProvider.get(), authRepositoryProvider.get());
+    return newInstance(homeRepositoryProvider.get());
   }
 
-  public static HomeViewModel_Factory create(Provider<HomeRepository> homeRepositoryProvider,
-      Provider<AuthRepository> authRepositoryProvider) {
-    return new HomeViewModel_Factory(homeRepositoryProvider, authRepositoryProvider);
+  public static HomeViewModel_Factory create(Provider<HomeRepository> homeRepositoryProvider) {
+    return new HomeViewModel_Factory(homeRepositoryProvider);
   }
 
-  public static HomeViewModel newInstance(HomeRepository homeRepository,
-      AuthRepository authRepository) {
-    return new HomeViewModel(homeRepository, authRepository);
+  public static HomeViewModel newInstance(HomeRepository homeRepository) {
+    return new HomeViewModel(homeRepository);
   }
 }

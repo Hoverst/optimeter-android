@@ -1428,6 +1428,7 @@ com.optimeter.app:attr/checkedTextViewStyle = 0x7f03004e
 com.optimeter.app:style/TextAppearance.AppCompat.Menu = 0x7f0f00d2
 com.optimeter.app:string/m3c_date_input_invalid_year_range = 0x7f0e0074
 com.optimeter.app:attr/graph = 0x7f030099
+com.optimeter.app:xml/network_security_config = 0x7f110003
 com.optimeter.app:attr/actionModeCloseButtonStyle = 0x7f030012
 com.optimeter.app:attr/editTextBackground = 0x7f030082
 com.optimeter.app:string/search_menu_title = 0x7f0e00ca

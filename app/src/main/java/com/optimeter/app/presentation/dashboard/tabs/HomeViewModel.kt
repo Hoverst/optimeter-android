@@ -3,7 +3,6 @@ package com.optimeter.app.presentation.dashboard.tabs
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.optimeter.app.domain.model.Home
-import com.optimeter.app.domain.repository.AuthRepository
 import com.optimeter.app.domain.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,8 +20,7 @@ data class HomeUiState(
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepository: HomeRepository,
-    private val authRepository: AuthRepository
+    private val homeRepository: HomeRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState(isLoading = true))
@@ -33,11 +31,10 @@ class HomeViewModel @Inject constructor(
     }
 
     fun loadHomes() {
-        val userId = authRepository.currentUserId ?: return
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }
             try {
-                homeRepository.getHomes(userId).collect { homes ->
+                homeRepository.getHomes().collect { homes ->
                     _uiState.update { state ->
                         state.copy(isLoading = false, homes = homes, error = null)
                     }
@@ -49,18 +46,22 @@ class HomeViewModel @Inject constructor(
     }
 
     fun addHome(name: String, address: String) {
-        val userId = authRepository.currentUserId ?: return
         viewModelScope.launch {
             val newHome = Home(
                 id = "",
-                userId = userId,
+                userId = "",
                 name = name,
                 address = address
             )
             val result = homeRepository.addHome(newHome)
-            result.onFailure { e ->
-                _uiState.update { it.copy(error = e.message) }
-            }
+            result
+                .onSuccess {
+                    // Reload homes so UI reflects the newly added home.
+                    loadHomes()
+                }
+                .onFailure { e ->
+                    _uiState.update { it.copy(error = e.message) }
+                }
         }
     }
 

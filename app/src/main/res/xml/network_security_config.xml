@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Android Emulator host alias → your PC's localhost -->
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!--
+            Testing on a real physical device?
+            Replace the IP below with your PC's local network IP (e.g. 192.168.1.x)
+            and also update the base URL in AppModule.kt to match.
+            <domain includeSubdomains="false">192.168.x.x</domain>
+        -->
+    </domain-config>
+</network-security-config>

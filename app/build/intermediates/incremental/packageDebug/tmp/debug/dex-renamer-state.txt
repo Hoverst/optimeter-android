@@ -1,4 +1,4 @@
-#Sat Mar 14 10:46:57 EET 2026
+#Sat Mar 14 13:43:18 EET 2026
 base.0=C\:\\Users\\Lenovo\\Desktop\\Optimeter-v1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Lenovo\\Desktop\\Optimeter-v1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Users\\Lenovo\\Desktop\\Optimeter-v1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
