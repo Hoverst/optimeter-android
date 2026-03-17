@@ -1,0 +1,4 @@
+.claude/
+build/
+config.yaml
+opencode.json
