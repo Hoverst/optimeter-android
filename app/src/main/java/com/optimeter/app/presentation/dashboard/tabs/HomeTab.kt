@@ -46,136 +46,169 @@ fun HomeTab(
             color = MaterialTheme.colorScheme.onBackground
         )
 
-        // Custom Dropdown for Home Selection
-        ExposedDropdownMenuBox(
-            expanded = expanded,
-            onExpandedChange = { expanded = it }
-        ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier
-                    .menuAnchor()
-                    .clickable { expanded = true }
-                    .padding(vertical = 8.dp)
+        // Empty State: No homes added yet
+        if (homes.isEmpty()) {
+            Spacer(modifier = Modifier.height(24.dp))
+            Card(
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                modifier = Modifier.fillMaxWidth()
             ) {
-                Text(
-                    text = selectedHome ?: homes.firstOrNull()?.name ?: "My Home",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(modifier = Modifier.width(4.dp))
-                Icon(
-                    imageVector = Icons.Default.KeyboardArrowDown,
-                    contentDescription = "Select Home",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(20.dp)
-                )
-            }
-
-            ExposedDropdownMenu(
-                expanded = expanded,
-                onDismissRequest = { expanded = false }
-            ) {
-                homes.forEach { home ->
-                    DropdownMenuItem(
-                        text = { Text(home.name) },
-                        onClick = {
-                            selectedHome = home.name
-                            expanded = false
-                        }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(32.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "No Homes Yet",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Medium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "You haven't added any homes yet. Go to Settings to add your first home.",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
                 }
             }
-        }
-
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // Quick Actions Card
-        Card(
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-            elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(20.dp)
+        } else {
+            // Custom Dropdown for Home Selection (only shown when homes exist)
+            ExposedDropdownMenuBox(
+                expanded = expanded,
+                onExpandedChange = { expanded = it }
             ) {
-                Text(
-                    "Quick Actions",
-                    style = MaterialTheme.typography.titleSmall,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Button(
-                    onClick = { onMeterSelected(MeterType.GAS) }, // Using the existing interface to trigger add
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(containerColor = Chart1),
-                    shape = RoundedCornerShape(8.dp),
-                    contentPadding = PaddingValues(vertical = 12.dp)
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .menuAnchor()
+                        .clickable { expanded = true }
+                        .padding(vertical = 8.dp)
                 ) {
-                    Text("Add New Reading", fontWeight = FontWeight.SemiBold)
+                    Text(
+                        text = selectedHome ?: homes.firstOrNull()?.name ?: "My Home",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowDown,
+                        contentDescription = "Select Home",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+
+                ExposedDropdownMenu(
+                    expanded = expanded,
+                    onDismissRequest = { expanded = false }
+                ) {
+                    homes.forEach { home ->
+                        DropdownMenuItem(
+                            text = { Text(home.name) },
+                            onClick = {
+                                selectedHome = home.name
+                                expanded = false
+                            }
+                        )
+                    }
                 }
             }
-        }
 
-        Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(24.dp))
 
-        Text(
-            text = "Current Readings",
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Medium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+            // Quick Actions Card
+            Card(
+                shape = RoundedCornerShape(12.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp)
+                ) {
+                    Text(
+                        "Quick Actions",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Button(
+                        onClick = { onMeterSelected(MeterType.GAS) },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = Chart1),
+                        shape = RoundedCornerShape(8.dp),
+                        contentPadding = PaddingValues(vertical = 12.dp)
+                    ) {
+                        Text("Add New Reading", fontWeight = FontWeight.SemiBold)
+                    }
+                }
+            }
 
-        Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
-        MeterCard(
-            meterType = MeterType.ELECTRICITY, // Placed Electricity first matching screenshot
-            lastReading = "11,045",
-            lastReadingDate = "Mar 13",
-            consumptionString = "-218.0",
-            isTrendingUp = false,
-            onClick = { onMeterSelected(MeterType.ELECTRICITY) }
-        )
+            Text(
+                text = "Current Readings",
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
 
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
-        MeterCard(
-            meterType = MeterType.GAS,
-            lastReading = "5,347",
-            lastReadingDate = "Mar 13",
-            consumptionString = "-106.0",
-            isTrendingUp = false,
-            onClick = { onMeterSelected(MeterType.GAS) }
-        )
+            MeterCard(
+                meterType = MeterType.ELECTRICITY,
+                lastReading = "11,045",
+                lastReadingDate = "Mar 13",
+                consumptionString = "-218.0",
+                isTrendingUp = false,
+                onClick = { onMeterSelected(MeterType.ELECTRICITY) }
+            )
 
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
-        MeterCard(
-            meterType = MeterType.WATER, // Cold Water
-            lastReading = "2,623",
-            lastReadingDate = "Mar 13",
-            consumptionString = "338.0",
-            isTrendingUp = true,
-            onClick = { onMeterSelected(MeterType.WATER) }
-        )
-        
-        Spacer(modifier = Modifier.height(24.dp))
-        
-        // View Detailed Analytics Button
-        OutlinedButton(
-            onClick = { /* Navigate to Analytics manually or swap tabs */ },
-            modifier = Modifier.fillMaxWidth(),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-            shape = RoundedCornerShape(8.dp),
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
-            contentPadding = PaddingValues(vertical = 12.dp)
-        ) {
-            Text("View Detailed Analytics", fontWeight = FontWeight.Medium)
+            MeterCard(
+                meterType = MeterType.GAS,
+                lastReading = "5,347",
+                lastReadingDate = "Mar 13",
+                consumptionString = "-106.0",
+                isTrendingUp = false,
+                onClick = { onMeterSelected(MeterType.GAS) }
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            MeterCard(
+                meterType = MeterType.WATER,
+                lastReading = "2,623",
+                lastReadingDate = "Mar 13",
+                consumptionString = "338.0",
+                isTrendingUp = true,
+                onClick = { onMeterSelected(MeterType.WATER) }
+            )
+            
+            Spacer(modifier = Modifier.height(24.dp))
+            
+            // View Detailed Analytics Button
+            OutlinedButton(
+                onClick = { /* Navigate to Analytics manually or swap tabs */ },
+                modifier = Modifier.fillMaxWidth(),
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                shape = RoundedCornerShape(8.dp),
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
+                contentPadding = PaddingValues(vertical = 12.dp)
+            ) {
+                Text("View Detailed Analytics", fontWeight = FontWeight.Medium)
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.ui.res.stringResource
@@ -131,7 +132,6 @@ fun SettingsTab(
                             RadioButton(
                                 selected = languageCode == code,
                                 onClick = {
-                                    // Just update DataStore via ViewModel (async, for persistence)
                                     viewModel.setLanguageCode(code)
                                     showLanguageDialog = false
                                 }
@@ -303,10 +303,10 @@ fun SettingsTab(
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp), // DashboardScreen already handles bottom padding
+        contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        // My Homes Header
+        // My Homes Section
         item {
             Row(
                 modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
@@ -330,89 +330,110 @@ fun SettingsTab(
             }
         }
 
-        // Active Home Card (first home if available)
+        // Homes List / Empty State
         item {
-            val activeHome = homeUiState.homes.firstOrNull()
-            Card(
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(16.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
+            val homes = homeUiState.homes
+            if (homes.isEmpty()) {
+                // Empty state: No homes
+                Card(
+                    shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        // Home Icon Box
-                        Box(
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(32.dp)
+                    ) {
+                        Text(
+                            text = "No Homes Yet",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Text(
+                            text = "You didn't set any homes yet.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            } else {
+                // Display all homes in a vertical list
+                homes.forEach { home ->
+                    Card(
+                        shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Row(
                             modifier = Modifier
-                                .size(48.dp)
-                                .clip(RoundedCornerShape(12.dp))
-                                .background(com.optimeter.app.ui.theme.Chart1.copy(alpha = 0.15f)),
-                            contentAlignment = Alignment.Center
+                                .fillMaxWidth()
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Icon(
-                                imageVector = Icons.Outlined.Home,
-                                contentDescription = null,
-                                tint = com.optimeter.app.ui.theme.Chart1,
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                        
-                        Spacer(modifier = Modifier.width(16.dp))
-                        
-                        Column {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
+                            Box(
+                                modifier = Modifier
+                                    .size(48.dp)
+                                    .clip(RoundedCornerShape(12.dp))
+                                    .background(com.optimeter.app.ui.theme.Chart1.copy(alpha = 0.15f)),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Outlined.Home,
+                                    contentDescription = null,
+                                    tint = com.optimeter.app.ui.theme.Chart1,
+                                    modifier = Modifier.size(24.dp)
+                                )
+                            }
+
+                            Spacer(modifier = Modifier.width(16.dp))
+
+                            Column(modifier = Modifier.weight(1f)) {
                                 Text(
-                                    activeHome?.name ?: "My Home",
+                                    text = home.name,
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Medium
                                 )
-                                Spacer(modifier = Modifier.width(8.dp))
-                                // Active Badge
-                                Box(
-                                    modifier = Modifier
-                                        .background(com.optimeter.app.ui.theme.Chart1.copy(alpha = 0.15f), shape = RoundedCornerShape(4.dp))
-                                        .padding(horizontal = 6.dp, vertical = 2.dp)
-                                ) {
-                                    Text(
-                                        "Active",
-                                        color = com.optimeter.app.ui.theme.Chart1,
-                                        style = MaterialTheme.typography.labelSmall,
-                                        fontWeight = FontWeight.Medium
-                                    )
-                                }
+                                Spacer(modifier = Modifier.height(4.dp))
+                                Text(
+                                    text = home.address,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
                             }
-                            Spacer(modifier = Modifier.height(4.dp))
-                            Text(
-                                activeHome?.address ?: "123 Main Street, Apt 4B",
-                                style = MaterialTheme.typography.bodyMedium,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
+
+                            // Delete button for each home
+                            IconButton(
+                                onClick = {
+                                    home.takeIf { it.id.isNotEmpty() }?.let { h ->
+                                        showDeleteHomeDialog = h
+                                    }
+                                },
+                                modifier = Modifier
+                                    .background(MaterialTheme.colorScheme.errorContainer, shape = RoundedCornerShape(8.dp))
+                                    .size(40.dp)
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.DeleteForever,
+                                    contentDescription = "Delete",
+                                    tint = MaterialTheme.colorScheme.onErrorContainer,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
                         }
                     }
 
-                    // Delete Button
-                    IconButton(
-                        onClick = {
-                            activeHome?.takeIf { it.id.isNotEmpty() }?.let { home ->
-                                showDeleteHomeDialog = home
-                            }
-                        },
-                        modifier = Modifier
-                            .background(MaterialTheme.colorScheme.errorContainer, shape = RoundedCornerShape(8.dp))
-                            .size(40.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.DeleteForever,
-                            contentDescription = "Delete",
-                            tint = MaterialTheme.colorScheme.onErrorContainer,
-                            modifier = Modifier.size(20.dp)
-                        )
-                    }
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
         }
@@ -516,7 +537,7 @@ fun SettingsTab(
             SettingsItem(
                 icon = Icons.Default.Policy,
                 title = stringResource(R.string.terms_of_use),
-                subtitle = stringResource(R.string.terms_subtitle),
+                subtitle = stringResource(R.string.terms_of_use),
                 onClick = { /* Could open WebView or browser Intent */ }
             )
         }
