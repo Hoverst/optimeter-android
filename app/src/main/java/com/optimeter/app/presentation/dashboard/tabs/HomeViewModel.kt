@@ -67,11 +67,20 @@ class HomeViewModel @Inject constructor(
 
     fun removeHome(homeId: String) {
         viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true, error = null) }
             val result = homeRepository.removeHome(homeId)
-            result.onFailure { e ->
-                _uiState.update { it.copy(error = e.message) }
-            }
+            result
+                .onSuccess {
+                    loadHomes()
+                }
+                .onFailure { e ->
+                    _uiState.update { it.copy(isLoading = false, error = e.message) }
+                }
         }
+    }
+
+    fun clearError() {
+        _uiState.update { it.copy(error = null) }
     }
 }
 

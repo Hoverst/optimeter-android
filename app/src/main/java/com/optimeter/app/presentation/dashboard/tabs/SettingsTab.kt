@@ -33,6 +33,7 @@ import android.widget.Toast
 import kotlinx.coroutines.launch
 import com.optimeter.app.R
 import com.optimeter.app.domain.model.ThemeConfig
+import com.optimeter.app.domain.model.Home
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
 
 @Composable
@@ -58,6 +59,7 @@ fun SettingsTab(
     var showReminderDayDialog by remember { mutableStateOf(false) }
     var showDeleteConfirmDialog by remember { mutableStateOf(false) }
     var showAddHomeDialog by remember { mutableStateOf(false) }
+    var showDeleteHomeDialog by remember { mutableStateOf<Home?>(null) }
     val homeUiState by homeViewModel.uiState.collectAsState()
 
     // --- Dialogs ---
@@ -187,14 +189,14 @@ fun SettingsTab(
                     onClick = {
                         showDeleteConfirmDialog = false
                         scope.launch {
-                            val result = viewModel.deleteAccount(context)
-                            result.onSuccess {
+                            try {
+                                viewModel.deleteAccount(context)
                                 onDeleteAccount()
-                            }.onFailure { err ->
-                                val msg = if (viewModel.isRecentLoginRequiredError(err)) {
+                            } catch (e: Exception) {
+                                val msg = if (viewModel.isRecentLoginRequiredError(e)) {
                                     "Please log out and log back in to verify your identity before deleting."
                                 } else {
-                                    err.message ?: "Delete account failed"
+                                    e.message ?: "Delete account failed"
                                 }
                                 Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
                             }
@@ -249,6 +251,34 @@ fun SettingsTab(
             },
             dismissButton = {
                 TextButton(onClick = { showAddHomeDialog = false }) { Text("Cancel") }
+            }
+        )
+    }
+
+    if (showDeleteHomeDialog != null) {
+        val home = showDeleteHomeDialog!!
+        AlertDialog(
+            onDismissRequest = { showDeleteHomeDialog = null },
+            title = { Text("Delete Home?") },
+            text = { Text("Are you sure you want to delete ${home.name}?") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showDeleteHomeDialog = null
+                        scope.launch {
+                            try {
+                                homeViewModel.removeHome(home.id)
+                            } catch (e: Exception) {
+                                Toast.makeText(context, e.message ?: "Delete failed", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    }
+                ) {
+                    Text("Delete", color = MaterialTheme.colorScheme.error)
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDeleteHomeDialog = null }) { Text("Cancel") }
             }
         )
     }
@@ -368,8 +398,8 @@ fun SettingsTab(
                     // Delete Button
                     IconButton(
                         onClick = {
-                            activeHome?.id?.takeIf { it.isNotEmpty() }?.let { id ->
-                                homeViewModel.removeHome(id)
+                            activeHome?.takeIf { it.id.isNotEmpty() }?.let { home ->
+                                showDeleteHomeDialog = home
                             }
                         },
                         modifier = Modifier
@@ -377,7 +407,7 @@ fun SettingsTab(
                             .size(40.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.DeleteForever, // Closer to React layout mock
+                            imageVector = Icons.Default.DeleteForever,
                             contentDescription = "Delete",
                             tint = MaterialTheme.colorScheme.onErrorContainer,
                             modifier = Modifier.size(20.dp)
@@ -497,11 +527,11 @@ fun SettingsTab(
             OutlinedButton(
                 onClick = {
                     scope.launch {
-                        val result = viewModel.logout(context)
-                        result.onSuccess {
+                        try {
+                            viewModel.logout(context)
                             onLogout()
-                        }.onFailure { err ->
-                            Toast.makeText(context, err.message ?: "Logout failed", Toast.LENGTH_LONG).show()
+                        } catch (e: Exception) {
+                            Toast.makeText(context, e.message ?: "Logout failed", Toast.LENGTH_LONG).show()
                         }
                     }
                 },
