@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.optimeter.app.data.remote.api.OptimeterApiService;
 import com.optimeter.app.data.remote.firebase.AuthRepositoryImpl;
 import com.optimeter.app.data.repository.HomeRepositoryImpl;
@@ -19,6 +20,7 @@ import com.optimeter.app.di.AppModule_ProvideOptimeterApiServiceFactory;
 import com.optimeter.app.di.AppModule_ProvideRetrofitFactory;
 import com.optimeter.app.di.AppModule_ProvideSettingsRepositoryFactory;
 import com.optimeter.app.di.FirebaseModule_ProvideFirebaseAuthFactory;
+import com.optimeter.app.di.FirebaseModule_ProvideFirestoreFactory;
 import com.optimeter.app.domain.repository.AuthRepository;
 import com.optimeter.app.domain.repository.HomeRepository;
 import com.optimeter.app.domain.repository.SettingsRepository;
@@ -412,25 +414,25 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
-
-      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
-
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
+
+      static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
       static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
 
-      @KeepFieldType
-      HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
-
-      @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
       @KeepFieldType
       AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
 
       @KeepFieldType
+      HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
+
+      @KeepFieldType
       ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
+
+      @KeepFieldType
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
     }
   }
 
@@ -482,9 +484,9 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
-      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
-
       static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+
+      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
 
@@ -492,10 +494,10 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
 
       @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
 
       @KeepFieldType
-      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
 
       @KeepFieldType
       AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
@@ -618,6 +620,8 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     private Provider<FirebaseAuth> provideFirebaseAuthProvider;
 
+    private Provider<FirebaseFirestore> provideFirestoreProvider;
+
     private Provider<AuthRepositoryImpl> authRepositoryImplProvider;
 
     private Provider<AuthRepository> bindAuthRepositoryProvider;
@@ -642,12 +646,13 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
       this.provideSettingsRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<SettingsRepository>(singletonCImpl, 0));
       this.provideFirebaseAuthProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseAuth>(singletonCImpl, 2));
+      this.provideFirestoreProvider = DoubleCheck.provider(new SwitchingProvider<FirebaseFirestore>(singletonCImpl, 3));
       this.authRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 1);
       this.bindAuthRepositoryProvider = DoubleCheck.provider((Provider) authRepositoryImplProvider);
-      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 6));
-      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 5));
-      this.provideOptimeterApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<OptimeterApiService>(singletonCImpl, 4));
-      this.homeRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 3);
+      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 7));
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 6));
+      this.provideOptimeterApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<OptimeterApiService>(singletonCImpl, 5));
+      this.homeRepositoryImplProvider = new SwitchingProvider<>(singletonCImpl, 4);
       this.bindHomeRepositoryProvider = DoubleCheck.provider((Provider) homeRepositoryImplProvider);
     }
 
@@ -688,21 +693,24 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
           return (T) AppModule_ProvideSettingsRepositoryFactory.provideSettingsRepository(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
           case 1: // com.optimeter.app.data.remote.firebase.AuthRepositoryImpl 
-          return (T) new AuthRepositoryImpl(singletonCImpl.provideFirebaseAuthProvider.get());
+          return (T) new AuthRepositoryImpl(singletonCImpl.provideFirebaseAuthProvider.get(), singletonCImpl.provideFirestoreProvider.get());
 
           case 2: // com.google.firebase.auth.FirebaseAuth 
           return (T) FirebaseModule_ProvideFirebaseAuthFactory.provideFirebaseAuth();
 
-          case 3: // com.optimeter.app.data.repository.HomeRepositoryImpl 
+          case 3: // com.google.firebase.firestore.FirebaseFirestore 
+          return (T) FirebaseModule_ProvideFirestoreFactory.provideFirestore();
+
+          case 4: // com.optimeter.app.data.repository.HomeRepositoryImpl 
           return (T) new HomeRepositoryImpl(singletonCImpl.provideOptimeterApiServiceProvider.get());
 
-          case 4: // com.optimeter.app.data.remote.api.OptimeterApiService 
+          case 5: // com.optimeter.app.data.remote.api.OptimeterApiService 
           return (T) AppModule_ProvideOptimeterApiServiceFactory.provideOptimeterApiService(singletonCImpl.provideRetrofitProvider.get());
 
-          case 5: // retrofit2.Retrofit 
+          case 6: // retrofit2.Retrofit 
           return (T) AppModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get());
 
-          case 6: // okhttp3.OkHttpClient 
+          case 7: // okhttp3.OkHttpClient 
           return (T) AppModule_ProvideOkHttpClientFactory.provideOkHttpClient();
 
           default: throw new AssertionError(id);

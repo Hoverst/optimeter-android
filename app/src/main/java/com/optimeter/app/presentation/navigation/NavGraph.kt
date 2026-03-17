@@ -79,7 +79,7 @@ fun OptimeterNavGraph(
                 },
                 onLogout = {
                     navController.navigate(Screen.Auth.route) {
-                        popUpTo(Screen.Dashboard.route) { inclusive = true }
+                        popUpTo(0)
                     }
                 }
             )

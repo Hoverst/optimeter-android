@@ -106,6 +106,9 @@ dependencies {
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-messaging-ktx")
 
+    // Google Sign-In (ID token for Firebase Auth)
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
     // DataStore (Preferences)
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 

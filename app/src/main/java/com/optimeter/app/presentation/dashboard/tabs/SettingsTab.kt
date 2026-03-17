@@ -23,11 +23,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.ui.res.stringResource
+import android.widget.Toast
+import kotlinx.coroutines.launch
 import com.optimeter.app.R
 import com.optimeter.app.domain.model.ThemeConfig
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
@@ -47,8 +50,8 @@ fun SettingsTab(
 
     val userEmail = viewModel.currentUserEmail ?: "Not signed in"
     val userId = viewModel.currentUserId ?: ""
-    val context = androidx.compose.ui.platform.LocalContext.current
-    val activity = context as? android.app.Activity
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
 
     var showThemeDialog by remember { mutableStateOf(false) }
     var showLanguageDialog by remember { mutableStateOf(false) }
@@ -183,7 +186,19 @@ fun SettingsTab(
                 TextButton(
                     onClick = {
                         showDeleteConfirmDialog = false
-                        onDeleteAccount()
+                        scope.launch {
+                            val result = viewModel.deleteAccount(context)
+                            result.onSuccess {
+                                onDeleteAccount()
+                            }.onFailure { err ->
+                                val msg = if (viewModel.isRecentLoginRequiredError(err)) {
+                                    "Please log out and log back in to verify your identity before deleting."
+                                } else {
+                                    err.message ?: "Delete account failed"
+                                }
+                                Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+                            }
+                        }
                     }
                 ) { Text(stringResource(R.string.delete), color = MaterialTheme.colorScheme.error) }
             },
@@ -480,7 +495,16 @@ fun SettingsTab(
 
         item {
             OutlinedButton(
-                onClick = onLogout,
+                onClick = {
+                    scope.launch {
+                        val result = viewModel.logout(context)
+                        result.onSuccess {
+                            onLogout()
+                        }.onFailure { err ->
+                            Toast.makeText(context, err.message ?: "Logout failed", Toast.LENGTH_LONG).show()
+                        }
+                    }
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)

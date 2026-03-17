@@ -4,7 +4,7 @@
             "outputFile": "com.optimeter.app-mergeDebugResources-75:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\9.0-milestone-1\\transforms\\947981c364fe45938fafdf23965fc240\\transformed\\play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\9.0-milestone-1\\transforms\\09b6515be27e8ac1b4f00a8e597f650a\\transformed\\play-services-auth-21.2.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

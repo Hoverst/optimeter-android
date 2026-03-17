@@ -12,7 +12,20 @@
           "package_name": "com.optimeter.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "408277373539-5l6sg5d7jrlat1ofiim1d3ehe6vrlinj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.optimeter.app",
+            "certificate_hash": "9381ab68241b5653668f500eda94c5972b030028"
+          }
+        },
+        {
+          "client_id": "408277373539-e5kb98mn4gjc9c9ksebj9upi84lsj4hb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAgjGaopKjrCEqhiGjKBjLLEsKsoa0c8w8"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "408277373539-e5kb98mn4gjc9c9ksebj9upi84lsj4hb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

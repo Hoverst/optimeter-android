@@ -46,30 +46,31 @@ MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.8] C:\Users\Leno
 MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cfe5c37f2f1365f536aac4e5d154a173\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a033dcb0199a4c3bab891b019bba2e6e\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:17:1-75:12
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:17:1-44:12
+MERGED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:17:1-40:12
 MERGED from [com.google.mlkit:text-recognition:16.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\40ad19c4736e72c9d3fb19acc0ef9f87\transformed\text-recognition-16.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c0940fc1cba254ac9f0a9333817b93f4\transformed\play-services-mlkit-text-recognition-19.0.0\AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.mlkit:text-recognition-bundled-common:16.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\68d7991aff515cc9139f4f715edbb6a0\transformed\text-recognition-bundled-common-16.0.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a4c5f0a54f6a246c57e6e9e2c63bdd24\transformed\play-services-mlkit-text-recognition-common-19.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b449dc9402ee6ba64030f4eda195533e\transformed\vision-common-17.3.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f18620590acee7d4dc6d88cc61d631fb\transformed\common-18.8.0\AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c0c81d7cc8669175d961f955409409f7\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c890da28ec9b189fc3bdafa576100652\transformed\firebase-firestore-ktx-25.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:2:1-26:12
 MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:17:1-66:12
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:2:1-17:12
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bfac36a427c1430b1b93852a2e1435a\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:15:1-23:12
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd24eaf80b7ce067a930d8bf67e3baac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:2:1-9:12
-MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:17:1-44:12
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:17:1-40:12
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\7d339d9ba33496e8cd72ddd307903343\transformed\play-services-fido-20.1.0\AndroidManifest.xml:2:1-10:12
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0b47fc115c047b727a87a960a597d741\transformed\play-services-auth-base-18.0.4\AndroidManifest.xml:2:1-7:12
-MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\1150fdf228e2fb06b3b0374d39897187\transformed\firebase-auth-interop-20.0.0\AndroidManifest.xml:2:1-10:12
@@ -79,10 +80,9 @@ MERGED from [com.google.android.play:integrity:1.2.0] C:\Users\Lenovo\.gradle\ca
 MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\ade9755badc39d7ac2e42a77ca2b55b7\transformed\firebase-iid-interop-17.1.0\AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.mlkit:vision-interfaces:16.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\287b5bfc2c6f468db6b61e562d422944\transformed\vision-interfaces-16.2.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b73183a0d3cd08010f2f2c59ce613537\transformed\play-services-stats-17.0.2\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be5188febadea62a433698dd6707dde2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\65a672b5b448ec34a3c4fe6f5dca39cb\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4d732c5c085454fd1d13f399fe868343\transformed\loader-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a26509b291109061dff8c2927ef40c6b\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\55655330d0c81a1e7a250fdd58b39dc7\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b72910e579d3ce95683fb169f132eac6\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
@@ -90,10 +90,10 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.2] C:\Users\Lenovo\.grad
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e47569a109b0c06d7679b88cc199c71e\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\8ba9dad397285088fbc576c215c2af13\transformed\lifecycle-livedata-core-ktx-2.8.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4e6eedd4879276903424b14ff9c88e99\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d1b75ac010656606ede55cb5760b8437\transformed\lifecycle-viewmodel-ktx-2.8.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\87f3ca8a5808925701ead35388aeca9e\transformed\lifecycle-viewmodel-savedstate-2.8.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f174d3049ef31a9d135dee6218e07a76\transformed\lifecycle-process-2.8.2\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d624ea89d17bc5a7b3f4738d72723911\transformed\lifecycle-livedata-2.8.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\04b1f2bc148a1fb7d337d73bb92ce6b6\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b099e7033c2920973ffaf20dc6cf0f5f\transformed\accompanist-drawablepainter-0.32.0\AndroidManifest.xml:17:1-23:12
@@ -107,7 +107,7 @@ MERGED from [com.google.firebase:firebase-installations-interop:17.1.1] C:\Users
 MERGED from [com.google.android.gms:play-services-tasks:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9462cc4bb60cc5c5455d61ac6f1574ac\transformed\play-services-tasks-18.1.0\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bcd1bd06b743cc4c54ef8786f6468ed\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:17:1-25:12
 MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f7178c07ade0e340d188601cef357109\transformed\play-services-basement-18.3.0\AndroidManifest.xml:16:1-26:12
-MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c14cebcbbc35585108e950bf6d3325da\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.7] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c328c9b28fe9e6ab031a567aa42b60c1\transformed\fragment-1.5.7\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f65e6b970dbc79df4d49a178b4555374\transformed\activity-1.9.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-compose:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d9595f9143061dc7c6ef43dac4858fac\transformed\activity-compose-1.9.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.ui:ui-android:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e01333bc3157fdc52e85a0c30d4bfc85\transformed\ui-release\AndroidManifest.xml:2:1-7:12
@@ -190,12 +190,12 @@ ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml
 		ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:14:22-63
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\Lenovo\Desktop\Optimeter-v1\app\src\main\AndroidManifest.xml:15:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:11:5-67
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:25:5-67
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:8:5-67
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:8:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\bf8efd0f03ba71a5b310ffcf98d2a4e9\transformed\recaptcha-18.4.0\AndroidManifest.xml:7:5-67
@@ -239,6 +239,14 @@ MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] C:\Users\Lenovo\.grad
 MERGED from [androidx.compose.ui:ui-tooling-android:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cfe5c37f2f1365f536aac4e5d154a173\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:28:5-73:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:28:5-73:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
+MERGED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:22:5-38:19
+MERGED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a4c5f0a54f6a246c57e6e9e2c63bdd24\transformed\play-services-mlkit-text-recognition-common-19.0.0\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a4c5f0a54f6a246c57e6e9e2c63bdd24\transformed\play-services-mlkit-text-recognition-common-19.0.0\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b449dc9402ee6ba64030f4eda195533e\transformed\vision-common-17.3.0\AndroidManifest.xml:8:5-16:19
@@ -257,22 +265,14 @@ MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\
 MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:22:5-30:19
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:28:5-64:19
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:28:5-64:19
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:7:5-15:19
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:28:5-73:19
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:21:5-32:19
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:21:5-32:19
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bfac36a427c1430b1b93852a2e1435a\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bfac36a427c1430b1b93852a2e1435a\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:21:5-20
-MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
-MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:23:5-42:19
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\7d339d9ba33496e8cd72ddd307903343\transformed\play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\7d339d9ba33496e8cd72ddd307903343\transformed\play-services-fido-20.1.0\AndroidManifest.xml:7:5-8:19
-MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
-MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:11:5-22:19
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:11:5-22:19
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
@@ -445,6 +445,18 @@ MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] C:\Users\Lenovo\.gra
 MERGED from [androidx.compose.ui:ui-graphics-android:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a033dcb0199a4c3bab891b019bba2e6e\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:5:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:21:5-44
+MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:21:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.mlkit:text-recognition:16.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\40ad19c4736e72c9d3fb19acc0ef9f87\transformed\text-recognition-16.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.mlkit:text-recognition:16.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\40ad19c4736e72c9d3fb19acc0ef9f87\transformed\text-recognition-16.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-mlkit-text-recognition:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c0940fc1cba254ac9f0a9333817b93f4\transformed\play-services-mlkit-text-recognition-19.0.0\AndroidManifest.xml:6:5-44
@@ -457,6 +469,10 @@ MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\Lenovo\.gradle\cach
 MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b449dc9402ee6ba64030f4eda195533e\transformed\vision-common-17.3.0\AndroidManifest.xml:6:5-44
 MERGED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f18620590acee7d4dc6d88cc61d631fb\transformed\common-18.8.0\AndroidManifest.xml:6:5-44
 MERGED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f18620590acee7d4dc6d88cc61d631fb\transformed\common-18.8.0\AndroidManifest.xml:6:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c0c81d7cc8669175d961f955409409f7\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:18.0.10] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c0c81d7cc8669175d961f955409409f7\transformed\play-services-auth-base-18.0.10\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:19:5-44
@@ -469,30 +485,16 @@ MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\
 MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:21:5-23:151
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bfac36a427c1430b1b93852a2e1435a\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-appcheck-interop:17.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bfac36a427c1430b1b93852a2e1435a\transformed\firebase-appcheck-interop-17.1.0\AndroidManifest.xml:18:5-44
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd24eaf80b7ce067a930d8bf67e3baac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-database-collection:18.0.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd24eaf80b7ce067a930d8bf67e3baac\transformed\firebase-database-collection-18.0.1\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:5:5-44
-MERGED from [androidx.credentials:credentials:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9110e7895824124b19af96fbce45988e\transformed\credentials-1.2.0-rc01\AndroidManifest.xml:5:5-44
-MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:21:5-44
-MERGED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:21:5-44
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\cea8bcfa79c457c9f73412ca95aecc8f\transformed\play-services-auth-api-phone-18.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\7d339d9ba33496e8cd72ddd307903343\transformed\play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-fido:20.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\7d339d9ba33496e8cd72ddd307903343\transformed\play-services-fido-20.1.0\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0b47fc115c047b727a87a960a597d741\transformed\play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0b47fc115c047b727a87a960a597d741\transformed\play-services-auth-base-18.0.4\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:18:5-43
-MERGED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:18:5-43
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:5:5-44
@@ -511,14 +513,12 @@ MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Use
 MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.mlkit:vision-interfaces:16.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\287b5bfc2c6f468db6b61e562d422944\transformed\vision-interfaces-16.2.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.mlkit:vision-interfaces:16.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\287b5bfc2c6f468db6b61e562d422944\transformed\vision-interfaces-16.2.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0ff768899ea7321e99018631d058d758\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b73183a0d3cd08010f2f2c59ce613537\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-stats:17.0.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b73183a0d3cd08010f2f2c59ce613537\transformed\play-services-stats-17.0.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be5188febadea62a433698dd6707dde2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be5188febadea62a433698dd6707dde2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\65a672b5b448ec34a3c4fe6f5dca39cb\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\65a672b5b448ec34a3c4fe6f5dca39cb\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4d732c5c085454fd1d13f399fe868343\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4d732c5c085454fd1d13f399fe868343\transformed\loader-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a26509b291109061dff8c2927ef40c6b\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a26509b291109061dff8c2927ef40c6b\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\55655330d0c81a1e7a250fdd58b39dc7\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
@@ -533,14 +533,14 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.2] C:\Users\Leno
 MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\8ba9dad397285088fbc576c215c2af13\transformed\lifecycle-livedata-core-ktx-2.8.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4e6eedd4879276903424b14ff9c88e99\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\4e6eedd4879276903424b14ff9c88e99\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d1b75ac010656606ede55cb5760b8437\transformed\lifecycle-viewmodel-ktx-2.8.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d1b75ac010656606ede55cb5760b8437\transformed\lifecycle-viewmodel-ktx-2.8.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\87f3ca8a5808925701ead35388aeca9e\transformed\lifecycle-viewmodel-savedstate-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\87f3ca8a5808925701ead35388aeca9e\transformed\lifecycle-viewmodel-savedstate-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f174d3049ef31a9d135dee6218e07a76\transformed\lifecycle-process-2.8.2\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f174d3049ef31a9d135dee6218e07a76\transformed\lifecycle-process-2.8.2\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\788f0b0b078f841416e299ba238cb804\transformed\lifecycle-livedata-core-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d624ea89d17bc5a7b3f4738d72723911\transformed\lifecycle-livedata-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d624ea89d17bc5a7b3f4738d72723911\transformed\lifecycle-livedata-2.8.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\04b1f2bc148a1fb7d337d73bb92ce6b6\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
@@ -567,8 +567,8 @@ MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users
 MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3bcd1bd06b743cc4c54ef8786f6468ed\transformed\firebase-measurement-connector-19.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f7178c07ade0e340d188601cef357109\transformed\play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-basement:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f7178c07ade0e340d188601cef357109\transformed\play-services-basement-18.3.0\AndroidManifest.xml:18:5-43
-MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c14cebcbbc35585108e950bf6d3325da\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c14cebcbbc35585108e950bf6d3325da\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.7] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c328c9b28fe9e6ab031a567aa42b60c1\transformed\fragment-1.5.7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.7] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c328c9b28fe9e6ab031a567aa42b60c1\transformed\fragment-1.5.7\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f65e6b970dbc79df4d49a178b4555374\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f65e6b970dbc79df4d49a178b4555374\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-compose:1.9.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\d9595f9143061dc7c6ef43dac4858fac\transformed\activity-compose-1.9.0\AndroidManifest.xml:5:5-44
@@ -679,6 +679,172 @@ ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\
 		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:25:13-36
 	android:name
 		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.8] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\21a35af908480840a001c412e5c7d45a\transformed\ui-test-manifest-1.6.8\AndroidManifest.xml:24:13-63
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:66:9-72:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:27:9-36:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c890da28ec9b189fc3bdafa576100652\transformed\firebase-firestore-ktx-25.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c890da28ec9b189fc3bdafa576100652\transformed\firebase-firestore-ktx-25.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:14:9-23:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:23:9-29:19
+MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:23:9-29:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:22:9-31:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:12:9-21:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd430e2c306e7eddfa39dd03b23be847\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:22:9-28:19
+MERGED from [com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd430e2c306e7eddfa39dd03b23be847\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:22:9-28:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:10:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:34:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:9:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
+ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:11:13-13:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:13:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:12:17-119
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\bf8efd0f03ba71a5b310ffcf98d2a4e9\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\bf8efd0f03ba71a5b310ffcf98d2a4e9\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3d754261807e7770c2b60db581ef1181\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3d754261807e7770c2b60db581ef1181\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0a6878792ccf4754a380e275099b39a5\transformed\transport-runtime-3.1.9\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0a6878792ccf4754a380e275099b39a5\transformed\transport-runtime-3.1.9\AndroidManifest.xml:22:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c18f3a8c872263e30d47099bdba97ce3\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
+MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c18f3a8c872263e30d47099bdba97ce3\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:26:22-76
+activity#com.google.firebase.auth.internal.GenericIdpActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
+action#android.intent.action.VIEW
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
+category#android.intent.category.DEFAULT
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
+data
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
+	android:path
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
+	android:host
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
+	android:scheme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
+activity#com.google.firebase.auth.internal.RecaptchaActivity
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
+service#androidx.credentials.playservices.CredentialProviderMetadataHolder
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
+	tools:ignore
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
+meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
+	android:value
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
+activity#androidx.credentials.playservices.HiddenActivity
+ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
+	android:fitsSystemWindows
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
+	android:enabled
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
+	android:configChanges
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
+	android:theme
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
+	android:name
+		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:23:9-27:75
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:25:13-46
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:26:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:27:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:24:13-93
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:33:9-37:51
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:35:13-36
+	android:visibleToInstantApps
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:37:13-48
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:36:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:21.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\09b6515be27e8ac1b4f00a8e597f650a\transformed\play-services-auth-21.2.0\AndroidManifest.xml:34:13-89
 service#com.google.mlkit.common.internal.MlKitComponentDiscoveryService
 ADDED from [com.google.android.gms:play-services-mlkit-text-recognition-common:19.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\a4c5f0a54f6a246c57e6e9e2c63bdd24\transformed\play-services-mlkit-text-recognition-common-19.0.0\AndroidManifest.xml:9:9-15:19
 MERGED from [com.google.mlkit:vision-common:17.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\b449dc9402ee6ba64030f4eda195533e\transformed\vision-common-17.3.0\AndroidManifest.xml:9:9-15:19
@@ -721,68 +887,12 @@ ADDED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-m
 		ADDED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f18620590acee7d4dc6d88cc61d631fb\transformed\common-18.8.0\AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [com.google.mlkit:common:18.8.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f18620590acee7d4dc6d88cc61d631fb\transformed\common-18.8.0\AndroidManifest.xml:21:17-120
-service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
-MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:27:9-36:19
-MERGED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:27:9-36:19
-MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c890da28ec9b189fc3bdafa576100652\transformed\firebase-firestore-ktx-25.0.0\AndroidManifest.xml:9:9-15:19
-MERGED from [com.google.firebase:firebase-firestore-ktx:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c890da28ec9b189fc3bdafa576100652\transformed\firebase-firestore-ktx-25.0.0\AndroidManifest.xml:9:9-15:19
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:14:9-23:19
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:14:9-23:19
-MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:23:9-29:19
-MERGED from [com.google.firebase:firebase-messaging-ktx:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\e0ab21c89690bde36ee8fdce6bcdafdb\transformed\firebase-messaging-ktx-24.0.0\AndroidManifest.xml:23:9-29:19
-MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
-MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:54:9-63:19
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
-MERGED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:8:9-14:19
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:66:9-72:19
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:66:9-72:19
-MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:22:9-31:19
-MERGED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:22:9-31:19
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:12:9-21:19
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:12:9-21:19
-MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
-MERGED from [com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\dfb67590d0a30f18ebdbbd8ce94c212e\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:9:9-15:19
-MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
-MERGED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:30:9-38:19
-MERGED from [com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd430e2c306e7eddfa39dd03b23be847\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:22:9-28:19
-MERGED from [com.google.firebase:firebase-datatransport:18.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\fd430e2c306e7eddfa39dd03b23be847\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:22:9-28:19
-	android:exported
-		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:11:13-37
-	tools:targetApi
-		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:34:13-32
-	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\32d2068516b7ddb250bdd3dc962485d1\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
-	android:name
-		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:10:13-84
 meta-data#com.google.firebase.components:com.google.firebase.storage.ktx.FirebaseStorageLegacyRegistrar
 ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
 	android:value
 		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:14:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-storage-ktx:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f2f394039b8809ae100317fc6286fb2f\transformed\firebase-storage-ktx-21.0.0\AndroidManifest.xml:13:17-125
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-firestore:25.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\9da594a7f6c8483643f77919c1a28175\transformed\firebase-firestore-25.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\bf8efd0f03ba71a5b310ffcf98d2a4e9\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.recaptcha:recaptcha:18.4.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\bf8efd0f03ba71a5b310ffcf98d2a4e9\transformed\recaptcha-18.4.0\AndroidManifest.xml:8:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.gms:play-services-cloud-messaging:17.2.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\2aa1dc9f30dafe6bac5fa9c119466377\transformed\play-services-cloud-messaging-17.2.0\AndroidManifest.xml:7:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3d754261807e7770c2b60db581ef1181\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3d754261807e7770c2b60db581ef1181\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0a6878792ccf4754a380e275099b39a5\transformed\transport-runtime-3.1.9\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\0a6878792ccf4754a380e275099b39a5\transformed\transport-runtime-3.1.9\AndroidManifest.xml:22:5-79
-MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c18f3a8c872263e30d47099bdba97ce3\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
-MERGED from [io.grpc:grpc-android:1.57.2] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c18f3a8c872263e30d47099bdba97ce3\transformed\grpc-android-1.57.2\AndroidManifest.xml:7:5-79
-	android:name
-		ADDED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:23:22-76
 meta-data#com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar
 ADDED from [com.google.firebase:firebase-storage:21.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5addf13485ac0565a0c288177faeb973\transformed\firebase-storage-21.0.0\AndroidManifest.xml:30:13-32:85
 	android:value
@@ -879,66 +989,6 @@ ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.grad
 		ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:62:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:24.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\3ba2e6902205c94861b73b49a120972d\transformed\firebase-messaging-24.0.0\AndroidManifest.xml:61:17-119
-meta-data#com.google.firebase.components:com.google.firebase.auth.ktx.FirebaseAuthLegacyRegistrar
-ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:11:13-13:85
-	android:value
-		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:13:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-auth-ktx:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\f624220b9d1b577560e7c9a51b3ddcca\transformed\firebase-auth-ktx-23.0.0\AndroidManifest.xml:12:17-119
-activity#com.google.firebase.auth.internal.GenericIdpActivity
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:29:9-46:20
-	android:excludeFromRecents
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:31:13-46
-	android:launchMode
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:33:13-44
-	android:exported
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:32:13-36
-	android:theme
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:34:13-72
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:30:13-80
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:genericidp
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:35:13-45:29
-action#android.intent.action.VIEW
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:36:17-69
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:36:25-66
-category#android.intent.category.DEFAULT
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:38:17-76
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:38:27-73
-category#android.intent.category.BROWSABLE
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:39:17-78
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:39:27-75
-data
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:41:17-44:51
-	android:path
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:43:21-37
-	android:host
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:42:21-49
-	android:scheme
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:44:21-48
-activity#com.google.firebase.auth.internal.RecaptchaActivity
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:47:9-64:20
-	android:excludeFromRecents
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:49:13-46
-	android:launchMode
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:51:13-44
-	android:exported
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:50:13-36
-	android:theme
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:52:13-72
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:48:13-79
-intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:firebase.auth+data:path:/+data:scheme:recaptcha
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:53:13-63:29
-meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
-ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:69:13-71:85
-	android:value
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:71:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-auth:23.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\be131a802d94ef15b00383e1ba8a7acf\transformed\firebase-auth-23.0.0\AndroidManifest.xml:70:17-109
 meta-data#com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar
 ADDED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:25:13-27:85
 	android:value
@@ -951,64 +1001,14 @@ ADDED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradl
 		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:30:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-appcheck:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\acace5fa3830618963985ab720db62e0\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:29:17-117
-service#androidx.credentials.playservices.CredentialProviderMetadataHolder
-ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:24:9-32:19
-	android:enabled
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:26:13-35
-	android:exported
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:27:13-37
-	tools:ignore
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:28:13-60
-	android:name
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:25:13-94
-meta-data#androidx.credentials.CREDENTIAL_PROVIDER_KEY
-ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:29:13-31:104
-	android:value
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:31:17-101
-	android:name
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:30:17-76
-activity#androidx.credentials.playservices.HiddenActivity
-ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:34:9-41:20
-	android:fitsSystemWindows
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:39:13-45
-	android:enabled
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:37:13-35
-	android:exported
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:38:13-37
-	android:configChanges
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:36:13-87
-	android:theme
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:40:13-48
-	android:name
-		ADDED from [androidx.credentials:credentials-play-services-auth:1.2.0-rc01] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\75683c45607c6634f036adbea653e3b2\transformed\credentials-play-services-auth-1.2.0-rc01\AndroidManifest.xml:35:13-76
-activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
-ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:23:9-27:75
-	android:excludeFromRecents
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:25:13-46
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:26:13-37
-	android:theme
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:27:13-72
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:24:13-93
-service#com.google.android.gms.auth.api.signin.RevocationBoundService
-ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:33:9-37:51
-	android:exported
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:35:13-36
-	android:visibleToInstantApps
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:37:13-48
-	android:permission
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:36:13-107
-	android:name
-		ADDED from [com.google.android.gms:play-services-auth:20.7.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\947981c364fe45938fafdf23965fc240\transformed\play-services-auth-20.7.0\AndroidManifest.xml:34:13-89
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:9-22:45
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:22:19-43
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:21:19-78
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:18.1.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\5b2770b37a7dcebc620e55faecea5551\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+		ADDED from [com.google.android.gms:play-services-base:18.3.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\78b3e1e7c2b7d915444bdfc66c089d3d\transformed\play-services-base-18.3.0\AndroidManifest.xml:20:19-85
 meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar
 ADDED from [com.google.firebase:firebase-installations:18.0.0] C:\Users\Lenovo\.gradle\caches\9.0-milestone-1\transforms\c8b9e3b57e28f091519f64ae9d4cff5a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
 	android:value

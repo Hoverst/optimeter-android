@@ -1060,6 +1060,7 @@ string dark
 string day_of_month
 string default_error_message
 string default_popup_window_title
+string default_web_client_id
 string delete
 string delete_account
 string delete_account_confirm

@@ -62,6 +62,21 @@ class AuthViewModel @Inject constructor(
             }
         }
     }
+
+    fun signInWithGoogleIdToken(idToken: String) {
+        _uiState.value = _uiState.value.copy(isLoading = true, error = null)
+        viewModelScope.launch {
+            val result = authRepository.signInWithGoogleIdToken(idToken)
+            result.onSuccess {
+                _uiState.value = _uiState.value.copy(isLoading = false)
+            }.onFailure { exception ->
+                _uiState.value = _uiState.value.copy(
+                    isLoading = false,
+                    error = exception.message ?: "Google sign-in failed"
+                )
+            }
+        }
+    }
 }
 
 data class AuthState(

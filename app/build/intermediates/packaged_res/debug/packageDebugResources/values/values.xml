@@ -17,6 +17,7 @@
     <string name="create_account">Create Account</string>
     <string name="dark">Dark</string>
     <string name="day_of_month">Day of Month</string>
+    <string name="default_web_client_id" translatable="false">408277373539-e5kb98mn4gjc9c9ksebj9upi84lsj4hb.apps.googleusercontent.com</string>
     <string name="delete">Delete</string>
     <string name="delete_account">Delete Account</string>
     <string name="delete_account_confirm">Are you sure? This will permanently delete your account and all your data. This cannot be undone.</string>

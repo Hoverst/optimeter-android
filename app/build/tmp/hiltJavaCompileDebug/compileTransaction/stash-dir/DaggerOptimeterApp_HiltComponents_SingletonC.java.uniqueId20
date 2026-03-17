@@ -414,23 +414,23 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
 
-      static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
+      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
 
       static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
-      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+      static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
       @KeepFieldType
       AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
 
       @KeepFieldType
-      HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
+      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
 
       @KeepFieldType
       SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
 
       @KeepFieldType
-      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
+      HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
     }
   }
 
@@ -480,22 +480,22 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
+      static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
+
       static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
-      static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
-
       static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+
+      @KeepFieldType
+      AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
 
       @KeepFieldType
       SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
 
       @KeepFieldType
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
-
-      @KeepFieldType
-      AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
 
       @KeepFieldType
       ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
@@ -652,7 +652,7 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectOptimeterApp(OptimeterApp optimeterApp) {
+    public void injectOptimeterApp(OptimeterApp arg0) {
     }
 
     @Override
