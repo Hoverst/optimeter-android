@@ -4,6 +4,7 @@ data class HomeResponseDto(
     val id: String,
     val name: String,
     val address: String,
+    val userId: String,
     val createdAt: String
 )
 
@@ -27,4 +28,3 @@ data class CreateReadingRequestDto(
     val value: Double,
     val readingAt: String
 )
-

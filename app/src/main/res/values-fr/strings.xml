@@ -12,7 +12,6 @@
     <string name="no_account">Pas de compte ? S\'inscrire</string>
     <string name="have_account">Déjà un compte ? Se connecter</string>
     <string name="sign_in_google">Se connecter avec Google</string>
-    <string name="sign_in_apple">Se connecter avec Apple</string>
     <string name="terms_privacy">En continuant, vous acceptez les Conditions d\'utilisation et la Politique de confidentialité</string>
 
     <!-- Dashboard / Home -->

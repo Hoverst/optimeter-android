@@ -69,7 +69,6 @@
     <string name="settings">Einstellungen</string>
     <string name="settings_profile">Einstellungen und Profil</string>
     <string name="sign_in">Anmelden</string>
-    <string name="sign_in_apple">Mit Apple anmelden</string>
     <string name="sign_in_google">Mit Google anmelden</string>
     <string name="statistics">Statistik</string>
     <string name="step1_scan_qr">Schritt 1: QR scannen oder ID eingeben</string>

@@ -12,7 +12,6 @@
     <string name="no_account">¿No tienes cuenta? Regístrate</string>
     <string name="have_account">¿Ya tienes cuenta? Iniciar sesión</string>
     <string name="sign_in_google">Iniciar sesión con Google</string>
-    <string name="sign_in_apple">Iniciar sesión con Apple</string>
     <string name="terms_privacy">Al continuar, aceptas los Términos de uso y la Política de privacidad</string>
 
     <!-- Dashboard / Home -->

@@ -12,7 +12,6 @@
     <string name="no_account">Hesabınız yok mu? Kayıt Ol</string>
     <string name="have_account">Hesabınız var mı? Giriş Yap</string>
     <string name="sign_in_google">Google ile Giriş Yap</string>
-    <string name="sign_in_apple">Apple ile Giriş Yap</string>
     <string name="terms_privacy">Devam ederek Kullanım Koşullarını ve Gizlilik Politikasını kabul etmiş olursunuz</string>
 
     <!-- Dashboard / Home -->

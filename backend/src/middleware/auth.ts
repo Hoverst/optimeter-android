@@ -15,7 +15,10 @@ export async function requireUser(req: AuthedRequest, res: Response, next: NextF
 
   try {
     if (match?.[1]) {
-      const decoded = await auth.verifyIdToken(match[1]);
+      const idToken = match[1];
+      console.log("Token received:", idToken);
+      const decoded = await auth.verifyIdToken(idToken);
+      console.log("Token verified for UID:", decoded.uid);
       req.userId = decoded.uid;
       return next();
     }
@@ -32,4 +35,3 @@ export async function requireUser(req: AuthedRequest, res: Response, next: NextF
     return res.status(401).json({ error: "Unauthorized" });
   }
 }
-

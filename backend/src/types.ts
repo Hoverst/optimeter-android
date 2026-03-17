@@ -4,6 +4,7 @@ export interface Home {
   id: string;
   name: string;
   address: string;
+  userId: string;
   createdAt: string;
 }
 

@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color ic_launcher_background
+drawable ic_google_logo
 drawable ic_launcher_foreground
 mipmap ic_launcher
 mipmap ic_launcher_round
@@ -82,7 +83,6 @@ string set_reminder_day
 string settings
 string settings_profile
 string sign_in
-string sign_in_apple
 string sign_in_google
 string statistics
 string step1_scan_qr

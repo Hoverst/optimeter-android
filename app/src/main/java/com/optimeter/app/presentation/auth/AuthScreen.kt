@@ -1,6 +1,7 @@
 package com.optimeter.app.presentation.auth
 
 import android.content.Intent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
@@ -11,6 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -165,16 +167,14 @@ fun AuthScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
+                Image(
+                    painter = painterResource(id = R.drawable.ic_google_logo),
+                    contentDescription = "Google Logo",
+                    modifier = Modifier.size(20.dp),
+                    colorFilter = null
+                )
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(stringResource(R.string.sign_in_google))
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            OutlinedButton(
-                onClick = { /* Stub for Apple SignIn */ },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(stringResource(R.string.sign_in_apple))
             }
 
             Spacer(modifier = Modifier.weight(1f))

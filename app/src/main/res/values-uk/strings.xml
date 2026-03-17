@@ -12,7 +12,6 @@
     <string name="no_account">Немає облікового запису? Зареєструватися</string>
     <string name="have_account">Вже є обліковий запис? Увійти</string>
     <string name="sign_in_google">Увійти через Google</string>
-    <string name="sign_in_apple">Увійти через Apple</string>
     <string name="terms_privacy">Продовжуючи, ви погоджуєтесь з Умовами використання та Політикою конфіденційності</string>
 
     <!-- Dashboard / Home -->
