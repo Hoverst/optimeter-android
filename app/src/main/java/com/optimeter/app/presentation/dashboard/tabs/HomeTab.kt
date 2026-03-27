@@ -7,12 +7,13 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
@@ -78,39 +79,48 @@ fun HomeTab(
                 }
             }
         } else {
-            // Custom Dropdown for Home Selection (only shown when homes exist)
-            ExposedDropdownMenuBox(
-                expanded = expanded,
-                onExpandedChange = { expanded = it }
+            // Home Selector Dropdown
+            Box(
+                modifier = Modifier.wrapContentSize(Alignment.TopStart)
             ) {
+                // Trigger Button
                 Row(
-                    verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
-                        .menuAnchor()
                         .clickable { expanded = true }
-                        .padding(vertical = 8.dp)
+                        .padding(vertical = 8.dp),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = selectedHome ?: homes.firstOrNull()?.name ?: "My Home",
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f, fill = false)
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
-                        imageVector = Icons.Default.KeyboardArrowDown,
+                        imageVector = Icons.Default.ArrowDropDown,
                         contentDescription = "Select Home",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.size(20.dp)
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
 
-                ExposedDropdownMenu(
+                // Dropdown Menu
+                DropdownMenu(
                     expanded = expanded,
-                    onDismissRequest = { expanded = false }
+                    onDismissRequest = { expanded = false },
+                    modifier = Modifier.wrapContentWidth()
                 ) {
                     homes.forEach { home ->
                         DropdownMenuItem(
-                            text = { Text(home.name) },
+                            text = {
+                                Text(
+                                    text = home.name,
+                                    maxLines = 1,
+                                    softWrap = false
+                                )
+                            },
                             onClick = {
                                 selectedHome = home.name
                                 expanded = false
