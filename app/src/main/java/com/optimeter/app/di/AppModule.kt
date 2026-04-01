@@ -96,8 +96,8 @@ object AppModule {
     fun provideRetrofit(
         client: OkHttpClient
     ): Retrofit {
-        // When running on Android emulator, 10.0.2.2 targets the host machine.
-        val baseUrl = "http://10.0.2.2:4000/"
+        // Using local network IP for physical device testing
+        val baseUrl = "http://192.168.0.105:4000/"
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)
