@@ -4,15 +4,32 @@ sealed class Screen(val route: String) {
     object Splash : Screen("splash")
     object Auth : Screen("auth")
     object Dashboard : Screen("dashboard")
-    object Scanner : Screen("scanner/{meterType}") {
-        fun createRoute(meterType: String) = "scanner/$meterType"
+    object Scanner : Screen("scanner/{meterType}?homeId={homeId}") {
+        fun createRoute(meterType: String, homeId: String? = null): String {
+            return if (homeId != null) {
+                "scanner/$meterType?homeId=$homeId"
+            } else {
+                "scanner/$meterType"
+            }
+        }
     }
-    object Validation : Screen("validation/{meterType}/{digits}?photoPath={photoPath}") {
-        fun createRoute(meterType: String, digits: String, photoPath: String) =
-            "validation/$meterType/$digits?photoPath=$photoPath"
+    object Validation : Screen("validation/{meterType}/{digits}?photoPath={photoPath}&homeId={homeId}") {
+        fun createRoute(meterType: String, digits: String, photoPath: String, homeId: String? = null): String {
+            return if (homeId != null) {
+                "validation/$meterType/$digits?photoPath=$photoPath&homeId=$homeId"
+            } else {
+                "validation/$meterType/$digits?photoPath=$photoPath"
+            }
+        }
     }
-    object ManualEntry : Screen("manual_entry/{meterType}") {
-        fun createRoute(meterType: String) = "manual_entry/$meterType"
+    object ManualEntry : Screen("manual_entry/{meterType}?homeId={homeId}") {
+        fun createRoute(meterType: String, homeId: String? = null): String {
+            return if (homeId != null) {
+                "manual_entry/$meterType?homeId=$homeId"
+            } else {
+                "manual_entry/$meterType"
+            }
+        }
     }
     object History : Screen("history")
     object HistoryDetail : Screen("history/{readingId}") {

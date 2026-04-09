@@ -19,6 +19,8 @@ fun ValidationScreen(
     meterType: MeterType,
     digits: String,
     photoPath: String?,
+    isLoading: Boolean = false,
+    error: String? = null,
     onRetake: () -> Unit,
     onSave: (String) -> Unit
 ) {
@@ -64,8 +66,18 @@ fun ValidationScreen(
                 onValueChange = { editedDigits = it },
                 label = { Text(stringResource(R.string.detected_value)) },
                 textStyle = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                enabled = !isLoading
             )
+
+            if (error != null) {
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = error,
+                    color = MaterialTheme.colorScheme.error,
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
 
             Spacer(modifier = Modifier.weight(1f))
 
@@ -75,16 +87,26 @@ fun ValidationScreen(
             ) {
                 OutlinedButton(
                     onClick = onRetake,
-                    modifier = Modifier.weight(1f).padding(end = 8.dp)
+                    modifier = Modifier.weight(1f).padding(end = 8.dp),
+                    enabled = !isLoading
                 ) {
                     Text(stringResource(R.string.re_scan))
                 }
 
                 Button(
                     onClick = { onSave(editedDigits) },
-                    modifier = Modifier.weight(1f).padding(start = 8.dp)
+                    modifier = Modifier.weight(1f).padding(start = 8.dp),
+                    enabled = !isLoading
                 ) {
-                    Text(stringResource(R.string.save))
+                    if (isLoading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(stringResource(R.string.save))
+                    }
                 }
             }
         }

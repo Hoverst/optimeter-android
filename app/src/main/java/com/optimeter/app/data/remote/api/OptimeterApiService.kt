@@ -32,6 +32,11 @@ interface OptimeterApiService {
         @Query("utility") utility: String? = null
     ): List<MeterReadingResponseDto>
 
+    @GET("readings/latest")
+    suspend fun getLatestReadings(
+        @Query("homeId") homeId: String
+    ): List<MeterReadingResponseDto>
+
     @POST("readings")
     suspend fun addReading(
         @Body request: CreateReadingRequestDto
@@ -42,4 +47,3 @@ interface OptimeterApiService {
         @Path("id") id: String
     )
 }
-

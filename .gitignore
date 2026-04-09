@@ -3,3 +3,6 @@ build/
 config.yaml
 opencode.json
 task.md
+.env
+backend/
+local.properties

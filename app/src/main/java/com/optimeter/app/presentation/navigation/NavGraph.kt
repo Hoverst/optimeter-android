@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -68,8 +69,8 @@ fun OptimeterNavGraph(
         }
         composable(Screen.Dashboard.route) {
             DashboardScreen(
-                onNavigateToScanner = { meterType ->
-                    navController.navigate(Screen.Scanner.createRoute(meterType.name))
+                onNavigateToScanner = { meterType, homeId ->
+                    navController.navigate(Screen.Scanner.createRoute(meterType.name, homeId))
                 },
                 onNavigateToHistoryDetail = { readingId ->
                     navController.navigate(Screen.HistoryDetail.createRoute(readingId))
@@ -84,16 +85,28 @@ fun OptimeterNavGraph(
                 }
             )
         }
-        composable(Screen.Scanner.route) { backStackEntry ->
+        composable(
+            route = Screen.Scanner.route,
+            arguments = listOf(
+                navArgument("meterType") { type = NavType.StringType },
+                navArgument("homeId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) { backStackEntry ->
             val meterTypeStr = backStackEntry.arguments?.getString("meterType") ?: MeterType.GAS.name
+            val homeId = backStackEntry.arguments?.getString("homeId")
+            
             ScannerScreen(
                 meterType = MeterType.valueOf(meterTypeStr),
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToValidation = { digits, encodedPhotoPath ->
-                    navController.navigate(Screen.Validation.createRoute(meterTypeStr, digits, encodedPhotoPath))
+                    navController.navigate(Screen.Validation.createRoute(meterTypeStr, digits, encodedPhotoPath, homeId))
                 },
                 onNavigateToManual = {
-                    navController.navigate(Screen.ManualEntry.createRoute(meterTypeStr))
+                    navController.navigate(Screen.ManualEntry.createRoute(meterTypeStr, homeId))
                 }
             )
         }
@@ -102,38 +115,89 @@ fun OptimeterNavGraph(
             arguments = listOf(
                 navArgument("meterType") { type = NavType.StringType },
                 navArgument("digits") { type = NavType.StringType },
-                navArgument("photoPath") { type = NavType.StringType; nullable = true }
+                navArgument("photoPath") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                },
+                navArgument("homeId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
             )
         ) { backStackEntry ->
             val meterTypeStr = backStackEntry.arguments?.getString("meterType") ?: MeterType.GAS.name
             val digits = backStackEntry.arguments?.getString("digits") ?: ""
             val photoPath = backStackEntry.arguments?.getString("photoPath")
+            val homeId = backStackEntry.arguments?.getString("homeId")
+            
+            val readingViewModel = hiltViewModel<com.optimeter.app.presentation.scan.ReadingViewModel>()
+            val uiState by readingViewModel.uiState.collectAsState()
+            
+            LaunchedEffect(uiState.savedReading) {
+                if (uiState.savedReading != null) {
+                    navController.popBackStack()
+                    readingViewModel.clearState()
+                }
+            }
             
             ValidationScreen(
                 meterType = MeterType.valueOf(meterTypeStr),
                 digits = digits,
                 photoPath = Uri.decode(photoPath ?: ""),
-                onRetake = { navController.popBackStack() },
-                onSave = {
-                    navController.navigate(Screen.Dashboard.route) {
-                        popUpTo(Screen.Dashboard.route) { inclusive = true }
+                isLoading = uiState.isLoading,
+                error = uiState.error,
+                onRetake = { 
+                    navController.popBackStack()
+                    readingViewModel.clearState()
+                },
+                onSave = { editedDigits ->
+                    // Save reading
+                    val value = editedDigits.toDoubleOrNull() ?: 0.0
+                    if (homeId != null) {
+                        readingViewModel.saveReading(
+                            homeId = homeId,
+                            meterType = MeterType.valueOf(meterTypeStr),
+                            value = value
+                        )
                     }
+                    // Don't navigate here - wait for ViewModel state change
                 }
             )
         }
-        composable(Screen.ManualEntry.route) { backStackEntry ->
+        composable(
+            route = Screen.ManualEntry.route,
+            arguments = listOf(
+                navArgument("meterType") { type = NavType.StringType },
+                navArgument("homeId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
+                }
+            )
+        ) { backStackEntry ->
             val meterTypeStr = backStackEntry.arguments?.getString("meterType") ?: MeterType.GAS.name
+            val homeId = backStackEntry.arguments?.getString("homeId")
+            
             ManualEntryScreen(
                 meterType = MeterType.valueOf(meterTypeStr),
                 onSave = {
-                    navController.navigate(Screen.Dashboard.route) {
-                        popUpTo(Screen.Dashboard.route) { inclusive = true }
-                    }
+                    // TODO: Implement manual entry save
+                    navController.popBackStack()
                 },
                 onCancel = { navController.popBackStack() }
             )
         }
-        composable(Screen.HistoryDetail.route) { backStackEntry ->
+        composable(Screen.History.route) {
+            // TODO: Implement history screen
+        }
+        composable(
+            route = Screen.HistoryDetail.route,
+            arguments = listOf(
+                navArgument("readingId") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
             val readingId = backStackEntry.arguments?.getString("readingId") ?: ""
             ReadingDetailScreen(
                 readingId = readingId,
@@ -154,12 +218,5 @@ fun OptimeterNavGraph(
                 onNavigateBack = { navController.popBackStack() }
             )
         }
-    }
-}
-
-@Composable
-fun PlaceholderScreen(title: String) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = title)
     }
 }

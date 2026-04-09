@@ -12,6 +12,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -21,6 +22,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import javax.inject.Singleton
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -48,13 +51,22 @@ object AppModule {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val original: Request = chain.request()
                 
-                // Try to get the current user's ID token
+                // Get token synchronously but without blocking the main thread
+                // This interceptor runs on an IO thread (due to Dispatchers.IO in repository)
                 val token = runBlocking {
                     try {
                         val user = firebaseAuth.currentUser
                         if (user != null) {
-                            val task = user.getIdToken(true)
-                            Tasks.await(task)?.token
+                            // Use suspendCancellableCoroutine to convert Task to non-blocking suspend
+                            suspendCancellableCoroutine<String?> { cont ->
+                                user.getIdToken(true)
+                                    .addOnSuccessListener { result ->
+                                        cont.resume(result.token)
+                                    }
+                                    .addOnFailureListener { error ->
+                                        cont.resumeWithException(error)
+                                    }
+                            }
                         } else {
                             null
                         }
@@ -96,8 +108,8 @@ object AppModule {
     fun provideRetrofit(
         client: OkHttpClient
     ): Retrofit {
-        // Using local network IP for physical device testing
-        val baseUrl = "http://192.168.0.105:4000/"
+        // Using emulator IP (10.0.2.2) to access host machine's localhost
+        val baseUrl = "http://10.0.2.2:4000/"
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)

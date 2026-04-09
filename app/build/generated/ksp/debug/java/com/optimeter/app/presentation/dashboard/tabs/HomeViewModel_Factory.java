@@ -1,5 +1,6 @@
 package com.optimeter.app.presentation.dashboard.tabs;
 
+import androidx.lifecycle.SavedStateHandle;
 import com.optimeter.app.domain.repository.HomeRepository;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -23,22 +24,28 @@ import javax.inject.Provider;
     "cast"
 })
 public final class HomeViewModel_Factory implements Factory<HomeViewModel> {
+  private final Provider<SavedStateHandle> savedStateHandleProvider;
+
   private final Provider<HomeRepository> homeRepositoryProvider;
 
-  public HomeViewModel_Factory(Provider<HomeRepository> homeRepositoryProvider) {
+  public HomeViewModel_Factory(Provider<SavedStateHandle> savedStateHandleProvider,
+      Provider<HomeRepository> homeRepositoryProvider) {
+    this.savedStateHandleProvider = savedStateHandleProvider;
     this.homeRepositoryProvider = homeRepositoryProvider;
   }
 
   @Override
   public HomeViewModel get() {
-    return newInstance(homeRepositoryProvider.get());
+    return newInstance(savedStateHandleProvider.get(), homeRepositoryProvider.get());
   }
 
-  public static HomeViewModel_Factory create(Provider<HomeRepository> homeRepositoryProvider) {
-    return new HomeViewModel_Factory(homeRepositoryProvider);
+  public static HomeViewModel_Factory create(Provider<SavedStateHandle> savedStateHandleProvider,
+      Provider<HomeRepository> homeRepositoryProvider) {
+    return new HomeViewModel_Factory(savedStateHandleProvider, homeRepositoryProvider);
   }
 
-  public static HomeViewModel newInstance(HomeRepository homeRepository) {
-    return new HomeViewModel(homeRepository);
+  public static HomeViewModel newInstance(SavedStateHandle savedStateHandle,
+      HomeRepository homeRepository) {
+    return new HomeViewModel(savedStateHandle, homeRepository);
   }
 }

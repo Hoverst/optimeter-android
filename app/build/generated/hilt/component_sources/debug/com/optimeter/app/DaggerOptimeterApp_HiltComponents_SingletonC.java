@@ -30,6 +30,8 @@ import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel;
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel_HiltModules;
 import com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel;
 import com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel_HiltModules;
+import com.optimeter.app.presentation.scan.ReadingViewModel;
+import com.optimeter.app.presentation.scan.ReadingViewModel_HiltModules;
 import com.optimeter.app.presentation.scan.ScannerViewModel;
 import com.optimeter.app.presentation.scan.ScannerViewModel_HiltModules;
 import dagger.hilt.android.ActivityRetainedLifecycle;
@@ -394,7 +396,7 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, AuthViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, HomeViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ScannerViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, SettingsViewModel_HiltModules.KeyModule.provide()));
+      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, AuthViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, HomeViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ReadingViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ScannerViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, SettingsViewModel_HiltModules.KeyModule.provide()));
     }
 
     @Override
@@ -420,29 +422,36 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
+      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
+
+      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
+
+      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
 
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
-      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+      @KeepFieldType
+      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
 
-      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
+      @KeepFieldType
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+
+      @KeepFieldType
+      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
 
       @KeepFieldType
       AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
 
       @KeepFieldType
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
-
-      @KeepFieldType
-      ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
-
-      @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
     }
   }
 
   private static final class ViewModelCImpl extends OptimeterApp_HiltComponents.ViewModelC {
+    private final SavedStateHandle savedStateHandle;
+
     private final SingletonCImpl singletonCImpl;
 
     private final ActivityRetainedCImpl activityRetainedCImpl;
@@ -453,6 +462,8 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     private Provider<HomeViewModel> homeViewModelProvider;
 
+    private Provider<ReadingViewModel> readingViewModelProvider;
+
     private Provider<ScannerViewModel> scannerViewModelProvider;
 
     private Provider<SettingsViewModel> settingsViewModelProvider;
@@ -462,7 +473,7 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
         ViewModelLifecycle viewModelLifecycleParam) {
       this.singletonCImpl = singletonCImpl;
       this.activityRetainedCImpl = activityRetainedCImpl;
-
+      this.savedStateHandle = savedStateHandleParam;
       initialize(savedStateHandleParam, viewModelLifecycleParam);
 
     }
@@ -472,13 +483,14 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
         final ViewModelLifecycle viewModelLifecycleParam) {
       this.authViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
       this.homeViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
-      this.scannerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
-      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.readingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.scannerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, ((Provider) authViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, ((Provider) homeViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ((Provider) scannerViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, ((Provider) settingsViewModelProvider)));
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, ((Provider) authViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, ((Provider) homeViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ((Provider) readingViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ((Provider) scannerViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, ((Provider) settingsViewModelProvider)));
     }
 
     @Override
@@ -488,25 +500,30 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
-
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
-
-      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
 
       static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
-      @KeepFieldType
-      AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
+      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
+
+      static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
+
+      static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
 
       @KeepFieldType
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
 
       @KeepFieldType
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+
+      @KeepFieldType
+      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
+
+      @KeepFieldType
       ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
 
       @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+      AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -534,12 +551,15 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
           return (T) new AuthViewModel(singletonCImpl.bindAuthRepositoryProvider.get());
 
           case 1: // com.optimeter.app.presentation.dashboard.tabs.HomeViewModel 
-          return (T) new HomeViewModel(singletonCImpl.bindHomeRepositoryProvider.get());
+          return (T) new HomeViewModel(viewModelCImpl.savedStateHandle, singletonCImpl.bindHomeRepositoryProvider.get());
 
-          case 2: // com.optimeter.app.presentation.scan.ScannerViewModel 
+          case 2: // com.optimeter.app.presentation.scan.ReadingViewModel 
+          return (T) new ReadingViewModel(singletonCImpl.bindHomeRepositoryProvider.get());
+
+          case 3: // com.optimeter.app.presentation.scan.ScannerViewModel 
           return (T) new ScannerViewModel();
 
-          case 3: // com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel 
+          case 4: // com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel 
           return (T) new SettingsViewModel(singletonCImpl.provideSettingsRepositoryProvider.get(), singletonCImpl.bindAuthRepositoryProvider.get());
 
           default: throw new AssertionError(id);
@@ -666,7 +686,7 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     }
 
     @Override
-    public void injectOptimeterApp(OptimeterApp arg0) {
+    public void injectOptimeterApp(OptimeterApp optimeterApp) {
     }
 
     @Override

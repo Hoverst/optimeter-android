@@ -50,6 +50,48 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET /readings/latest?homeId=... - returns latest reading for each utility type
+router.get("/latest", async (req, res) => {
+  try {
+    const { homeId } = req.query as { homeId?: string };
+
+    if (!homeId) {
+      return res.status(400).json({ error: "homeId query param is required" });
+    }
+
+    const utilities: Array<"electricity" | "gas" | "water"> = ["electricity", "gas", "water"];
+    const latestReadings: MeterReading[] = [];
+
+    for (const utility of utilities) {
+      const snapshot = await db
+        .collection("readings")
+        .where("homeId", "==", homeId)
+        .where("utility", "==", utility)
+        .orderBy("readingAt", "desc")
+        .limit(1)
+        .get();
+
+      if (!snapshot.empty) {
+        const doc = snapshot.docs[0];
+        const data = doc.data();
+        latestReadings.push({
+          id: doc.id,
+          homeId: data.homeId,
+          utility: data.utility,
+          value: data.value,
+          readingAt: data.readingAt,
+          createdAt: data.createdAt
+        });
+      }
+    }
+
+    res.json(latestReadings);
+  } catch (err) {
+    console.error("Error fetching latest readings", err);
+    res.status(500).json({ error: "Failed to fetch latest readings" });
+  }
+});
+
 // POST /readings - create a new meter reading
 router.post("/", async (req, res) => {
   try {
@@ -96,4 +138,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 export default router;
-

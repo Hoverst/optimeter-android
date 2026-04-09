@@ -23,7 +23,7 @@ import com.optimeter.app.presentation.dashboard.tabs.AddReadingTab
 
 @Composable
 fun DashboardScreen(
-    onNavigateToScanner: (MeterType) -> Unit,
+    onNavigateToScanner: (MeterType, String?) -> Unit,
     onNavigateToHistoryDetail: (String) -> Unit,
     onNavigateToIoTDevices: () -> Unit,
     onLogout: () -> Unit
@@ -46,7 +46,9 @@ fun DashboardScreen(
             when (currentTab) {
                 DashboardTab.HOME -> HomeTab(
                     userName = "User", // This should come from a ViewModel later
-                    onMeterSelected = onNavigateToScanner
+                    onMeterSelected = { meterType, homeId ->
+                        onNavigateToScanner(meterType, homeId)
+                    }
                 )
                 DashboardTab.ANALYTICS -> StatisticsTab()
                 DashboardTab.ADD -> AddReadingTab()

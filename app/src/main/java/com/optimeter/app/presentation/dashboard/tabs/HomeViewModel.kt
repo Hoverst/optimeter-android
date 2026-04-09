@@ -1,8 +1,11 @@
 package com.optimeter.app.presentation.dashboard.tabs
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.optimeter.app.domain.model.Home
+import com.optimeter.app.domain.model.MeterReading
+import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.domain.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,21 +15,30 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 data class HomeUiState(
     val isLoading: Boolean = false,
     val homes: List<Home> = emptyList(),
+    val latestReadings: Map<MeterType, MeterReading> = emptyMap(),
+    val selectedHomeId: String? = null,
     val error: String? = null
 )
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val homeRepository: HomeRepository
+    private val savedStateHandle: SavedStateHandle,
+    private val homeRepository: HomeRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState(isLoading = true))
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
+        // Restore selectedHomeId from saved state
+        val savedHomeId = savedStateHandle.get<String>("selectedHomeId")
+        _uiState.update { it.copy(selectedHomeId = savedHomeId) }
+        
+        // Load homes; readings will be loaded after homes are fetched based on selectedHomeId
         loadHomes()
     }
 
@@ -35,12 +47,47 @@ class HomeViewModel @Inject constructor(
             _uiState.update { it.copy(isLoading = true, error = null) }
             try {
                 homeRepository.getHomes().collect { homes ->
-                    _uiState.update { state ->
-                        state.copy(isLoading = false, homes = homes, error = null)
+                    val currentSelectedId = _uiState.value.selectedHomeId
+                    val updatedState = _uiState.value.copy(
+                        isLoading = false, 
+                        homes = homes, 
+                        error = null
+                    )
+                    _uiState.update { updatedState }
+                    
+                    // Determine which home to load readings for
+                    val homeIdToLoad = when {
+                        currentSelectedId != null && homes.any { it.id == currentSelectedId } -> currentSelectedId
+                        homes.isNotEmpty() -> homes.first().id
+                        else -> null
                     }
+                    
+                    // Update selectedHomeId if it's not set yet and we have homes
+                    if (updatedState.selectedHomeId == null && homes.isNotEmpty()) {
+                        _uiState.update { it.copy(selectedHomeId = homes.first().id) }
+                    }
+                    
+                    // Load readings for the appropriate home
+                    homeIdToLoad?.let { loadLatestReadingsForHome(it) }
                 }
             } catch (e: Exception) {
                 _uiState.update { it.copy(isLoading = false, error = e.message) }
+            }
+        }
+    }
+
+    fun loadLatestReadingsForHome(homeId: String) {
+        viewModelScope.launch {
+            try {
+                homeRepository.getLatestReadings(homeId).collect { readings ->
+                    val readingMap = readings.associateBy { it.type }
+                    _uiState.update { state ->
+                        state.copy(latestReadings = readingMap)
+                    }
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("HomeViewModel", "Error loading latest readings", e)
+                // Don't clear existing readings on error - keep them visible
             }
         }
     }
@@ -56,7 +103,6 @@ class HomeViewModel @Inject constructor(
             val result = homeRepository.addHome(newHome)
             result
                 .onSuccess {
-                    // Reload homes so UI reflects the newly added home.
                     loadHomes()
                 }
                 .onFailure { e ->
@@ -79,8 +125,41 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun saveReading(
+        homeId: String,
+        meterType: MeterType,
+        value: Double,
+        readingDate: Long = System.currentTimeMillis()
+    ) {
+        viewModelScope.launch {
+            val reading = MeterReading(
+                id = "",
+                homeId = homeId,
+                userId = "",
+                type = meterType,
+                value = value,
+                readingDate = readingDate,
+                imageUrl = null
+            )
+            val result = homeRepository.saveReading(reading)
+            result
+                .onSuccess {
+                    // Reload readings after successful save
+                    loadLatestReadingsForHome(homeId)
+                }
+                .onFailure { e ->
+                    android.util.Log.e("HomeViewModel", "Error saving reading", e)
+                }
+        }
+    }
+
+    fun selectHome(homeId: String) {
+        _uiState.update { it.copy(selectedHomeId = homeId) }
+        savedStateHandle["selectedHomeId"] = homeId
+        loadLatestReadingsForHome(homeId)
+    }
+
     fun clearError() {
         _uiState.update { it.copy(error = null) }
     }
 }
-

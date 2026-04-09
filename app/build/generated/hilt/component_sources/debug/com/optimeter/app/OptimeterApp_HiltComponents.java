@@ -6,6 +6,7 @@ import com.optimeter.app.di.RepositoryModule;
 import com.optimeter.app.presentation.auth.AuthViewModel_HiltModules;
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel_HiltModules;
 import com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel_HiltModules;
+import com.optimeter.app.presentation.scan.ReadingViewModel_HiltModules;
 import com.optimeter.app.presentation.scan.ScannerViewModel_HiltModules;
 import dagger.Binds;
 import dagger.Component;
@@ -166,6 +167,7 @@ public final class OptimeterApp_HiltComponents {
           HomeViewModel_HiltModules.KeyModule.class,
           ActivityCBuilderModule.class,
           ViewModelCBuilderModule.class,
+          ReadingViewModel_HiltModules.KeyModule.class,
           ScannerViewModel_HiltModules.KeyModule.class,
           SettingsViewModel_HiltModules.KeyModule.class
       }
@@ -206,6 +208,7 @@ public final class OptimeterApp_HiltComponents {
           AuthViewModel_HiltModules.BindsModule.class,
           HiltWrapper_HiltViewModelFactory_ViewModelModule.class,
           HomeViewModel_HiltModules.BindsModule.class,
+          ReadingViewModel_HiltModules.BindsModule.class,
           ScannerViewModel_HiltModules.BindsModule.class,
           SettingsViewModel_HiltModules.BindsModule.class
       }
