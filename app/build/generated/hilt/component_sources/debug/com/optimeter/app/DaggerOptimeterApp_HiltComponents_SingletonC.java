@@ -30,6 +30,8 @@ import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel;
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel_HiltModules;
 import com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel;
 import com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel_HiltModules;
+import com.optimeter.app.presentation.scan.ManualEntryViewModel;
+import com.optimeter.app.presentation.scan.ManualEntryViewModel_HiltModules;
 import com.optimeter.app.presentation.scan.ReadingViewModel;
 import com.optimeter.app.presentation.scan.ReadingViewModel_HiltModules;
 import com.optimeter.app.presentation.scan.ScannerViewModel;
@@ -396,7 +398,7 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @Override
     public Map<Class<?>, Boolean> getViewModelKeys() {
-      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, AuthViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, HomeViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ReadingViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ScannerViewModel_HiltModules.KeyModule.provide(), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, SettingsViewModel_HiltModules.KeyModule.provide()));
+      return LazyClassKeyMap.<Boolean>of(ImmutableMap.<String, Boolean>builderWithExpectedSize(6).put(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, AuthViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, HomeViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ManualEntryViewModel, ManualEntryViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ReadingViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ScannerViewModel_HiltModules.KeyModule.provide()).put(LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, SettingsViewModel_HiltModules.KeyModule.provide()).build());
     }
 
     @Override
@@ -422,21 +424,17 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
-
-      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
-
       static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
 
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
 
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
-      @KeepFieldType
-      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
+      static String com_optimeter_app_presentation_scan_ManualEntryViewModel = "com.optimeter.app.presentation.scan.ManualEntryViewModel";
 
-      @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
+
+      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
 
       @KeepFieldType
       ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
@@ -446,6 +444,15 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
 
       @KeepFieldType
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
+
+      @KeepFieldType
+      ManualEntryViewModel com_optimeter_app_presentation_scan_ManualEntryViewModel2;
+
+      @KeepFieldType
+      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
+
+      @KeepFieldType
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
     }
   }
 
@@ -461,6 +468,8 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     private Provider<AuthViewModel> authViewModelProvider;
 
     private Provider<HomeViewModel> homeViewModelProvider;
+
+    private Provider<ManualEntryViewModel> manualEntryViewModelProvider;
 
     private Provider<ReadingViewModel> readingViewModelProvider;
 
@@ -483,14 +492,15 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
         final ViewModelLifecycle viewModelLifecycleParam) {
       this.authViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 0);
       this.homeViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 1);
-      this.readingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
-      this.scannerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
-      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.manualEntryViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 2);
+      this.readingViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 3);
+      this.scannerViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 4);
+      this.settingsViewModelProvider = new SwitchingProvider<>(singletonCImpl, activityRetainedCImpl, viewModelCImpl, 5);
     }
 
     @Override
     public Map<Class<?>, javax.inject.Provider<ViewModel>> getHiltViewModelMap() {
-      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>of(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, ((Provider) authViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, ((Provider) homeViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ((Provider) readingViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ((Provider) scannerViewModelProvider), LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, ((Provider) settingsViewModelProvider)));
+      return LazyClassKeyMap.<javax.inject.Provider<ViewModel>>of(ImmutableMap.<String, javax.inject.Provider<ViewModel>>builderWithExpectedSize(6).put(LazyClassKeyProvider.com_optimeter_app_presentation_auth_AuthViewModel, ((Provider) authViewModelProvider)).put(LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_HomeViewModel, ((Provider) homeViewModelProvider)).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ManualEntryViewModel, ((Provider) manualEntryViewModelProvider)).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ReadingViewModel, ((Provider) readingViewModelProvider)).put(LazyClassKeyProvider.com_optimeter_app_presentation_scan_ScannerViewModel, ((Provider) scannerViewModelProvider)).put(LazyClassKeyProvider.com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel, ((Provider) settingsViewModelProvider)).build());
     }
 
     @Override
@@ -502,28 +512,33 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_optimeter_app_presentation_dashboard_tabs_HomeViewModel = "com.optimeter.app.presentation.dashboard.tabs.HomeViewModel";
 
-      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
-
-      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
-
       static String com_optimeter_app_presentation_scan_ScannerViewModel = "com.optimeter.app.presentation.scan.ScannerViewModel";
 
+      static String com_optimeter_app_presentation_scan_ManualEntryViewModel = "com.optimeter.app.presentation.scan.ManualEntryViewModel";
+
+      static String com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel = "com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel";
+
       static String com_optimeter_app_presentation_auth_AuthViewModel = "com.optimeter.app.presentation.auth.AuthViewModel";
+
+      static String com_optimeter_app_presentation_scan_ReadingViewModel = "com.optimeter.app.presentation.scan.ReadingViewModel";
 
       @KeepFieldType
       HomeViewModel com_optimeter_app_presentation_dashboard_tabs_HomeViewModel2;
 
       @KeepFieldType
-      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
-
-      @KeepFieldType
-      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
-
-      @KeepFieldType
       ScannerViewModel com_optimeter_app_presentation_scan_ScannerViewModel2;
 
       @KeepFieldType
+      ManualEntryViewModel com_optimeter_app_presentation_scan_ManualEntryViewModel2;
+
+      @KeepFieldType
+      SettingsViewModel com_optimeter_app_presentation_dashboard_tabs_SettingsViewModel2;
+
+      @KeepFieldType
       AuthViewModel com_optimeter_app_presentation_auth_AuthViewModel2;
+
+      @KeepFieldType
+      ReadingViewModel com_optimeter_app_presentation_scan_ReadingViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -553,13 +568,16 @@ public final class DaggerOptimeterApp_HiltComponents_SingletonC {
           case 1: // com.optimeter.app.presentation.dashboard.tabs.HomeViewModel 
           return (T) new HomeViewModel(viewModelCImpl.savedStateHandle, singletonCImpl.bindHomeRepositoryProvider.get());
 
-          case 2: // com.optimeter.app.presentation.scan.ReadingViewModel 
+          case 2: // com.optimeter.app.presentation.scan.ManualEntryViewModel 
+          return (T) new ManualEntryViewModel(singletonCImpl.bindHomeRepositoryProvider.get());
+
+          case 3: // com.optimeter.app.presentation.scan.ReadingViewModel 
           return (T) new ReadingViewModel(singletonCImpl.bindHomeRepositoryProvider.get());
 
-          case 3: // com.optimeter.app.presentation.scan.ScannerViewModel 
+          case 4: // com.optimeter.app.presentation.scan.ScannerViewModel 
           return (T) new ScannerViewModel();
 
-          case 4: // com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel 
+          case 5: // com.optimeter.app.presentation.dashboard.tabs.SettingsViewModel 
           return (T) new SettingsViewModel(singletonCImpl.provideSettingsRepositoryProvider.get(), singletonCImpl.bindAuthRepositoryProvider.get());
 
           default: throw new AssertionError(id);

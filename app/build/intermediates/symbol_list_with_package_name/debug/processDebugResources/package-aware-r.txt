@@ -1016,6 +1016,7 @@ string about
 string account
 string add
 string add_device
+string add_new_reading
 string analytics
 string android_credentials_TYPE_PASSWORD_CREDENTIAL
 string androidx_credentials_TYPE_PUBLIC_KEY_CREDENTIAL
@@ -1055,6 +1056,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string confirm_save
+string continue_label
 string copy_toast_msg
 string create_account
 string dark
@@ -1068,6 +1070,7 @@ string delete_account_confirm
 string detected_value
 string device_id
 string dropdown_menu
+string electricity
 string electricity_meter
 string email
 string enter_manually
@@ -1076,6 +1079,7 @@ string fallback_menu_item_copy_link
 string fallback_menu_item_open_in_browser
 string fallback_menu_item_share_link
 string fcm_fallback_notification_channel_label
+string gas
 string gas_meter
 string gcm_defaultSenderId
 string good_morning
@@ -1189,6 +1193,7 @@ string save
 string save_reading
 string scanning
 string search_menu_title
+string select_utility_type
 string selected
 string set_reminder_day
 string settings
@@ -1211,6 +1216,7 @@ string theme
 string tooltip_description
 string tooltip_label
 string validate_reading
+string water
 string water_meter
 string welcome_back
 string wifi_name

@@ -9,6 +9,7 @@ string about
 string account
 string add
 string add_device
+string add_new_reading
 string analytics
 string app_name
 string appearance_localization
@@ -18,6 +19,7 @@ string cancel
 string choose_language
 string choose_theme
 string confirm_save
+string continue_label
 string create_account
 string dark
 string day_of_month
@@ -27,10 +29,12 @@ string delete_account
 string delete_account_confirm
 string detected_value
 string device_id
+string electricity
 string electricity_meter
 string email
 string enter_manually
 string enter_manually_instead
+string gas
 string gas_meter
 string gcm_defaultSenderId
 string good_morning
@@ -79,6 +83,7 @@ string reminder_day_subtitle
 string save
 string save_reading
 string scanning
+string select_utility_type
 string set_reminder_day
 string settings
 string settings_profile
@@ -94,6 +99,7 @@ string terms_privacy
 string terms_subtitle
 string theme
 string validate_reading
+string water
 string water_meter
 string welcome_back
 string wifi_name

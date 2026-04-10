@@ -101,4 +101,12 @@
     <string name="wifi_name">Wi-Fi Name (SSID)</string>
     <string name="wifi_password">Wi-Fi Password</string>
     <string name="provision_ble">Provision Device (BLE)</string>
+
+    <!-- Utility selection -->
+    <string name="select_utility_type">Choose utility type</string>
+    <string name="continue_label">Continue</string>
+    <string name="water">Water</string>
+    <string name="gas">Gas</string>
+    <string name="electricity">Electricity</string>
+    <string name="add_new_reading">Add new reading</string>
 </resources>

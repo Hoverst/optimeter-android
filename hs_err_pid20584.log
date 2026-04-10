@@ -1,0 +1,260 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 232783872 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3926), pid=20584, tid=15404
+#
+# JRE version:  (21.0.10+1) (build )
+# Java VM: OpenJDK 64-Bit Server VM (21.0.10+1-b1163.110, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler @C:\Users\Lenovo\Desktop\Optimeter-v1\app\build\20260410_10580494123211060325.compiler.options
+
+Host: AMD Ryzen 5 5600H with Radeon Graphics         , 12 cores, 13G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+Time: Fri Apr 10 18:47:40 2026 FLE Daylight Time elapsed time: 0.007511 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000244eb6b4770):  JavaThread "Unknown thread" [_thread_in_vm, id=15404, stack(0x000000465ae00000,0x000000465af00000) (1024K)]
+
+Stack: [0x000000465ae00000,0x000000465af00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6ed099]  os::win32::platform_print_native_stack+0xd9  (os_windows_x86.cpp:236)
+V  [jvm.dll+0x8cb76b]  VMError::report+0xd8b  (vmError.cpp:1018)
+V  [jvm.dll+0x8cdf0a]  VMError::report_and_die+0x79a  (vmError.cpp:1886)
+V  [jvm.dll+0x8ce5e3]  VMError::report_and_die+0x43  (vmError.cpp:1656)
+V  [jvm.dll+0x28e1c6]  report_vm_out_of_memory+0x56  (debug.cpp:225)
+V  [jvm.dll+0x6e9955]  os::pd_commit_memory_or_exit+0x75  (os_windows.cpp:3934)
+V  [jvm.dll+0x6dd4ea]  os::commit_memory_or_exit+0x2a  (os.cpp:1957)
+V  [jvm.dll+0x369b4e]  G1PageBasedVirtualSpace::commit+0xde  (g1PageBasedVirtualSpace.cpp:196)
+V  [jvm.dll+0x371a1b]  G1RegionsLargerThanCommitSizeMapper::commit_regions+0x7b  (g1RegionToSpaceMapper.cpp:100)
+V  [jvm.dll+0x3c3619]  HeapRegionManager::expand_any+0xa9  (heapRegionManager.cpp:344)
+V  [jvm.dll+0x3c38bb]  HeapRegionManager::expand_by+0xcb  (heapRegionManager.cpp:361)
+V  [jvm.dll+0x33ce67]  G1CollectedHeap::expand+0xb7  (g1CollectedHeap.cpp:1107)
+V  [jvm.dll+0x33d9ab]  G1CollectedHeap::initialize+0x52b  (g1CollectedHeap.cpp:1480)
+V  [jvm.dll+0x894e7e]  universe_init+0xbe  (universe.cpp:796)
+V  [jvm.dll+0x3d0588]  init_globals+0x48  (init.cpp:133)
+V  [jvm.dll+0x87db91]  Threads::create_vm+0x2a1  (threads.cpp:568)
+V  [jvm.dll+0x464721]  JNI_CreateJavaVM_inner+0x81  (jni.cpp:3628)
+V  [jvm.dll+0x4663c1]  JNI_CreateJavaVM+0x11  (jni.cpp:3723)
+C  [jli.dll+0x52ec]  JavaMain+0x120  (java.c:415)
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17374]
+C  [ntdll.dll+0x4cc91]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff872774308, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x00000244ed8f11e0 WorkerThread "GC Thread#0"                     [id=21128, stack(0x000000465af00000,0x000000465b000000) (1024K)]
+  0x00000244ed900140 ConcurrentGCThread "G1 Main Marker"            [id=15052, stack(0x000000465b000000,0x000000465b100000) (1024K)]
+  0x00000244ed9013f0 WorkerThread "G1 Conc#0"                       [id=23380, stack(0x000000465b100000,0x000000465b200000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff871e5f967]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ff8727e8eb0] Heap_lock - owner thread: 0x00000244eb6b4770
+
+Heap address: 0x0000000722400000, size: 3548 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000722400000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, committed 0K, reserved 0K
+  class space    used 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, TAMS=top-at-mark-start, PB=parsable bottom
+
+Card table byte_map: [0x00000244f2990000,0x00000244f3080000] _byte_map_base: 0x00000244ef07e000
+
+Marking Bits: (CMBitMap*) 0x00000244ed8f18f0
+ Bits: [0x00000244f3080000, 0x00000244f67f0000)
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.004 Loaded shared library C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6cca70000 - 0x00007ff6cca7a000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\java.exe
+0x00007ff988e90000 - 0x00007ff989088000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff987b30000 - 0x00007ff987bf2000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff986b80000 - 0x00007ff986e76000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff986600000 - 0x00007ff986700000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff9691a0000 - 0x00007ff9691b8000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\jli.dll
+0x00007ff969180000 - 0x00007ff96919e000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\VCRUNTIME140.dll
+0x00007ff987f70000 - 0x00007ff988111000 	C:\Windows\System32\USER32.dll
+0x00007ff986b50000 - 0x00007ff986b72000 	C:\Windows\System32\win32u.dll
+0x00007ff9775c0000 - 0x00007ff97785b000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.6456_none_60b8a6cb71f64256\COMCTL32.dll
+0x00007ff988120000 - 0x00007ff98814b000 	C:\Windows\System32\GDI32.dll
+0x00007ff986830000 - 0x00007ff986949000 	C:\Windows\System32\gdi32full.dll
+0x00007ff9878d0000 - 0x00007ff98796e000 	C:\Windows\System32\msvcrt.dll
+0x00007ff986ab0000 - 0x00007ff986b4d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff987e90000 - 0x00007ff987ebf000 	C:\Windows\System32\IMM32.DLL
+0x00007ff969170000 - 0x00007ff96917c000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\vcruntime140_1.dll
+0x00007ff91deb0000 - 0x00007ff91df39000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\msvcp140.dll
+0x00007ff871b10000 - 0x00007ff8728dc000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\server\jvm.dll
+0x00007ff9871c0000 - 0x00007ff987271000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff987a30000 - 0x00007ff987acf000 	C:\Windows\System32\sechost.dll
+0x00007ff987d10000 - 0x00007ff987e30000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff986e80000 - 0x00007ff986ea7000 	C:\Windows\System32\bcrypt.dll
+0x00007ff987280000 - 0x00007ff9872eb000 	C:\Windows\System32\WS2_32.dll
+0x00007ff985ab0000 - 0x00007ff985afb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ff97f680000 - 0x00007ff97f68a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff97dd50000 - 0x00007ff97dd77000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff985920000 - 0x00007ff985932000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ff984d30000 - 0x00007ff984d42000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff969160000 - 0x00007ff96916a000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\jimage.dll
+0x00007ff984b00000 - 0x00007ff984d01000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff975eb0000 - 0x00007ff975ee4000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff986520000 - 0x00007ff9865a2000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff9586b0000 - 0x00007ff9586d1000 	C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\java.dll
+
+JVMTI agents: none
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.6456_none_60b8a6cb71f64256;C:\Users\Lenovo\.gradle\jdks\jetbrains_s_r_o_-21-amd64-windows.2\bin\server
+
+VM Arguments:
+java_command: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler @C:\Users\Lenovo\Desktop\Optimeter-v1\app\build\20260410_10580494123211060325.compiler.options
+java_class_path (initial): C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.9.24\78dab849090e6c5e2eadb6e59a11cdc28fb67a08\kotlin-compiler-embeddable-1.9.24.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.9.24\9928532f12c66ad816a625b3f9984f8368ca6d2b\kotlin-stdlib-1.9.24.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-script-runtime\1.9.24\96771497da90fbc5af1c90fce148db2595a62502\kotlin-script-runtime-1.9.24.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-reflect\1.6.10\1cbe9c92c12a94eea200d23c2bbaedaf3daf5132\kotlin-reflect-1.6.10.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-daemon-embeddable\1.9.24\86685b9c5e8d170925bd9ddbdc263374a6a73281\kotlin-daemon-embeddable-1.9.24.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains.intellij.deps\trove4j\1.0.20200330\3afb14d5f9ceb459d724e907a21145e8ff394f02\trove4j-1.0.20200330.jar;C:\Users\Lenovo\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 232783872                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 3720347648                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 3720347648                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Release file:
+<release file has not been read>
+Environment Variables:
+CLASSPATH=C:\Users\Lenovo\Desktop\Optimeter-v1\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\libnvvp;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.3.0\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\dotnet\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin\\..\extras\CUPTI\lib64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\libnvvp;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.3.0\;C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\;C:\Users\Lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\Lenovo\AppData\Local\Programs\Microsoft VS Code\bin;E:\flutter\flutter\bin;C:\Users\Lenovo\AppData\Roaming\npm;C:\Users\Lenovo\AppData\Local\Google\Cloud SDK\google-cloud-sdk\bin;E:\and\platform-tools;C:\Users\Lenovo\AppData\Local\Programs\Antigravity\bin;C:\Users\Lenovo\AppData\Local\Programs\cursor\resources\app\bin;c:\Users\Lenovo\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand
+USERNAME=Lenovo
+LANG=en_US.UTF-8
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD
+TMP=C:\Users\Lenovo\AppData\Local\Temp
+TEMP=C:\Users\Lenovo\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+JNI global refs:
+JNI global refs: 0, weak refs: 0
+
+JNI global refs memory usage: 0, weak refs: 0
+
+Process memory usage:
+Resident Set Size: 56252K (0% of 14528572K total physical memory with 312304K free physical memory)
+
+OOME stack traces (most recent first):
+Classloader memory used:
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+OS uptime: 0 days 6:12 hours
+
+CPU: total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 25 model 80 stepping 0 microcode 0x0, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4a, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, sha, fma, vzeroupper, clflush, clflushopt, rdtscp, rdpid, fsrm, f16c, pku, cet_ss
+Processor Information for the first 12 processors :
+  Max Mhz: 3301, Current Mhz: 3301, Mhz Limit: 3301
+
+Memory: 4k page, system-wide physical 14188M (304M free)
+TotalPageFile size 31436M (AvailPageFile size 63M)
+current process WorkingSet (physical memory assigned to process): 54M, peak: 54M
+current process commit charge ("private bytes"): 110M, peak: 286M
+
+vm_info: OpenJDK 64-Bit Server VM (21.0.10+1-b1163.110) for windows-amd64 JRE (21.0.10+1-b1163.110), built on 2026-03-06 by "builduser" with MS VC++ 17.14 (VS2022)
+
+END.

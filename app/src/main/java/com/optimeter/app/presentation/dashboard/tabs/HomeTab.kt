@@ -29,6 +29,7 @@ import java.util.*
 fun HomeTab(
     userName: String,
     onMeterSelected: (MeterType, String?) -> Unit,
+    onAddNewReading: (String?) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -41,7 +42,8 @@ fun HomeTab(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(horizontal = 16.dp)
+            .padding(top = 8.dp, bottom = 16.dp)
             .verticalScroll(rememberScrollState())
     ) {
         // Header
@@ -135,7 +137,7 @@ fun HomeTab(
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             // Quick Actions Card
             Card(
@@ -158,9 +160,9 @@ fun HomeTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Button(
-                        onClick = { 
+                        onClick = {
                             val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                            onMeterSelected(MeterType.GAS, homeId) 
+                            onAddNewReading(homeId)
                         },
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(containerColor = Chart1),
@@ -172,7 +174,7 @@ fun HomeTab(
                 }
             }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Text(
                 text = "Current Readings",
@@ -203,26 +205,6 @@ fun HomeTab(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Gas Reading
-            val gasReading = latestReadings[MeterType.GAS]
-            MeterCard(
-                meterType = MeterType.GAS,
-                lastReading = gasReading?.value?.let { 
-                    NumberFormat.getNumberInstance(Locale.US).format(it) 
-                } ?: "-",
-                lastReadingDate = gasReading?.readingDate?.let { 
-                    android.text.format.DateFormat.format("MMM dd", it).toString() 
-                } ?: "-",
-                consumptionString = "-",
-                isTrendingUp = false,
-                onClick = { 
-                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                    onMeterSelected(MeterType.GAS, homeId) 
-                }
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
             // Water Reading
             val waterReading = latestReadings[MeterType.WATER]
             MeterCard(
@@ -240,8 +222,28 @@ fun HomeTab(
                     onMeterSelected(MeterType.WATER, homeId) 
                 }
             )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Gas Reading
+            val gasReading = latestReadings[MeterType.GAS]
+            MeterCard(
+                meterType = MeterType.GAS,
+                lastReading = gasReading?.value?.let { 
+                    NumberFormat.getNumberInstance(Locale.US).format(it) 
+                } ?: "-",
+                lastReadingDate = gasReading?.readingDate?.let { 
+                    android.text.format.DateFormat.format("MMM dd", it).toString() 
+                } ?: "-",
+                consumptionString = "-",
+                isTrendingUp = false,
+                onClick = { 
+                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
+                    onMeterSelected(MeterType.GAS, homeId) 
+                }
+            )
             
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             
             // View Detailed Analytics Button
             OutlinedButton(

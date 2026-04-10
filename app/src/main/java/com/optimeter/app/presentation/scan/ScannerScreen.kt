@@ -38,7 +38,7 @@ fun ScannerScreen(
     meterType: MeterType,
     onNavigateBack: () -> Unit,
     onNavigateToValidation: (String, String) -> Unit, // Digits, encoded PhotoPath
-    onNavigateToManual: () -> Unit,
+    onNavigateToManual: (MeterType) -> Unit,
     viewModel: ScannerViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
@@ -141,14 +141,14 @@ fun ScannerScreen(
         )
 
         Button(
-            onClick = onNavigateToManual,
+            onClick = { onNavigateToManual(meterType) },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(32.dp)
         ) {
             Text(stringResource(R.string.enter_manually))
         }
-        
+       
         } else {
             Column(
                 modifier = Modifier.align(Alignment.Center),
@@ -160,7 +160,7 @@ fun ScannerScreen(
                     Text(stringResource(R.string.grant_permission))
                 }
                 Spacer(modifier = Modifier.height(16.dp))
-                Button(onClick = onNavigateToManual) {
+                Button(onClick = { onNavigateToManual(meterType) }) {
                     Text(stringResource(R.string.enter_manually_instead))
                 }
             }

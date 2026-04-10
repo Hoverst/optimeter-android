@@ -108,8 +108,8 @@ object AppModule {
     fun provideRetrofit(
         client: OkHttpClient
     ): Retrofit {
-        // Using emulator IP (10.0.2.2) to access host machine's localhost
-        val baseUrl = "http://10.0.2.2:4000/"
+        // Production URL for Optimeter backend
+        val baseUrl = "https://optimeter-app-backend.onrender.com/"
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(client)

@@ -15,10 +15,20 @@ import com.optimeter.app.domain.model.MeterType
 @Composable
 fun ManualEntryScreen(
     meterType: MeterType,
-    onSave: (String) -> Unit,
-    onCancel: () -> Unit
+    viewModel: ManualEntryViewModel,
+    onSave: (String) -> Unit, // Keeping for backward compatibility but won't use
+    onCancel: () -> Unit,
+    homeId: String? = null
 ) {
     var manualDigits by remember { mutableStateOf("") }
+    val uiState by viewModel.uiState.collectAsState()
+
+    LaunchedEffect(uiState.isSaveSuccessful) {
+        if (uiState.isSaveSuccessful) {
+            onSave(uiState.savedReading?.id ?: "")
+            viewModel.clearState()
+        }
+    }
 
     Scaffold { padding ->
         Column(
@@ -59,11 +69,27 @@ fun ManualEntryScreen(
                 }
 
                 Button(
-                    onClick = { onSave(manualDigits) },
+                    onClick = {
+                        val value = manualDigits.toDoubleOrNull()
+                        if (value != null && homeId != null) {
+                            viewModel.saveReading(
+                                homeId = homeId,
+                                meterType = meterType,
+                                value = value
+                            )
+                        }
+                    },
                     modifier = Modifier.weight(1f).padding(start = 8.dp),
-                    enabled = manualDigits.isNotBlank()
+                    enabled = manualDigits.isNotBlank() && !uiState.isLoading && homeId != null
                 ) {
-                    Text(stringResource(R.string.save_reading))
+                    if (uiState.isLoading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                            strokeWidth = 2.dp
+                        )
+                    } else {
+                        Text(stringResource(R.string.save_reading))
+                    }
                 }
             }
         }

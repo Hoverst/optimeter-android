@@ -25,6 +25,7 @@ import com.optimeter.app.presentation.history.ReadingDetailScreen
 import com.optimeter.app.presentation.iot.AddDeviceScreen
 import com.optimeter.app.presentation.iot.IoTDevicesScreen
 import com.optimeter.app.presentation.scan.ManualEntryScreen
+import com.optimeter.app.presentation.scan.ManualEntryViewModel
 import com.optimeter.app.presentation.scan.ScannerScreen
 import com.optimeter.app.presentation.scan.ValidationScreen
 
@@ -72,6 +73,9 @@ fun OptimeterNavGraph(
                 onNavigateToScanner = { meterType, homeId ->
                     navController.navigate(Screen.Scanner.createRoute(meterType.name, homeId))
                 },
+                onNavigateToManual = { meterType, homeId ->
+                    navController.navigate(Screen.ManualEntry.createRoute(meterType.name, homeId))
+                },
                 onNavigateToHistoryDetail = { readingId ->
                     navController.navigate(Screen.HistoryDetail.createRoute(readingId))
                 },
@@ -105,8 +109,10 @@ fun OptimeterNavGraph(
                 onNavigateToValidation = { digits, encodedPhotoPath ->
                     navController.navigate(Screen.Validation.createRoute(meterTypeStr, digits, encodedPhotoPath, homeId))
                 },
-                onNavigateToManual = {
-                    navController.navigate(Screen.ManualEntry.createRoute(meterTypeStr, homeId))
+                onNavigateToManual = { meterTypeArg ->
+                    // Forward the meterType selected/used in the camera to ManualEntry,
+                    // preserving the current homeId in the route if present.
+                    navController.navigate(Screen.ManualEntry.createRoute(meterTypeArg.name, homeId))
                 }
             )
         }
@@ -180,13 +186,21 @@ fun OptimeterNavGraph(
             val meterTypeStr = backStackEntry.arguments?.getString("meterType") ?: MeterType.GAS.name
             val homeId = backStackEntry.arguments?.getString("homeId")
             
+            val manualEntryViewModel = hiltViewModel<ManualEntryViewModel>()
+            val uiState by manualEntryViewModel.uiState.collectAsState()
+
             ManualEntryScreen(
                 meterType = MeterType.valueOf(meterTypeStr),
+                viewModel = manualEntryViewModel,
                 onSave = {
-                    // TODO: Implement manual entry save
-                    navController.popBackStack()
+                    // Navigate back to Dashboard and clear intermediate screens (Camera, Manual Entry)
+                    navController.navigate(Screen.Dashboard.route) {
+                        popUpTo(Screen.Dashboard.route) { inclusive = true }
+                    }
+                    manualEntryViewModel.clearState()
                 },
-                onCancel = { navController.popBackStack() }
+                onCancel = { navController.popBackStack() },
+                homeId = homeId
             )
         }
         composable(Screen.History.route) {
