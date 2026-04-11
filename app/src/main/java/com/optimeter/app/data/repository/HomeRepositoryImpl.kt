@@ -13,10 +13,29 @@ import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import android.util.Log
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.channels.BufferOverflow
 
 class HomeRepositoryImpl @Inject constructor(
     private val api: OptimeterApiService
 ) : HomeRepository {
+
+    private val _refreshTrigger = MutableSharedFlow<Unit>(
+        replay = 1,
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    override val refreshTrigger: SharedFlow<Unit> = _refreshTrigger.asSharedFlow()
+
+    init {
+        _refreshTrigger.tryEmit(Unit)
+    }
+
+    private fun notifyUpdate() {
+        _refreshTrigger.tryEmit(Unit)
+    }
 
     override suspend fun addHome(home: Home): Result<Unit> = withContext(Dispatchers.IO) {
         try {
@@ -35,13 +54,14 @@ class HomeRepositoryImpl @Inject constructor(
     override suspend fun removeHome(homeId: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
             api.deleteHome(homeId)
+            notifyUpdate()
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
 
-    override fun getHomes(): Flow<List<Home>> = flow {
+    override fun getHomes(): Flow<List<Home>> = kotlinx.coroutines.flow.flow {
         try {
             Log.d("HomeRepository", "Fetching homes from API...")
             val response = api.getHomes()
@@ -75,6 +95,17 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }.flowOn(Dispatchers.IO)
 
+    override suspend fun deleteReading(readingId: String): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            api.deleteReading(readingId)
+            notifyUpdate()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Log.e("HomeRepository", "Error deleting reading", e)
+            Result.failure(e)
+        }
+    }
+
     override suspend fun saveReading(reading: MeterReading): Result<MeterReading> = withContext(Dispatchers.IO) {
         try {
             val response = api.addReading(
@@ -94,6 +125,7 @@ class HomeRepositoryImpl @Inject constructor(
                 readingDate = Instant.parse(response.readingAt).toEpochMilli(),
                 imageUrl = reading.imageUrl
             )
+            notifyUpdate()
             Result.success(savedReading)
         } catch (e: Exception) {
             Log.e("HomeRepository", "Error saving reading", e)
@@ -101,7 +133,30 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getLatestReadings(homeId: String): Flow<List<MeterReading>> = flow {
+    override fun getReadings(homeId: String): Flow<List<MeterReading>> = kotlinx.coroutines.flow.flow {
+        try {
+            Log.d("HomeRepository", "Fetching all readings for homeId: $homeId")
+            val response = api.getReadings(homeId)
+            
+            val readings = response.map { dto ->
+                MeterReading(
+                    id = dto.id,
+                    homeId = dto.homeId,
+                    userId = "", // Will be populated if needed
+                    type = MeterType.valueOf(dto.utility.uppercase()),
+                    value = dto.value,
+                    readingDate = Instant.parse(dto.readingAt).toEpochMilli(),
+                    imageUrl = null
+                )
+            }
+            emit(readings)
+        } catch (e: Exception) {
+            Log.e("HomeRepository", "Error fetching all readings", e)
+            throw e
+        }
+    }.flowOn(Dispatchers.IO)
+
+    override fun getLatestReadings(homeId: String): Flow<List<MeterReading>> = kotlinx.coroutines.flow.flow {
         try {
             Log.d("HomeRepository", "Fetching latest readings for homeId: $homeId")
             val response = api.getLatestReadings(homeId)

@@ -50,8 +50,6 @@ fun SettingsTab(
     val notificationDay by viewModel.notificationDay.collectAsState()
     val languageCode by viewModel.languageCode.collectAsState()
 
-    val userEmail = viewModel.currentUserEmail ?: "Not signed in"
-    val userId = viewModel.currentUserId ?: ""
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
 
@@ -180,10 +178,26 @@ fun SettingsTab(
     }
 
     if (showDeleteConfirmDialog) {
+        var confirmEmailInput by remember { mutableStateOf("") }
+        val actualEmail = viewModel.currentUserEmail ?: ""
+        val isEmailMatch = confirmEmailInput.trim().equals(actualEmail, ignoreCase = true)
+        
         AlertDialog(
             onDismissRequest = { showDeleteConfirmDialog = false },
             title = { Text("Delete Account") },
-            text = { Text("Are you sure? This will permanently delete your account and all your data. This cannot be undone.") },
+            text = { 
+                Column {
+                    Text("Are you sure? This will permanently delete your account and all your data. This cannot be undone.\n\nPlease type $actualEmail to confirm.")
+                    Spacer(modifier = Modifier.height(16.dp))
+                    OutlinedTextField(
+                        value = confirmEmailInput,
+                        onValueChange = { confirmEmailInput = it },
+                        label = { Text("Type your email to confirm") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -201,8 +215,12 @@ fun SettingsTab(
                                 Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
                             }
                         }
-                    }
-                ) { Text(stringResource(R.string.delete), color = MaterialTheme.colorScheme.error) }
+                    },
+                    enabled = isEmailMatch,
+                    colors = ButtonDefaults.textButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    )
+                ) { Text(stringResource(R.string.delete)) }
             },
             dismissButton = {
                 TextButton(onClick = { showDeleteConfirmDialog = false }) { Text(stringResource(R.string.cancel)) }
@@ -257,10 +275,25 @@ fun SettingsTab(
 
     if (showDeleteHomeDialog != null) {
         val home = showDeleteHomeDialog!!
+        var confirmHomeInput by remember { mutableStateOf("") }
+        val isHomeMatch = confirmHomeInput.trim() == home.name.trim()
+        
         AlertDialog(
             onDismissRequest = { showDeleteHomeDialog = null },
             title = { Text("Delete Home?") },
-            text = { Text("Are you sure you want to delete ${home.name}?") },
+            text = {
+                Column {
+                    Text("Are you sure? This will permanently delete the home '${home.name}' and all its associated data.\n\nPlease type ${home.name} to confirm.")
+                    Spacer(modifier = Modifier.height(16.dp))
+                    OutlinedTextField(
+                        value = confirmHomeInput,
+                        onValueChange = { confirmHomeInput = it },
+                        label = { Text("Type home name to confirm") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -272,9 +305,13 @@ fun SettingsTab(
                                 Toast.makeText(context, e.message ?: "Delete failed", Toast.LENGTH_LONG).show()
                             }
                         }
-                    }
+                    },
+                    enabled = isHomeMatch,
+                    colors = ButtonDefaults.textButtonColors(
+                        contentColor = MaterialTheme.colorScheme.error
+                    )
                 ) {
-                    Text("Delete", color = MaterialTheme.colorScheme.error)
+                    Text("Delete")
                 }
             },
             dismissButton = {
@@ -303,9 +340,47 @@ fun SettingsTab(
 
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(16.dp),
+        contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        // Account Profile Section
+        item {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+            ) {
+                Text(
+                    text = "Account",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Medium
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                Card(
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(
+                                text = viewModel.currentUserEmail ?: "Unknown User",
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
         // My Homes Section
         item {
             Row(
@@ -567,7 +642,10 @@ fun SettingsTab(
         item {
             Button(
                 onClick = { showDeleteConfirmDialog = true },
-                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                    contentColor = MaterialTheme.colorScheme.onErrorContainer
+                ),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(Icons.Default.DeleteForever, contentDescription = null)

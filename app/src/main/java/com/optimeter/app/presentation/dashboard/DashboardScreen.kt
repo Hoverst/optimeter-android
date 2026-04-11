@@ -26,6 +26,12 @@ import com.optimeter.app.presentation.dashboard.tabs.StatisticsTab
 import com.optimeter.app.presentation.dashboard.tabs.AddReadingTab
 import com.optimeter.app.presentation.scan.UtilitySelectionDialog
 import com.optimeter.app.R
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.compose.runtime.saveable.rememberSaveable
+
+enum class DialogIntent { CAMERA, GALLERY }
 
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
@@ -34,29 +40,30 @@ fun DashboardScreen(
     onNavigateToManual: (MeterType, String?) -> Unit,
     onNavigateToHistoryDetail: (String) -> Unit,
     onNavigateToIoTDevices: () -> Unit,
-    onLogout: () -> Unit
+    onLogout: () -> Unit,
+    onNavigateToValidation: (MeterType, String, String?) -> Unit = { _, _, _ -> },
+    onNavigateToHistory: () -> Unit = {}
 ) {
-    var currentTab by remember { mutableStateOf(DashboardTab.HOME) }
+    var currentTab by rememberSaveable { mutableStateOf(DashboardTab.HOME) }
 
-    var showUtilityDialog by remember { mutableStateOf(false) }
-    var selectedType by remember { mutableStateOf<MeterType?>(null) }
-    var pendingHomeId by remember { mutableStateOf<String?>(null) }
+    var showUtilityDialog by rememberSaveable { mutableStateOf(false) }
+    var selectedType by rememberSaveable { mutableStateOf<MeterType?>(null) }
+    var pendingHomeId by rememberSaveable { mutableStateOf<String?>(null) }
+    var dialogIntent by rememberSaveable { mutableStateOf<DialogIntent?>(null) }
+
+    val photoPickerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia(),
+        onResult = { uri ->
+            if (uri != null && selectedType != null) {
+                onNavigateToValidation(selectedType!!, uri.toString(), pendingHomeId)
+                selectedType = null
+                pendingHomeId = null
+                dialogIntent = null
+            }
+        }
+    )
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.app_name)) },
-                actions = {
-                    // Keep the + icon but do not open the dialog from here.
-                    IconButton(onClick = { /* no-op; primary Add button opens the dialog */ }) {
-                        Icon(
-                            imageVector = Icons.Filled.Add,
-                            contentDescription = stringResource(R.string.add_new_reading)
-                        )
-                    }
-                }
-            )
-        },
         bottomBar = {
             BottomNavBar(
                 currentTab = currentTab,
@@ -75,12 +82,20 @@ fun DashboardScreen(
                     onMeterSelected = { meterType, homeId ->
                         onNavigateToScanner(meterType, homeId)
                     },
-                    onAddNewReading = { homeId ->
+                    onAddNewReadingCamera = { homeId ->
                         pendingHomeId = homeId
+                        dialogIntent = DialogIntent.CAMERA
+                        showUtilityDialog = true
+                    },
+                    onAddNewReadingGallery = { homeId ->
+                        pendingHomeId = homeId
+                        dialogIntent = DialogIntent.GALLERY
                         showUtilityDialog = true
                     }
                 )
-                DashboardTab.ANALYTICS -> StatisticsTab()
+                DashboardTab.ANALYTICS -> StatisticsTab(
+                    onNavigateToHistory = onNavigateToHistory
+                )
                 DashboardTab.ADD -> AddReadingTab()
                 DashboardTab.SETTINGS -> SettingsTab(
                     onNavigateToIoTDevices = onNavigateToIoTDevices,
@@ -100,11 +115,18 @@ fun DashboardScreen(
                     },
                     onConfirm = {
                         val type = selectedType ?: MeterType.GAS
-                        // Navigate to the Scanner (camera) screen with the selected meter type and homeId
-                        onNavigateToScanner(type, pendingHomeId)
                         showUtilityDialog = false
-                        selectedType = null
-                        pendingHomeId = null
+                        
+                        if (dialogIntent == DialogIntent.GALLERY) {
+                            // Launch the photo picker, navigation will happen in onResult
+                            photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+                        } else {
+                            // Navigate to the Scanner (camera) screen
+                            onNavigateToScanner(type, pendingHomeId)
+                            selectedType = null
+                            pendingHomeId = null
+                            dialogIntent = null
+                        }
                     }
                 )
             }

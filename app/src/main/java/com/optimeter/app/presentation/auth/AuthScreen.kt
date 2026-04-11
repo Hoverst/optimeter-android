@@ -149,12 +149,11 @@ fun AuthScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TextButton(onClick = viewModel::toggleMode) {
-                Text(
-                    if (uiState.isLoginMode) stringResource(R.string.no_account)
-                    else stringResource(R.string.have_account)
-                )
-            }
+            Text(
+                text = if (uiState.isLoginMode) stringResource(id = R.string.no_account)
+                else "Already have an account? Sign In"
+            )
+
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -170,8 +169,7 @@ fun AuthScreen(
                 Image(
                     painter = painterResource(id = R.drawable.ic_google_logo),
                     contentDescription = "Google Logo",
-                    modifier = Modifier.size(20.dp),
-                    colorFilter = null
+                    modifier = Modifier.size(18.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(stringResource(R.string.sign_in_google))

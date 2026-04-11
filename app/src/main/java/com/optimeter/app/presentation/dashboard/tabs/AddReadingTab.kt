@@ -64,7 +64,8 @@ fun AddReadingTab() {
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(20.dp)
+            .padding(horizontal = 20.dp)
+            .padding(bottom = 20.dp)
             .verticalScroll(rememberScrollState())
     ) {
         // Header

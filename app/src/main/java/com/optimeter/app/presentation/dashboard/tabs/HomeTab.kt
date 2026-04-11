@@ -29,7 +29,8 @@ import java.util.*
 fun HomeTab(
     userName: String,
     onMeterSelected: (MeterType, String?) -> Unit,
-    onAddNewReading: (String?) -> Unit,
+    onAddNewReadingCamera: (String?) -> Unit,
+    onAddNewReadingGallery: (String?) -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -43,7 +44,7 @@ fun HomeTab(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp)
-            .padding(top = 8.dp, bottom = 16.dp)
+            .padding(bottom = 16.dp)
             .verticalScroll(rememberScrollState())
     ) {
         // Header
@@ -162,7 +163,7 @@ fun HomeTab(
                     Button(
                         onClick = {
                             val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                            onAddNewReading(homeId)
+                            onAddNewReadingCamera(homeId)
                         },
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(containerColor = Chart1),
@@ -170,6 +171,21 @@ fun HomeTab(
                         contentPadding = PaddingValues(vertical = 12.dp)
                     ) {
                         Text("Add New Reading", fontWeight = FontWeight.SemiBold)
+                    }
+                    
+                    Spacer(modifier = Modifier.height(12.dp))
+                    
+                    Button(
+                        onClick = {
+                            val homeId = selectedHomeId ?: homes.firstOrNull()?.id
+                            onAddNewReadingGallery(homeId)
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(containerColor = Chart1),
+                        shape = RoundedCornerShape(8.dp),
+                        contentPadding = PaddingValues(vertical = 12.dp)
+                    ) {
+                        Text("Choose from Gallery", fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -185,13 +201,16 @@ fun HomeTab(
 
             Spacer(modifier = Modifier.height(16.dp))
 
+            // Formatter for readings: whole numbers with space as thousands separator
+            val formatReading = { value: Double ->
+                String.format(Locale.US, "%,d", value.toLong()).replace(',', ' ')
+            }
+
             // Electricity Reading
             val electricityReading = latestReadings[MeterType.ELECTRICITY]
             MeterCard(
                 meterType = MeterType.ELECTRICITY,
-                lastReading = electricityReading?.value?.let { 
-                    NumberFormat.getNumberInstance(Locale.US).format(it) 
-                } ?: "-",
+                lastReading = electricityReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = electricityReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
@@ -209,9 +228,7 @@ fun HomeTab(
             val waterReading = latestReadings[MeterType.WATER]
             MeterCard(
                 meterType = MeterType.WATER,
-                lastReading = waterReading?.value?.let { 
-                    NumberFormat.getNumberInstance(Locale.US).format(it) 
-                } ?: "-",
+                lastReading = waterReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = waterReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
@@ -229,9 +246,7 @@ fun HomeTab(
             val gasReading = latestReadings[MeterType.GAS]
             MeterCard(
                 meterType = MeterType.GAS,
-                lastReading = gasReading?.value?.let { 
-                    NumberFormat.getNumberInstance(Locale.US).format(it) 
-                } ?: "-",
+                lastReading = gasReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = gasReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
@@ -243,19 +258,6 @@ fun HomeTab(
                 }
             )
             
-            Spacer(modifier = Modifier.height(16.dp))
-            
-            // View Detailed Analytics Button
-            OutlinedButton(
-                onClick = { /* Navigate to Analytics manually or swap tabs */ },
-                modifier = Modifier.fillMaxWidth(),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-                shape = RoundedCornerShape(8.dp),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
-                contentPadding = PaddingValues(vertical = 12.dp)
-            ) {
-                Text("View Detailed Analytics", fontWeight = FontWeight.Medium)
-            }
         }
     }
 }

@@ -20,6 +20,7 @@ data class HomeUiState(
     val isLoading: Boolean = false,
     val homes: List<Home> = emptyList(),
     val latestReadings: Map<MeterType, MeterReading> = emptyMap(),
+    val allReadings: List<MeterReading> = emptyList(),
     val selectedHomeId: String? = null,
     val error: String? = null
 )
@@ -38,8 +39,11 @@ class HomeViewModel @Inject constructor(
         val savedHomeId = savedStateHandle.get<String>("selectedHomeId")
         _uiState.update { it.copy(selectedHomeId = savedHomeId) }
         
-        // Load homes; readings will be loaded after homes are fetched based on selectedHomeId
-        loadHomes()
+        viewModelScope.launch {
+            homeRepository.refreshTrigger.collect {
+                loadHomes()
+            }
+        }
     }
 
     fun loadHomes() {
@@ -90,6 +94,25 @@ class HomeViewModel @Inject constructor(
                 // Don't clear existing readings on error - keep them visible
             }
         }
+        
+        // Also load all readings for analytics
+        fetchAllReadings(homeId)
+    }
+
+    fun fetchAllReadings(homeId: String) {
+        if (homeId.isBlank()) return
+        viewModelScope.launch {
+            try {
+                homeRepository.getReadings(homeId).collect { readings ->
+                    android.util.Log.d("Analytics", "Data received: ${readings.size} items")
+                    _uiState.update { state ->
+                        state.copy(allReadings = readings)
+                    }
+                }
+            } catch (e: Exception) {
+                android.util.Log.e("Analytics", "Error loading all readings", e)
+            }
+        }
     }
 
     fun addHome(name: String, address: String) {
@@ -125,6 +148,15 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun deleteReading(homeId: String, readingId: String) {
+        viewModelScope.launch {
+            val result = homeRepository.deleteReading(readingId)
+            result.onFailure { e ->
+                android.util.Log.e("HomeViewModel", "Error deleting reading", e)
+            }
+        }
+    }
+
     fun saveReading(
         homeId: String,
         meterType: MeterType,
@@ -142,14 +174,9 @@ class HomeViewModel @Inject constructor(
                 imageUrl = null
             )
             val result = homeRepository.saveReading(reading)
-            result
-                .onSuccess {
-                    // Reload readings after successful save
-                    loadLatestReadingsForHome(homeId)
-                }
-                .onFailure { e ->
-                    android.util.Log.e("HomeViewModel", "Error saving reading", e)
-                }
+            result.onFailure { e ->
+                android.util.Log.e("HomeViewModel", "Error saving reading", e)
+            }
         }
     }
 

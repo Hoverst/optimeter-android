@@ -86,6 +86,13 @@ fun OptimeterNavGraph(
                     navController.navigate(Screen.Auth.route) {
                         popUpTo(0)
                     }
+                },
+                onNavigateToValidation = { meterType, photoUri, homeId ->
+                    val encodedUri = Uri.encode(photoUri)
+                    navController.navigate(Screen.Validation.createRoute(meterType.name, "450", encodedUri, homeId))
+                },
+                onNavigateToHistory = {
+                    navController.navigate(Screen.History.route)
                 }
             )
         }
@@ -204,7 +211,9 @@ fun OptimeterNavGraph(
             )
         }
         composable(Screen.History.route) {
-            // TODO: Implement history screen
+            com.optimeter.app.presentation.history.ReadingsHistoryScreen(
+                onNavigateBack = { navController.popBackStack() }
+            )
         }
         composable(
             route = Screen.HistoryDetail.route,

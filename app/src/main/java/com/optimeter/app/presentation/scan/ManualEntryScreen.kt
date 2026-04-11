@@ -48,7 +48,12 @@ fun ManualEntryScreen(
 
             OutlinedTextField(
                 value = manualDigits,
-                onValueChange = { manualDigits = it },
+                onValueChange = { newValue ->
+                    // Handle pastes with decimals by stripping everything after '.' or ','
+                    val withoutDecimal = newValue.substringBefore('.').substringBefore(',')
+                    // Filter out any remaining non-digit characters (e.g. spaces, letters)
+                    manualDigits = withoutDecimal.filter { it.isDigit() }
+                },
                 label = { Text(stringResource(R.string.reading_value)) },
                 textStyle = MaterialTheme.typography.headlineLarge,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
