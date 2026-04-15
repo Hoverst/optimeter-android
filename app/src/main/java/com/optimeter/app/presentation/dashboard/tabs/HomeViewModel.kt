@@ -22,7 +22,9 @@ data class HomeUiState(
     val latestReadings: Map<MeterType, MeterReading> = emptyMap(),
     val allReadings: List<MeterReading> = emptyList(),
     val selectedHomeId: String? = null,
-    val error: String? = null
+    val readingDifference: Double? = null,
+    val error: String? = null,
+    val selectedAnalyticsMeterType: MeterType = MeterType.ELECTRICITY
 )
 
 @HiltViewModel
@@ -37,7 +39,17 @@ class HomeViewModel @Inject constructor(
     init {
         // Restore selectedHomeId from saved state
         val savedHomeId = savedStateHandle.get<String>("selectedHomeId")
-        _uiState.update { it.copy(selectedHomeId = savedHomeId) }
+        val savedAnalyticsMeterTypeStr = savedStateHandle.get<String>("selectedAnalyticsMeterType")
+        val savedAnalyticsMeterType = savedAnalyticsMeterTypeStr?.let { 
+            try { MeterType.valueOf(it) } catch (e: Exception) { null }
+        }
+        
+        _uiState.update { 
+            it.copy(
+                selectedHomeId = savedHomeId,
+                selectedAnalyticsMeterType = savedAnalyticsMeterType ?: MeterType.ELECTRICITY
+            ) 
+        }
         
         viewModelScope.launch {
             homeRepository.refreshTrigger.collect {
@@ -184,6 +196,11 @@ class HomeViewModel @Inject constructor(
         _uiState.update { it.copy(selectedHomeId = homeId) }
         savedStateHandle["selectedHomeId"] = homeId
         loadLatestReadingsForHome(homeId)
+    }
+
+    fun selectAnalyticsMeterType(type: MeterType) {
+        _uiState.update { it.copy(selectedAnalyticsMeterType = type) }
+        savedStateHandle["selectedAnalyticsMeterType"] = type.name
     }
 
     fun clearError() {

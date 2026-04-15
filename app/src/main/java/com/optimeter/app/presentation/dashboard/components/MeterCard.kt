@@ -114,7 +114,7 @@ fun MeterCard(
                             Icon(
                                 imageVector = if (isTrendingUp) Icons.Default.TrendingUp else Icons.Default.TrendingDown,
                                 contentDescription = null,
-                                tint = if (isTrendingUp) Chart5 else Chart2, // Red if up, Green if down
+                                tint = if (isTrendingUp) Chart5 else Color(0xFF10B981), // Red if up, Green if down
                                 modifier = Modifier.size(12.dp)
                             )
                             Spacer(modifier = Modifier.width(4.dp))

@@ -23,6 +23,7 @@ import com.optimeter.app.presentation.dashboard.components.MeterCard
 import com.optimeter.app.ui.theme.Chart1
 import java.text.NumberFormat
 import java.util.*
+import androidx.compose.ui.graphics.Color
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -166,7 +167,10 @@ fun HomeTab(
                             onAddNewReadingCamera(homeId)
                         },
                         modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(containerColor = Chart1),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = Color.White
+                        ),
                         shape = RoundedCornerShape(8.dp),
                         contentPadding = PaddingValues(vertical = 12.dp)
                     ) {
@@ -181,7 +185,10 @@ fun HomeTab(
                             onAddNewReadingGallery(homeId)
                         },
                         modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(containerColor = Chart1),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                            contentColor = Color.White
+                        ),
                         shape = RoundedCornerShape(8.dp),
                         contentPadding = PaddingValues(vertical = 12.dp)
                     ) {

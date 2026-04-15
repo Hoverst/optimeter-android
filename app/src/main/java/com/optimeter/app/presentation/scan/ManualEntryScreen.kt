@@ -6,6 +6,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
@@ -22,6 +23,12 @@ fun ManualEntryScreen(
 ) {
     var manualDigits by remember { mutableStateOf("") }
     val uiState by viewModel.uiState.collectAsState()
+    
+    val activeUtilityColor = when (meterType) {
+        MeterType.ELECTRICITY -> Color(0xFF9C27B0)
+        MeterType.WATER -> Color(0xFF2196F3)
+        MeterType.GAS -> Color(0xFFFF9800)
+    }
 
     LaunchedEffect(uiState.isSaveSuccessful) {
         if (uiState.isSaveSuccessful) {
@@ -57,7 +64,12 @@ fun ManualEntryScreen(
                 label = { Text(stringResource(R.string.reading_value)) },
                 textStyle = MaterialTheme.typography.headlineLarge,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = activeUtilityColor,
+                    focusedLabelColor = activeUtilityColor,
+                    cursorColor = activeUtilityColor
+                )
             )
 
             Spacer(modifier = Modifier.height(48.dp))
@@ -68,7 +80,8 @@ fun ManualEntryScreen(
             ) {
                 OutlinedButton(
                     onClick = onCancel,
-                    modifier = Modifier.weight(1f).padding(end = 8.dp)
+                    modifier = Modifier.weight(1f).padding(end = 8.dp),
+                    colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.White)
                 ) {
                     Text(stringResource(R.string.cancel))
                 }
@@ -85,7 +98,11 @@ fun ManualEntryScreen(
                         }
                     },
                     modifier = Modifier.weight(1f).padding(start = 8.dp),
-                    enabled = manualDigits.isNotBlank() && !uiState.isLoading && homeId != null
+                    enabled = manualDigits.isNotBlank() && !uiState.isLoading && homeId != null,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = activeUtilityColor,
+                        contentColor = Color.White
+                    )
                 ) {
                     if (uiState.isLoading) {
                         CircularProgressIndicator(

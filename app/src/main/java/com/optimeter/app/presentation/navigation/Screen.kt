@@ -31,7 +31,15 @@ sealed class Screen(val route: String) {
             }
         }
     }
-    object History : Screen("history")
+    object History : Screen("history?meterType={meterType}") {
+        fun createRoute(meterType: String? = null): String {
+            return if (meterType != null) {
+                "history?meterType=$meterType"
+            } else {
+                "history"
+            }
+        }
+    }
     object HistoryDetail : Screen("history/{readingId}") {
         fun createRoute(readingId: String) = "history/$readingId"
     }

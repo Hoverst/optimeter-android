@@ -12,17 +12,20 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Divider
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.optimeter.app.R
-import com.optimeter.app.ui.theme.Chart1
 
 enum class DashboardTab(val labelResId: Int, val icon: ImageVector) {
     HOME(R.string.home, Icons.Outlined.Home),
@@ -46,15 +49,27 @@ fun BottomNavBar(
         ) {
             DashboardTab.values().forEach { tab ->
                 val tabLabel = stringResource(id = tab.labelResId)
+                val isSelected = currentTab == tab
                 NavigationBarItem(
-                    selected = currentTab == tab,
+                    selected = isSelected,
                     onClick = { onTabSelected(tab) },
-                    icon = { Icon(tab.icon, contentDescription = tabLabel) },
+                    icon = {
+                        val iconModifier = if (isSelected) {
+                            Modifier
+                                .border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(50))
+                                .padding(horizontal = 20.dp, vertical = 4.dp)
+                        } else {
+                            Modifier
+                        }
+                        Box(modifier = iconModifier, contentAlignment = Alignment.Center) {
+                            Icon(tab.icon, contentDescription = tabLabel)
+                        }
+                    },
                     label = { Text(tabLabel) },
                     colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Chart1,
-                        selectedTextColor = Chart1,
-                        indicatorColor = Color.Transparent, // Figma design doesn't have the pill highlight
+                        selectedIconColor = Color.White,
+                        selectedTextColor = Color.White,
+                        indicatorColor = Color.Transparent,
                         unselectedIconColor = Color(0xFF9E9E9E), // Light gray for visibility
                         unselectedTextColor = Color(0xFF9E9E9E)
                     ),

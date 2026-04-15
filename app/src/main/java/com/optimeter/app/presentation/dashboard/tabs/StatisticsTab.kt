@@ -47,10 +47,10 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 @Composable
 fun StatisticsTab(
     viewModel: HomeViewModel = hiltViewModel(),
-    onNavigateToHistory: () -> Unit = {}
+    onNavigateToHistory: (MeterType) -> Unit = {}
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    var selectedMeterType by remember { mutableStateOf(MeterType.ELECTRICITY) }
+    val selectedMeterType = uiState.selectedAnalyticsMeterType
 
     // Fetch fresh data when tab opens
     LaunchedEffect(uiState.selectedHomeId) {
@@ -128,11 +128,16 @@ fun StatisticsTab(
         ) {
             meterTypes.forEach { (type, label) ->
                 val isSelected = selectedMeterType == type
+                val tabColor = when(type) {
+                    MeterType.ELECTRICITY -> Chart1
+                    MeterType.GAS -> Chart2
+                    MeterType.WATER -> Chart4
+                }
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(8.dp))
-                        .background(if (isSelected) Chart1 else MaterialTheme.colorScheme.surface)
-                        .clickable { selectedMeterType = type }
+                        .background(if (isSelected) tabColor else MaterialTheme.colorScheme.surface)
+                        .clickable { viewModel.selectAnalyticsMeterType(type) }
                         .padding(horizontal = 16.dp, vertical = 8.dp)
                 ) {
                     Text(
@@ -167,8 +172,11 @@ fun StatisticsTab(
                 modifier = Modifier.weight(1f) // Ensure equal width
             ) {
                 Column(modifier = Modifier.padding(12.dp)) {
+                    // Critical: Binary logic for Trend Color and Text
+                    // trend <= 0.0 is GOOD (Color.Green)
+                    // trend > 0.0 is BAD (Color.Red)
+                    val isBad = trend > 0.0
                     val trendInt = trend.toInt()
-                    val isBad = trendInt > 0
                     
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Icon(
@@ -180,16 +188,18 @@ fun StatisticsTab(
                         Spacer(modifier = Modifier.width(4.dp))
                         Text("Trend", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
+                    
                     val trendText = when {
                         trendInt > 0 -> "+${trendInt}%"
                         trendInt < 0 -> "${trendInt}%"
                         else -> "0%"
                     }
+                    
                     Text(
                         text = trendText,
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.SemiBold,
-                        color = if (isBad) Chart5 else Chart2
+                        color = if (trend <= 0.0) Color(0xFF66BB6A) else Color.Red
                     )
                     Text("vs last", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
@@ -220,7 +230,9 @@ fun StatisticsTab(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 Row(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .defaultMinSize(minHeight = 24.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -265,34 +277,49 @@ fun StatisticsTab(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Reading Cards
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            StatCard(
-                title = "Previous Reading",
-                value = if (filteredReadings.size >= 2) filteredReadings[filteredReadings.size - 2].value.toInt().toString() else "-",
-                subtitle = unit,
-                modifier = Modifier.weight(1f)
-            )
-            StatCard(
-                title = "Latest Reading",
-                value = if (filteredReadings.isNotEmpty()) filteredReadings.last().value.toInt().toString() else "-",
-                subtitle = unit,
-                modifier = Modifier.weight(1f)
-            )
+    // Reading Cards
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        StatCard(
+            title = "Previous Reading",
+            value = if (filteredReadings.size >= 2) filteredReadings[filteredReadings.size - 2].value.toInt().toString() else "—",
+            subtitle = unit,
+            modifier = Modifier.weight(1f)
+        )
+        StatCard(
+            title = "Latest Reading",
+            value = if (filteredReadings.isNotEmpty()) filteredReadings.last().value.toInt().toString() else "—",
+            subtitle = unit,
+            modifier = Modifier.weight(1f)
+        )
+        val differenceValue = if (filteredReadings.size >= 2) {
+            (filteredReadings.last().value - filteredReadings[filteredReadings.size - 2].value).toInt().toString()
+        } else {
+            "—"
         }
+        StatCard(
+            title = "Difference (Різниця)",
+            value = differenceValue,
+            subtitle = unit,
+            valueColor = themeColor,
+            modifier = Modifier.weight(1f)
+        )
+    }
         
         Spacer(modifier = Modifier.height(24.dp))
         
         Button(
-            onClick = onNavigateToHistory,
+            onClick = { onNavigateToHistory(selectedMeterType) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Chart1)
+            colors = ButtonDefaults.buttonColors(
+                containerColor = themeColor,
+                contentColor = Color.White
+            )
         ) {
-            Text("View All Readings (Продивитися всі показники)")
+            Text("View All Readings")
         }
     }
 }
@@ -487,7 +514,13 @@ fun CustomLineChart(
 }
 
 @Composable
-fun StatCard(title: String, value: String, subtitle: String, modifier: Modifier = Modifier) {
+fun StatCard(
+    title: String,
+    value: String,
+    subtitle: String,
+    modifier: Modifier = Modifier,
+    valueColor: Color = MaterialTheme.colorScheme.onSurface
+) {
     Card(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         shape = RoundedCornerShape(12.dp),
@@ -495,9 +528,23 @@ fun StatCard(title: String, value: String, subtitle: String, modifier: Modifier 
         modifier = modifier
     ) {
         Column(modifier = Modifier.padding(12.dp)) {
-            Text(title, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text(value, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
-            Text(subtitle, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(
+                title,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1
+            )
+            Text(
+                value,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.SemiBold,
+                color = valueColor
+            )
+            Text(
+                subtitle,
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
         }
     }
 }

@@ -35,6 +35,7 @@ import kotlinx.coroutines.launch
 import com.optimeter.app.R
 import com.optimeter.app.domain.model.ThemeConfig
 import com.optimeter.app.domain.model.Home
+import androidx.compose.ui.graphics.Color
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
 
 @Composable
@@ -217,9 +218,7 @@ fun SettingsTab(
                         }
                     },
                     enabled = isEmailMatch,
-                    colors = ButtonDefaults.textButtonColors(
-                        contentColor = MaterialTheme.colorScheme.error
-                    )
+                    colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
                 ) { Text(stringResource(R.string.delete)) }
             },
             dismissButton = {
@@ -307,9 +306,7 @@ fun SettingsTab(
                         }
                     },
                     enabled = isHomeMatch,
-                    colors = ButtonDefaults.textButtonColors(
-                        contentColor = MaterialTheme.colorScheme.error
-                    )
+                    colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
                 ) {
                     Text("Delete")
                 }
@@ -460,13 +457,13 @@ fun SettingsTab(
                                 modifier = Modifier
                                     .size(48.dp)
                                     .clip(RoundedCornerShape(12.dp))
-                                    .background(com.optimeter.app.ui.theme.Chart1.copy(alpha = 0.15f)),
+                                    .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
                                     imageVector = Icons.Outlined.Home,
                                     contentDescription = null,
-                                    tint = com.optimeter.app.ui.theme.Chart1,
+                                    tint = MaterialTheme.colorScheme.primary,
                                     modifier = Modifier.size(24.dp)
                                 )
                             }

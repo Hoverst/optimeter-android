@@ -46,6 +46,12 @@ fun ScannerScreen(
     val uiState by viewModel.uiState.collectAsState()
     val coroutineScope = rememberCoroutineScope()
 
+    val activeUtilityColor = when (meterType) {
+        MeterType.ELECTRICITY -> Color(0xFF9C27B0)
+        MeterType.WATER -> Color(0xFF2196F3)
+        MeterType.GAS -> Color(0xFFFF9800)
+    }
+
     val cameraExecutor = remember { Executors.newSingleThreadExecutor() }
     val imageCapture = remember { ImageCapture.Builder().build() }
 
@@ -144,7 +150,8 @@ fun ScannerScreen(
             onClick = { onNavigateToManual(meterType) },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
-                .padding(32.dp)
+                .padding(32.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = activeUtilityColor, contentColor = Color.White)
         ) {
             Text(stringResource(R.string.enter_manually))
         }
@@ -160,7 +167,10 @@ fun ScannerScreen(
                     Text(stringResource(R.string.grant_permission))
                 }
                 Spacer(modifier = Modifier.height(16.dp))
-                Button(onClick = { onNavigateToManual(meterType) }) {
+                Button(
+                    onClick = { onNavigateToManual(meterType) },
+                    colors = ButtonDefaults.buttonColors(containerColor = activeUtilityColor, contentColor = Color.White)
+                ) {
                     Text(stringResource(R.string.enter_manually_instead))
                 }
             }

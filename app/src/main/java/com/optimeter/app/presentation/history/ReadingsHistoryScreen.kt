@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
-import com.optimeter.app.ui.theme.Chart1
+import com.optimeter.app.ui.theme.*
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -30,11 +30,18 @@ import java.util.Locale
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ReadingsHistoryScreen(
+    initialMeterType: MeterType? = null,
     onNavigateBack: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    var selectedMeterType by remember { mutableStateOf(MeterType.ELECTRICITY) }
+    var selectedMeterType by remember { mutableStateOf(initialMeterType ?: MeterType.ELECTRICITY) }
+    
+    LaunchedEffect(initialMeterType) {
+        initialMeterType?.let {
+            selectedMeterType = it
+        }
+    }
     
     var showDeleteDialog by remember { mutableStateOf(false) }
     var readingToDelete by remember { mutableStateOf<com.optimeter.app.domain.model.MeterReading?>(null) }
@@ -89,10 +96,15 @@ fun ReadingsHistoryScreen(
             ) {
                 meterTypes.forEach { (type, label) ->
                     val isSelected = selectedMeterType == type
+                    val tabColor = when (type) {
+                        MeterType.ELECTRICITY -> Chart1
+                        MeterType.GAS -> Chart2
+                        MeterType.WATER -> Chart4
+                    }
                     Box(
                         modifier = Modifier
                             .clip(RoundedCornerShape(8.dp))
-                            .background(if (isSelected) Chart1 else MaterialTheme.colorScheme.surface)
+                            .background(if (isSelected) tabColor else MaterialTheme.colorScheme.surface)
                             .clickable { selectedMeterType = type }
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                     ) {
@@ -191,9 +203,7 @@ fun ReadingsHistoryScreen(
                         showDeleteDialog = false
                         readingToDelete = null
                     },
-                    colors = ButtonDefaults.textButtonColors(
-                        contentColor = MaterialTheme.colorScheme.error
-                    )
+                    colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
                 ) {
                     Text("Delete")
                 }

@@ -42,7 +42,7 @@ fun DashboardScreen(
     onNavigateToIoTDevices: () -> Unit,
     onLogout: () -> Unit,
     onNavigateToValidation: (MeterType, String, String?) -> Unit = { _, _, _ -> },
-    onNavigateToHistory: () -> Unit = {}
+    onNavigateToHistory: (MeterType) -> Unit = {}
 ) {
     var currentTab by rememberSaveable { mutableStateOf(DashboardTab.HOME) }
 
