@@ -37,7 +37,7 @@ import com.optimeter.app.ui.theme.Chart1
 fun AddReadingTab() {
     var readingValue by remember { mutableStateOf("") }
     var expanded by remember { mutableStateOf(false) }
-    var selectedMeterType by remember { mutableStateOf(MeterType.ELECTRICITY) }
+    var selectedMeterType by remember { mutableStateOf(MeterType.WATER) }
     var selectedImage by remember { mutableStateOf<Any?>(null) }
 
     val cameraLauncher = rememberLauncherForActivityResult(

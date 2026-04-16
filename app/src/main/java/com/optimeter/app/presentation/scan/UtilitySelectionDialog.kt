@@ -54,7 +54,7 @@ fun UtilitySelectionDialog(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     contentPadding = PaddingValues(top = 4.dp, bottom = 12.dp)
                 ) {
-                    val orderedTypes = listOf(MeterType.ELECTRICITY, MeterType.WATER, MeterType.GAS)
+                    val orderedTypes = listOf(MeterType.WATER, MeterType.ELECTRICITY, MeterType.GAS)
                     items(orderedTypes) { type ->
                         UtilityTypeItem(
                             type = type,

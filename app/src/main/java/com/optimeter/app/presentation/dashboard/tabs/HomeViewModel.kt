@@ -24,7 +24,7 @@ data class HomeUiState(
     val selectedHomeId: String? = null,
     val readingDifference: Double? = null,
     val error: String? = null,
-    val selectedAnalyticsMeterType: MeterType = MeterType.ELECTRICITY
+    val selectedAnalyticsMeterType: MeterType = MeterType.WATER
 )
 
 @HiltViewModel
@@ -47,7 +47,7 @@ class HomeViewModel @Inject constructor(
         _uiState.update { 
             it.copy(
                 selectedHomeId = savedHomeId,
-                selectedAnalyticsMeterType = savedAnalyticsMeterType ?: MeterType.ELECTRICITY
+                selectedAnalyticsMeterType = savedAnalyticsMeterType ?: MeterType.WATER
             ) 
         }
         

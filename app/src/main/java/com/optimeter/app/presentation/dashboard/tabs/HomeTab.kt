@@ -213,24 +213,6 @@ fun HomeTab(
                 String.format(Locale.US, "%,d", value.toLong()).replace(',', ' ')
             }
 
-            // Electricity Reading
-            val electricityReading = latestReadings[MeterType.ELECTRICITY]
-            MeterCard(
-                meterType = MeterType.ELECTRICITY,
-                lastReading = electricityReading?.value?.let { formatReading(it) } ?: "-",
-                lastReadingDate = electricityReading?.readingDate?.let { 
-                    android.text.format.DateFormat.format("MMM dd", it).toString() 
-                } ?: "-",
-                consumptionString = "-", // TODO: Calculate consumption from previous reading
-                isTrendingUp = false,
-                onClick = { 
-                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                    onMeterSelected(MeterType.ELECTRICITY, homeId) 
-                }
-            )
-
-            Spacer(modifier = Modifier.height(12.dp))
-
             // Water Reading
             val waterReading = latestReadings[MeterType.WATER]
             MeterCard(
@@ -244,6 +226,24 @@ fun HomeTab(
                 onClick = { 
                     val homeId = selectedHomeId ?: homes.firstOrNull()?.id
                     onMeterSelected(MeterType.WATER, homeId) 
+                }
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            // Electricity Reading
+            val electricityReading = latestReadings[MeterType.ELECTRICITY]
+            MeterCard(
+                meterType = MeterType.ELECTRICITY,
+                lastReading = electricityReading?.value?.let { formatReading(it) } ?: "-",
+                lastReadingDate = electricityReading?.readingDate?.let { 
+                    android.text.format.DateFormat.format("MMM dd", it).toString() 
+                } ?: "-",
+                consumptionString = "-", // TODO: Calculate consumption from previous reading
+                isTrendingUp = false,
+                onClick = { 
+                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
+                    onMeterSelected(MeterType.ELECTRICITY, homeId) 
                 }
             )
 

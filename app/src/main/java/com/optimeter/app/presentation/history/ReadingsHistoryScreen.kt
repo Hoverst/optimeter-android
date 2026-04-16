@@ -35,7 +35,7 @@ fun ReadingsHistoryScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    var selectedMeterType by remember { mutableStateOf(initialMeterType ?: MeterType.ELECTRICITY) }
+    var selectedMeterType by remember { mutableStateOf(initialMeterType ?: MeterType.WATER) }
     
     LaunchedEffect(initialMeterType) {
         initialMeterType?.let {
@@ -54,8 +54,8 @@ fun ReadingsHistoryScreen(
     }
 
     val meterTypes = listOf(
-        MeterType.ELECTRICITY to "Electricity",
         MeterType.WATER to "Water",
+        MeterType.ELECTRICITY to "Electricity",
         MeterType.GAS to "Gas"
     )
 

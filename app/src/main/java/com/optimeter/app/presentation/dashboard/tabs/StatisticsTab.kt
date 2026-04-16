@@ -60,8 +60,8 @@ fun StatisticsTab(
     }
 
     val meterTypes = listOf(
-        MeterType.ELECTRICITY to "Electricity",
         MeterType.WATER to "Water",
+        MeterType.ELECTRICITY to "Electricity",
         MeterType.GAS to "Gas"
     )
 
