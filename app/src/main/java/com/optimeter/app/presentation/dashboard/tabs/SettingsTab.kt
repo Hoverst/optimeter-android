@@ -59,6 +59,7 @@ fun SettingsTab(
     var showLanguageDialog by remember { mutableStateOf(false) }
     var showReminderDayDialog by remember { mutableStateOf(false) }
     var showDeleteConfirmDialog by remember { mutableStateOf(false) }
+    var showLogoutDialog by remember { mutableStateOf(false) }
     var showAddHomeDialog by remember { mutableStateOf(false) }
     var showDeleteHomeDialog by remember { mutableStateOf<Home?>(null) }
     var homeToEdit by remember { mutableStateOf<Home?>(null) }
@@ -171,6 +172,36 @@ fun SettingsTab(
             },
             dismissButton = {
                 TextButton(onClick = { showReminderDayDialog = false }) { Text("Cancel") }
+            }
+        )
+    }
+
+    if (showLogoutDialog) {
+        AlertDialog(
+            onDismissRequest = { showLogoutDialog = false },
+            title = { Text(stringResource(R.string.log_out)) },
+            text = { Text(stringResource(R.string.logout_confirmation_text)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showLogoutDialog = false
+                        scope.launch {
+                            try {
+                                viewModel.logout(context)
+                                onLogout()
+                            } catch (e: Exception) {
+                                Toast.makeText(context, e.message ?: "Logout failed", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    }
+                ) {
+                    Text(stringResource(R.string.log_out))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showLogoutDialog = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
             }
         )
     }
@@ -669,16 +700,7 @@ fun SettingsTab(
 
         item {
             OutlinedButton(
-                onClick = {
-                    scope.launch {
-                        try {
-                            viewModel.logout(context)
-                            onLogout()
-                        } catch (e: Exception) {
-                            Toast.makeText(context, e.message ?: "Logout failed", Toast.LENGTH_LONG).show()
-                        }
-                    }
-                },
+                onClick = { showLogoutDialog = true },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)

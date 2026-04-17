@@ -58,6 +58,7 @@ string last_reading
 string latest_reading
 string light
 string log_out
+string logout_confirmation_text
 string manage_smart_meters
 string meter_readings_over_time
 string meter_type

@@ -54,8 +54,9 @@
     <string name="latest_reading">Latest Reading</string>
     <string name="light">Light</string>
     <string name="log_out">Log Out</string>
+    <string name="logout_confirmation_text">Are you sure you want to log out?</string>
     <string name="manage_smart_meters">Manage your smart meters</string>
-    <string name="meter_readings_over_time">Meter Readings Over Time</string>
+    <string name="meter_readings_over_time">Meter Readings</string>
     <string name="meter_type">Meter Type</string>
     <string name="my_devices">My IoT Devices</string>
     <string name="my_homes">My Homes</string>

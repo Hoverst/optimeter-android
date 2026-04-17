@@ -1105,6 +1105,7 @@ string last_reading
 string latest_reading
 string light
 string log_out
+string logout_confirmation_text
 string m3c_bottom_sheet_collapse_description
 string m3c_bottom_sheet_dismiss_description
 string m3c_bottom_sheet_drag_handle_description

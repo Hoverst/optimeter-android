@@ -443,6 +443,7 @@ fun CustomLineChart(
 
         val points = mutableListOf<Offset>()
         val stepX = if (readings.size > 1) graphWidth / (readings.size - 1) else graphWidth / 2f
+        val monthFormat = java.text.SimpleDateFormat("MMM", java.util.Locale.getDefault())
 
         readings.forEachIndexed { index, reading ->
             val xOffset = if (readings.size == 1) leftPadding + graphWidth / 2f else leftPadding + index * stepX
@@ -451,7 +452,11 @@ fun CustomLineChart(
             points.add(Offset(xOffset, yOffset))
             
             // Draw X-axis label
-            val label = (startIndex + index + 1).toString()
+            val label = try {
+                monthFormat.format(java.util.Date(reading.readingDate))
+            } catch (e: Exception) {
+                (startIndex + index + 1).toString()
+            }
             val textResult = textMeasurer.measure(label, axisLabelStyle)
             drawText(
                 textLayoutResult = textResult,

@@ -85,6 +85,7 @@
     <string name="terms_of_use">Умови використання</string>
     <string name="terms_subtitle">Переглянути умови та положення</string>
     <string name="log_out">Вийти</string>
+    <string name="logout_confirmation_text">Ви впевнені, що хочете вийти з акаунта?</string>
     <string name="delete_account">Видалити акаунт</string>
     <string name="delete_account_confirm">Ви впевнені? Це безповоротно видалить ваш акаунт та всі ваші дані. Цю дію не можна скасувати.</string>
     <string name="save">Зберегти</string>

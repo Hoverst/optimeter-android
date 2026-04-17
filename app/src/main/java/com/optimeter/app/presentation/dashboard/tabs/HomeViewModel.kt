@@ -7,11 +7,13 @@ import com.optimeter.app.domain.model.Home
 import com.optimeter.app.domain.model.MeterReading
 import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.domain.repository.HomeRepository
+import com.optimeter.app.domain.repository.SettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -31,14 +33,13 @@ data class HomeUiState(
 class HomeViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val homeRepository: HomeRepository,
+    private val settingsRepository: SettingsRepository,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState(isLoading = true))
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
-        // Restore selectedHomeId from saved state
-        val savedHomeId = savedStateHandle.get<String>("selectedHomeId")
         val savedAnalyticsMeterTypeStr = savedStateHandle.get<String>("selectedAnalyticsMeterType")
         val savedAnalyticsMeterType = savedAnalyticsMeterTypeStr?.let { 
             try { MeterType.valueOf(it) } catch (e: Exception) { null }
@@ -46,12 +47,18 @@ class HomeViewModel @Inject constructor(
         
         _uiState.update { 
             it.copy(
-                selectedHomeId = savedHomeId,
                 selectedAnalyticsMeterType = savedAnalyticsMeterType ?: MeterType.WATER
             ) 
         }
         
         viewModelScope.launch {
+            val persistedHomeId = settingsRepository.selectedHomeId.firstOrNull()
+            val savedStateHomeId = savedStateHandle.get<String>("selectedHomeId")
+            
+            _uiState.update { 
+                it.copy(selectedHomeId = savedStateHomeId ?: persistedHomeId) 
+            }
+            
             homeRepository.refreshTrigger.collect {
                 loadHomes()
             }
@@ -78,9 +85,14 @@ class HomeViewModel @Inject constructor(
                         else -> null
                     }
                     
-                    // Update selectedHomeId if it's not set yet and we have homes
-                    if (updatedState.selectedHomeId == null && homes.isNotEmpty()) {
-                        _uiState.update { it.copy(selectedHomeId = homes.first().id) }
+                    // Check if currentSelectedId is valid
+                    val isSelectedIdValid = currentSelectedId != null && homes.any { it.id == currentSelectedId }
+                    
+                    if (!isSelectedIdValid && homes.isNotEmpty()) {
+                        val firstHomeId = homes.first().id
+                        _uiState.update { it.copy(selectedHomeId = firstHomeId) }
+                        settingsRepository.setSelectedHomeId(firstHomeId)
+                        savedStateHandle["selectedHomeId"] = firstHomeId
                     }
                     
                     // Load readings for the appropriate home
@@ -208,6 +220,9 @@ class HomeViewModel @Inject constructor(
     fun selectHome(homeId: String) {
         _uiState.update { it.copy(selectedHomeId = homeId) }
         savedStateHandle["selectedHomeId"] = homeId
+        viewModelScope.launch {
+            settingsRepository.setSelectedHomeId(homeId)
+        }
         loadLatestReadingsForHome(homeId)
     }
 

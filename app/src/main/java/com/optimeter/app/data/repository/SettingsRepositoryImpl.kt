@@ -22,6 +22,7 @@ class SettingsRepositoryImpl(
         val PUSH_NOTIFICATIONS = booleanPreferencesKey("push_notifications")
         val NOTIFICATION_DAY = intPreferencesKey("notification_day")
         val LANGUAGE_CODE = stringPreferencesKey("language_code")
+        val SELECTED_HOME_ID = stringPreferencesKey("selected_home_id")
     }
 
     override val themeConfig: Flow<ThemeConfig> = context.dataStore.data
@@ -56,6 +57,14 @@ class SettingsRepositoryImpl(
             preferences[PreferencesKeys.LANGUAGE_CODE] ?: "en"
         }
 
+    override val selectedHomeId: Flow<String?> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[PreferencesKeys.SELECTED_HOME_ID]
+        }
+
     override suspend fun setThemeConfig(config: ThemeConfig) {
         context.dataStore.edit { preferences ->
             preferences[PreferencesKeys.THEME_CONFIG] = config.name
@@ -85,5 +94,15 @@ class SettingsRepositoryImpl(
             .edit()
             .putString("language_code", code)
             .commit()   // synchronous — NOT apply()
+    }
+
+    override suspend fun setSelectedHomeId(homeId: String?) {
+        context.dataStore.edit { preferences ->
+            if (homeId != null) {
+                preferences[PreferencesKeys.SELECTED_HOME_ID] = homeId
+            } else {
+                preferences.remove(PreferencesKeys.SELECTED_HOME_ID)
+            }
+        }
     }
 }

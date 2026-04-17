@@ -85,6 +85,7 @@
     <string name="terms_of_use">Terms of Use</string>
     <string name="terms_subtitle">View terms and conditions</string>
     <string name="log_out">Log Out</string>
+    <string name="logout_confirmation_text">Are you sure you want to log out?</string>
     <string name="delete_account">Delete Account</string>
     <string name="delete_account_confirm">Are you sure? This will permanently delete your account and all your data. This cannot be undone.</string>
     <string name="save">Save</string>
@@ -118,7 +119,7 @@
     <string name="per_period">per period</string>
     <string name="trend_label">Trend</string>
     <string name="vs_last">vs last</string>
-    <string name="meter_readings_over_time">Meter Readings Over Time</string>
+    <string name="meter_readings_over_time">Meter Readings</string>
     <string name="previous_reading">Previous Reading</string>
     <string name="latest_reading">Latest Reading</string>
     <string name="difference">Last Difference</string>

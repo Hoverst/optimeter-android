@@ -8,9 +8,11 @@ interface SettingsRepository {
     val pushNotificationsEnabled: Flow<Boolean>
     val notificationDay: Flow<Int>
     val languageCode: Flow<String>
+    val selectedHomeId: Flow<String?>
 
     suspend fun setThemeConfig(config: ThemeConfig)
     suspend fun setPushNotificationsEnabled(enabled: Boolean)
     suspend fun setNotificationDay(day: Int)
     suspend fun setLanguageCode(code: String)
+    suspend fun setSelectedHomeId(homeId: String?)
 }

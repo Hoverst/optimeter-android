@@ -47,6 +47,7 @@
     <string name="latest_reading">Останній показник</string>
     <string name="light">Світла</string>
     <string name="log_out">Вийти</string>
+    <string name="logout_confirmation_text">Ви впевнені, що хочете вийти з акаунта?</string>
     <string name="manage_smart_meters">Керування розумними лічильниками</string>
     <string name="meter_readings_over_time">Історія показників</string>
     <string name="meter_type">Тип лічильника</string>
