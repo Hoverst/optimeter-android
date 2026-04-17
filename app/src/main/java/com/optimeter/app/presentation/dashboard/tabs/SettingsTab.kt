@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Policy
 import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -60,6 +61,7 @@ fun SettingsTab(
     var showDeleteConfirmDialog by remember { mutableStateOf(false) }
     var showAddHomeDialog by remember { mutableStateOf(false) }
     var showDeleteHomeDialog by remember { mutableStateOf<Home?>(null) }
+    var homeToEdit by remember { mutableStateOf<Home?>(null) }
     val homeUiState by homeViewModel.uiState.collectAsState()
 
     // --- Dialogs ---
@@ -267,6 +269,54 @@ fun SettingsTab(
         )
     }
 
+    if (homeToEdit != null) {
+        val home = homeToEdit!!
+        var editHomeName by remember(home) { mutableStateOf(home.name) }
+        var editHomeAddress by remember(home) { mutableStateOf(home.address) }
+        AlertDialog(
+            onDismissRequest = { homeToEdit = null },
+            title = { Text("Edit Home") },
+            text = {
+                Column {
+                    OutlinedTextField(
+                        value = editHomeName,
+                        onValueChange = { editHomeName = it },
+                        label = { Text("Home Name") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = editHomeAddress,
+                        onValueChange = { editHomeAddress = it },
+                        label = { Text("Address") },
+                        singleLine = true,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        homeViewModel.updateHome(
+                            home.copy(
+                                name = editHomeName,
+                                address = editHomeAddress
+                            )
+                        )
+                        homeToEdit = null
+                    },
+                    enabled = editHomeName.isNotBlank() && editHomeAddress.isNotBlank()
+                ) {
+                    Text("Save")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { homeToEdit = null }) { Text("Cancel") }
+            }
+        )
+    }
+
     if (showDeleteHomeDialog != null) {
         val home = showDeleteHomeDialog!!
         var confirmHomeInput by remember { mutableStateOf("") }
@@ -443,55 +493,66 @@ fun SettingsTab(
                                 .padding(16.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(48.dp)
-                                    .clip(RoundedCornerShape(12.dp))
-                                    .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.15f)),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Outlined.Home,
-                                    contentDescription = null,
-                                    tint = MaterialTheme.colorScheme.primary,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
+                                Box(
+                                    modifier = Modifier.padding(end = 8.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Outlined.Home,
+                                        contentDescription = null,
+                                        tint = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                }
 
-                            Spacer(modifier = Modifier.width(16.dp))
+                                IconButton(
+                                    onClick = { homeToEdit = home },
+                                    modifier = Modifier
+                                        .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.1f), shape = RoundedCornerShape(8.dp))
+                                        .size(40.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Outlined.Edit,
+                                        contentDescription = "Edit Home",
+                                        tint = MaterialTheme.colorScheme.primary,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
 
-                            Column(modifier = Modifier.weight(1f)) {
-                                Text(
-                                    text = home.name,
-                                    style = MaterialTheme.typography.titleMedium,
-                                    fontWeight = FontWeight.Medium
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
-                                Text(
-                                    text = home.address,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            }
+                                Spacer(modifier = Modifier.width(16.dp))
 
-                            // Delete button for each home
-                            IconButton(
-                                onClick = {
-                                    home.takeIf { it.id.isNotEmpty() }?.let { h ->
-                                        showDeleteHomeDialog = h
-                                    }
-                                },
-                                modifier = Modifier
-                                    .background(MaterialTheme.colorScheme.errorContainer, shape = RoundedCornerShape(8.dp))
-                                    .size(40.dp)
-                            ) {
-                                Icon(
-                                    imageVector = Icons.Default.DeleteForever,
-                                    contentDescription = "Delete",
-                                    tint = MaterialTheme.colorScheme.onErrorContainer,
-                                    modifier = Modifier.size(20.dp)
-                                )
-                            }
+                                Column(modifier = Modifier.weight(1f)) {
+                                    Text(
+                                        text = home.name,
+                                        style = MaterialTheme.typography.titleMedium,
+                                        fontWeight = FontWeight.Medium
+                                    )
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Text(
+                                        text = home.address,
+                                        style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                    )
+                                }
+
+                                // Delete button for each home
+                                IconButton(
+                                    onClick = {
+                                        home.takeIf { it.id.isNotEmpty() }?.let { h ->
+                                            showDeleteHomeDialog = h
+                                        }
+                                    },
+                                    modifier = Modifier
+                                        .background(MaterialTheme.colorScheme.errorContainer, shape = RoundedCornerShape(8.dp))
+                                        .size(40.dp)
+                                ) {
+                                    Icon(
+                                        imageVector = Icons.Default.DeleteForever,
+                                        contentDescription = "Delete",
+                                        tint = MaterialTheme.colorScheme.onErrorContainer,
+                                        modifier = Modifier.size(20.dp)
+                                    )
+                                }
                         }
                     }
 
@@ -517,7 +578,7 @@ fun SettingsTab(
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Text(
-                        "Utility Meter Reader v1.0.0",
+                        "Optimeter v1.0.0",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

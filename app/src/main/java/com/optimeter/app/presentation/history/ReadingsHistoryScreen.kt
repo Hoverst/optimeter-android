@@ -21,7 +21,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.optimeter.app.domain.model.MeterType
-import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
 import com.optimeter.app.ui.theme.*
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -31,41 +30,33 @@ import java.util.Locale
 @Composable
 fun ReadingsHistoryScreen(
     initialMeterType: MeterType? = null,
+    homeId: String? = null,
     onNavigateBack: () -> Unit,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: ReadingsHistoryViewModel = hiltViewModel()
 ) {
-    val uiState by viewModel.uiState.collectAsState()
-    var selectedMeterType by remember { mutableStateOf(initialMeterType ?: MeterType.WATER) }
+    val filteredReadings by viewModel.readings.collectAsState()
+    val selectedMeterType by viewModel.selectedMeterType.collectAsState()
     
     LaunchedEffect(initialMeterType) {
         initialMeterType?.let {
-            selectedMeterType = it
+            viewModel.selectMeterType(it)
+        }
+    }
+
+    LaunchedEffect(homeId) {
+        homeId?.let {
+            viewModel.setHomeId(it)
         }
     }
     
     var showDeleteDialog by remember { mutableStateOf(false) }
     var readingToDelete by remember { mutableStateOf<com.optimeter.app.domain.model.MeterReading?>(null) }
 
-    // Fetch fresh data when screen opens
-    LaunchedEffect(uiState.selectedHomeId) {
-        uiState.selectedHomeId?.let { homeId ->
-            viewModel.fetchAllReadings(homeId)
-        }
-    }
-
     val meterTypes = listOf(
         MeterType.WATER to "Water",
         MeterType.ELECTRICITY to "Electricity",
         MeterType.GAS to "Gas"
     )
-
-    // Filter and Sort Data Dynamically (Descending)
-    val allReadings = uiState.allReadings
-    val filteredReadings = remember(allReadings, selectedMeterType) {
-        allReadings
-            .filter { it.type == selectedMeterType }
-            .sortedByDescending { it.readingDate }
-    }
 
     Scaffold(
         topBar = {
@@ -105,7 +96,7 @@ fun ReadingsHistoryScreen(
                         modifier = Modifier
                             .clip(RoundedCornerShape(8.dp))
                             .background(if (isSelected) tabColor else MaterialTheme.colorScheme.surface)
-                            .clickable { selectedMeterType = type }
+                            .clickable { viewModel.selectMeterType(type) }
                             .padding(horizontal = 16.dp, vertical = 8.dp)
                     ) {
                         Text(
@@ -196,10 +187,7 @@ fun ReadingsHistoryScreen(
             confirmButton = {
                 TextButton(
                     onClick = {
-                        val homeId = uiState.selectedHomeId
-                        if (homeId != null) {
-                            viewModel.deleteReading(homeId, reading.id)
-                        }
+                        viewModel.deleteReading(reading.id)
                         showDeleteDialog = false
                         readingToDelete = null
                     },

@@ -91,8 +91,8 @@ fun OptimeterNavGraph(
                     val encodedUri = Uri.encode(photoUri)
                     navController.navigate(Screen.Validation.createRoute(meterType.name, "450", encodedUri, homeId))
                 },
-                onNavigateToHistory = { meterType ->
-                    navController.navigate(Screen.History.createRoute(meterType.name))
+                onNavigateToHistory = { meterType, homeId ->
+                    navController.navigate(Screen.History.createRoute(meterType.name, homeId))
                 }
             )
         }
@@ -217,6 +217,11 @@ fun OptimeterNavGraph(
                     type = NavType.StringType
                     nullable = true
                     defaultValue = null
+                },
+                navArgument("homeId") {
+                    type = NavType.StringType
+                    nullable = true
+                    defaultValue = null
                 }
             )
         ) { backStackEntry ->
@@ -224,8 +229,10 @@ fun OptimeterNavGraph(
             val initialMeterType = meterTypeStr?.let { 
                 try { MeterType.valueOf(it) } catch (e: Exception) { null } 
             }
+            val homeId = backStackEntry.arguments?.getString("homeId")
             com.optimeter.app.presentation.history.ReadingsHistoryScreen(
                 initialMeterType = initialMeterType,
+                homeId = homeId,
                 onNavigateBack = { navController.popBackStack() }
             )
         }

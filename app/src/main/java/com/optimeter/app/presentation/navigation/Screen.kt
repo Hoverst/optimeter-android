@@ -31,12 +31,17 @@ sealed class Screen(val route: String) {
             }
         }
     }
-    object History : Screen("history?meterType={meterType}") {
-        fun createRoute(meterType: String? = null): String {
-            return if (meterType != null) {
-                "history?meterType=$meterType"
-            } else {
-                "history"
+    object History : Screen("history?meterType={meterType}&homeId={homeId}") {
+        fun createRoute(meterType: String? = null, homeId: String? = null): String {
+            return buildString {
+                append("history")
+                if (meterType != null || homeId != null) {
+                    append("?")
+                    val params = mutableListOf<String>()
+                    if (meterType != null) params.add("meterType=$meterType")
+                    if (homeId != null) params.add("homeId=$homeId")
+                    append(params.joinToString("&"))
+                }
             }
         }
     }

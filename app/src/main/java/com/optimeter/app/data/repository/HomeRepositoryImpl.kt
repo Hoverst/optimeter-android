@@ -51,6 +51,22 @@ class HomeRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun updateHome(home: Home): Result<Unit> = withContext(Dispatchers.IO) {
+        try {
+            api.updateHome(
+                id = home.id,
+                request = com.optimeter.app.data.remote.dto.CreateHomeRequestDto(
+                    name = home.name,
+                    address = home.address
+                )
+            )
+            notifyUpdate()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
     override suspend fun removeHome(homeId: String): Result<Unit> = withContext(Dispatchers.IO) {
         try {
             api.deleteHome(homeId)

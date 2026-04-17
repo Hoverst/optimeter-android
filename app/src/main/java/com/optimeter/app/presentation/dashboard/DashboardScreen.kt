@@ -42,7 +42,7 @@ fun DashboardScreen(
     onNavigateToIoTDevices: () -> Unit,
     onLogout: () -> Unit,
     onNavigateToValidation: (MeterType, String, String?) -> Unit = { _, _, _ -> },
-    onNavigateToHistory: (MeterType) -> Unit = {}
+    onNavigateToHistory: (MeterType, String?) -> Unit = { _, _ -> }
 ) {
     var currentTab by rememberSaveable { mutableStateOf(DashboardTab.HOME) }
 
@@ -93,7 +93,9 @@ fun DashboardScreen(
                     }
                 )
                 DashboardTab.ANALYTICS -> StatisticsTab(
-                    onNavigateToHistory = onNavigateToHistory
+                    onNavigateToHistory = { type, homeId ->
+                        onNavigateToHistory(type, homeId)
+                    }
                 )
                 DashboardTab.ADD -> AddReadingTab()
                 DashboardTab.SETTINGS -> SettingsTab(

@@ -146,6 +146,19 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun updateHome(home: Home) {
+        viewModelScope.launch {
+            val result = homeRepository.updateHome(home)
+            result
+                .onSuccess {
+                    loadHomes()
+                }
+                .onFailure { e ->
+                    _uiState.update { it.copy(error = e.message) }
+                }
+        }
+    }
+
     fun removeHome(homeId: String) {
         viewModelScope.launch {
             _uiState.update { it.copy(isLoading = true, error = null) }

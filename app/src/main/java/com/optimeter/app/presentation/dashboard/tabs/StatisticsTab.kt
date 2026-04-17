@@ -49,7 +49,7 @@ import com.optimeter.app.R
 @Composable
 fun StatisticsTab(
     viewModel: HomeViewModel = hiltViewModel(),
-    onNavigateToHistory: (MeterType) -> Unit = {}
+    onNavigateToHistory: (MeterType, String?) -> Unit = { _, _ -> }
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val selectedMeterType = uiState.selectedAnalyticsMeterType
@@ -326,7 +326,7 @@ fun StatisticsTab(
         Spacer(modifier = Modifier.height(24.dp))
         
         Button(
-            onClick = { onNavigateToHistory(selectedMeterType) },
+            onClick = { onNavigateToHistory(selectedMeterType, uiState.selectedHomeId) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(
