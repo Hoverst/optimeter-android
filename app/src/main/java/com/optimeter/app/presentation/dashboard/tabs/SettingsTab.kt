@@ -111,12 +111,7 @@ fun SettingsTab(
                 Column {
                     listOf(
                         "en" to "English",
-                        "uk" to "Українська",
-                        "tr" to "Türkçe",
-                        "de" to "Deutsch",
-                        "fr" to "Français",
-                        "es" to "Español",
-                        "ar" to "العربية"
+                        "uk" to "Українська"
                     ).forEach { (code, lang) ->
                         Row(
                             modifier = Modifier
@@ -327,11 +322,6 @@ fun SettingsTab(
     val languageLabel = when (languageCode) {
         "en" -> "English"
         "uk" -> "Українська"
-        "tr" -> "Türkçe"
-        "de" -> "Deutsch"
-        "fr" -> "Français"
-        "es" -> "Español"
-        "ar" -> "العربية"
         else -> languageCode.uppercase()
     }
 
@@ -348,7 +338,7 @@ fun SettingsTab(
                     .padding(top = 8.dp)
             ) {
                 Text(
-                    text = "Account",
+                    text = stringResource(R.string.account),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Medium
                 )
@@ -386,7 +376,7 @@ fun SettingsTab(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "My Homes",
+                    text = stringResource(R.string.my_homes),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Medium
                 )
@@ -397,7 +387,7 @@ fun SettingsTab(
                     colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.onSurface),
                     contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                 ) {
-                    Text("+ Add Home", fontWeight = FontWeight.Medium)
+                    Text(stringResource(R.string.add_home_button), fontWeight = FontWeight.Medium)
                 }
             }
         }
@@ -521,7 +511,7 @@ fun SettingsTab(
             ) {
                 Column(modifier = Modifier.padding(20.dp)) {
                     Text(
-                        "About",
+                        stringResource(R.string.about),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -533,7 +523,7 @@ fun SettingsTab(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        "Track your utility consumption with ease",
+                        stringResource(R.string.track_utility_consumption),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

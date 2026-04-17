@@ -78,7 +78,6 @@ fun DashboardScreen(
         ) {
             when (currentTab) {
                 DashboardTab.HOME -> HomeTab(
-                    userName = "User", // This should come from a ViewModel later
                     onMeterSelected = { meterType, homeId ->
                         onNavigateToScanner(meterType, homeId)
                     },

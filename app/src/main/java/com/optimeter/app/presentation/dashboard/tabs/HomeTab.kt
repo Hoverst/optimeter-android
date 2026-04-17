@@ -17,18 +17,16 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
-import com.optimeter.app.domain.model.Home
 import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.presentation.dashboard.components.MeterCard
-import com.optimeter.app.ui.theme.Chart1
-import java.text.NumberFormat
 import java.util.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import com.optimeter.app.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeTab(
-    userName: String,
     onMeterSelected: (MeterType, String?) -> Unit,
     onAddNewReadingCamera: (String?) -> Unit,
     onAddNewReadingGallery: (String?) -> Unit,
@@ -50,10 +48,9 @@ fun HomeTab(
     ) {
         // Header
         Text(
-            text = "Dashboard",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colorScheme.onBackground
+            text = stringResource(R.string.homes_header),
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         // Empty State: No homes added yet
@@ -155,7 +152,7 @@ fun HomeTab(
                         .padding(20.dp)
                 ) {
                     Text(
-                        "Quick Actions",
+                        stringResource(R.string.quick_actions),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -174,7 +171,7 @@ fun HomeTab(
                         shape = RoundedCornerShape(8.dp),
                         contentPadding = PaddingValues(vertical = 12.dp)
                     ) {
-                        Text("Add New Reading", fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(R.string.add_new_reading_button), fontWeight = FontWeight.SemiBold)
                     }
                     
                     Spacer(modifier = Modifier.height(12.dp))
@@ -192,7 +189,7 @@ fun HomeTab(
                         shape = RoundedCornerShape(8.dp),
                         contentPadding = PaddingValues(vertical = 12.dp)
                     ) {
-                        Text("Choose from Gallery", fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(R.string.choose_from_gallery), fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
@@ -200,7 +197,7 @@ fun HomeTab(
             Spacer(modifier = Modifier.height(20.dp))
 
             Text(
-                text = "Current Readings",
+                text = stringResource(R.string.current_readings),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -213,16 +210,49 @@ fun HomeTab(
                 String.format(Locale.US, "%,d", value.toLong()).replace(',', ' ')
             }
 
+            val calculateTrend = { type: MeterType ->
+                val typeReadings = uiState.allReadings
+                    .filter { it.type == type }
+                    .sortedBy { it.readingDate }
+                
+                val consumptionData = if (typeReadings.size >= 2) {
+                    typeReadings.zipWithNext { prev, curr ->
+                        (curr.value - prev.value).toFloat().coerceAtLeast(0f)
+                    }
+                } else emptyList()
+
+                if (consumptionData.size >= 2) {
+                    val recent = consumptionData.last()
+                    val previous = consumptionData[consumptionData.size - 2]
+                    if (previous > 0f) ((recent - previous) / previous) * 100.0 else 0.0
+                } else {
+                    null
+                }
+            }
+
+            val formatTrend = { trendVal: Double? ->
+                if (trendVal == null) null
+                else {
+                    val trendInt = trendVal.toInt()
+                    when {
+                        trendInt > 0 -> "+$trendInt%"
+                        trendInt < 0 -> "$trendInt%"
+                        else -> "0%"
+                    }
+                }
+            }
+
             // Water Reading
             val waterReading = latestReadings[MeterType.WATER]
+            val waterTrend = calculateTrend(MeterType.WATER)
             MeterCard(
                 meterType = MeterType.WATER,
                 lastReading = waterReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = waterReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
-                consumptionString = "-",
-                isTrendingUp = false,
+                consumptionString = formatTrend(waterTrend),
+                isTrendingUp = waterTrend?.let { it > 0.0 },
                 onClick = { 
                     val homeId = selectedHomeId ?: homes.firstOrNull()?.id
                     onMeterSelected(MeterType.WATER, homeId) 
@@ -233,14 +263,15 @@ fun HomeTab(
 
             // Electricity Reading
             val electricityReading = latestReadings[MeterType.ELECTRICITY]
+            val electricityTrend = calculateTrend(MeterType.ELECTRICITY)
             MeterCard(
                 meterType = MeterType.ELECTRICITY,
                 lastReading = electricityReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = electricityReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
-                consumptionString = "-", // TODO: Calculate consumption from previous reading
-                isTrendingUp = false,
+                consumptionString = formatTrend(electricityTrend),
+                isTrendingUp = electricityTrend?.let { it > 0.0 },
                 onClick = { 
                     val homeId = selectedHomeId ?: homes.firstOrNull()?.id
                     onMeterSelected(MeterType.ELECTRICITY, homeId) 
@@ -251,14 +282,15 @@ fun HomeTab(
 
             // Gas Reading
             val gasReading = latestReadings[MeterType.GAS]
+            val gasTrend = calculateTrend(MeterType.GAS)
             MeterCard(
                 meterType = MeterType.GAS,
                 lastReading = gasReading?.value?.let { formatReading(it) } ?: "-",
                 lastReadingDate = gasReading?.readingDate?.let { 
                     android.text.format.DateFormat.format("MMM dd", it).toString() 
                 } ?: "-",
-                consumptionString = "-",
-                isTrendingUp = false,
+                consumptionString = formatTrend(gasTrend),
+                isTrendingUp = gasTrend?.let { it > 0.0 },
                 onClick = { 
                     val homeId = selectedHomeId ?: homes.firstOrNull()?.id
                     onMeterSelected(MeterType.GAS, homeId) 

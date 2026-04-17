@@ -20,6 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.ui.theme.*
+import androidx.compose.ui.res.stringResource
+import com.optimeter.app.R
 
 private data class MeterUiProps(
     val icon: androidx.compose.ui.graphics.vector.ImageVector,
@@ -39,9 +41,9 @@ fun MeterCard(
 ) {
     // Map Meter Type to Icon, Title, Unit, and Color based on React Design
     val props = when (meterType) {
-        MeterType.ELECTRICITY -> MeterUiProps(Icons.Default.Bolt, "Electricity", "kWh", Chart1)
-        MeterType.GAS -> MeterUiProps(Icons.Default.LocalFireDepartment, "Gas", "m³", Chart2)
-        MeterType.WATER -> MeterUiProps(Icons.Default.WaterDrop, "Water", "m³", Chart4) // Blue
+        MeterType.ELECTRICITY -> MeterUiProps(Icons.Default.Bolt, stringResource(R.string.electricity), "kWh", Chart1)
+        MeterType.GAS -> MeterUiProps(Icons.Default.LocalFireDepartment, stringResource(R.string.gas), "m³", Chart2)
+        MeterType.WATER -> MeterUiProps(Icons.Default.WaterDrop, stringResource(R.string.water), "m³", Chart4) // Blue
     }
 
     Card(
@@ -106,24 +108,29 @@ fun MeterCard(
                         )
                     }
 
-                    if (consumptionString != null && isTrendingUp != null) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.padding(top = 4.dp)
-                        ) {
-                            Icon(
-                                imageVector = if (isTrendingUp) Icons.Default.TrendingUp else Icons.Default.TrendingDown,
-                                contentDescription = null,
-                                tint = if (isTrendingUp) Chart5 else Color(0xFF10B981), // Red if up, Green if down
-                                modifier = Modifier.size(12.dp)
-                            )
-                            Spacer(modifier = Modifier.width(4.dp))
-                            Text(
-                                text = "$consumptionString ${props.unit} this period",
-                                style = MaterialTheme.typography.labelSmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
+                    val displayTrend = consumptionString ?: "-"
+                    val color = if (isTrendingUp != null) {
+                        if (!isTrendingUp) Color(0xFF66BB6A) else Color.Red
+                    } else {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    }
+                    
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(top = 4.dp)
+                    ) {
+                        Text(
+                            text = displayTrend,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = color,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Spacer(modifier = Modifier.width(4.dp))
+                        Text(
+                            text = stringResource(R.string.this_period, props.unit),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        )
                     }
                 }
             }

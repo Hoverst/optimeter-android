@@ -42,6 +42,8 @@ import java.util.Locale
 import com.optimeter.app.domain.model.MeterReading
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.ui.res.stringResource
+import com.optimeter.app.R
 
 @Suppress("DEPRECATION", "DEPRECATION_ERROR")
 @Composable
@@ -117,7 +119,7 @@ fun StatisticsTab(
             .verticalScroll(rememberScrollState())
     ) {
         // Header
-        Text("Analytics", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.SemiBold)
+        Text(stringResource(R.string.analytics), style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.SemiBold)
         
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -158,9 +160,9 @@ fun StatisticsTab(
         ) {
             // Average Card
             StatCard(
-                title = "Average",
+                title = stringResource(R.string.average),
                 value = average.toInt().toString(),
-                subtitle = "per period",
+                subtitle = stringResource(R.string.per_period),
                 modifier = Modifier.weight(1f)
             )
             
@@ -186,7 +188,7 @@ fun StatisticsTab(
                             tint = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Trend", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(R.string.trend_label), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     
                     val trendText = when {
@@ -201,7 +203,7 @@ fun StatisticsTab(
                         fontWeight = FontWeight.SemiBold,
                         color = if (trend <= 0.0) Color(0xFF66BB6A) else Color.Red
                     )
-                    Text("vs last", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(stringResource(R.string.vs_last), style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             }
         }
@@ -221,6 +223,19 @@ fun StatisticsTab(
             emptyList()
         }
 
+        val displayYears = currentReadings.map { reading ->
+            val calendar = java.util.Calendar.getInstance()
+            calendar.timeInMillis = reading.readingDate
+            calendar.get(java.util.Calendar.YEAR)
+        }.distinct().sorted()
+
+        val yearSuffix = when (displayYears.size) {
+            0 -> ""
+            1 -> " (${displayYears.first()})"
+            else -> " (${displayYears.first()}-${displayYears.last()})"
+        }
+        val graphTitle = stringResource(R.string.meter_readings_over_time) + yearSuffix
+
         // Chart Area
         Card(
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -236,7 +251,7 @@ fun StatisticsTab(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text("Meter Readings Over Time", style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium)
+                    Text(graphTitle, style = MaterialTheme.typography.titleSmall, fontWeight = FontWeight.Medium)
                     
                     if (chunks.size > 1) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -283,13 +298,13 @@ fun StatisticsTab(
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         StatCard(
-            title = "Previous Reading",
+            title = stringResource(R.string.previous_reading),
             value = if (filteredReadings.size >= 2) filteredReadings[filteredReadings.size - 2].value.toInt().toString() else "—",
             subtitle = unit,
             modifier = Modifier.weight(1f)
         )
         StatCard(
-            title = "Latest Reading",
+            title = stringResource(R.string.latest_reading),
             value = if (filteredReadings.isNotEmpty()) filteredReadings.last().value.toInt().toString() else "—",
             subtitle = unit,
             modifier = Modifier.weight(1f)
@@ -300,7 +315,7 @@ fun StatisticsTab(
             "—"
         }
         StatCard(
-            title = "Difference (Різниця)",
+            title = stringResource(R.string.difference),
             value = differenceValue,
             subtitle = unit,
             valueColor = themeColor,
@@ -319,7 +334,7 @@ fun StatisticsTab(
                 contentColor = Color.White
             )
         ) {
-            Text("View All Readings")
+            Text(stringResource(R.string.view_all_readings))
         }
     }
 }
