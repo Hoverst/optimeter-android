@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -511,6 +512,7 @@ fun SettingsTab(
             } else {
                 // Display all homes in a vertical list
                 homes.forEach { home ->
+                    val isActive = home.id == homeUiState.selectedHomeId
                     Card(
                         shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -525,14 +527,24 @@ fun SettingsTab(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                                 Box(
-                                    modifier = Modifier.padding(end = 8.dp),
+                                    modifier = Modifier
+                                        .padding(end = 8.dp)
+                                        .size(40.dp)
+                                        .background(Color.Transparent)
+                                        .then(
+                                            if (isActive) {
+                                                Modifier.border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(8.dp))
+                                            } else {
+                                                Modifier
+                                            }
+                                        ),
                                     contentAlignment = Alignment.Center
                                 ) {
                                     Icon(
                                         imageVector = Icons.Outlined.Home,
                                         contentDescription = null,
-                                        tint = MaterialTheme.colorScheme.primary,
-                                        modifier = Modifier.size(24.dp)
+                                        tint = if (isActive) Color.White else Color(0xFF9E9E9E),
+                                        modifier = Modifier.size(if (isActive) 24.dp else 20.dp)
                                     )
                                 }
 
