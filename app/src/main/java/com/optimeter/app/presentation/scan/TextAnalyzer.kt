@@ -18,19 +18,46 @@ class TextAnalyzer(
     override fun analyze(imageProxy: ImageProxy) {
         val mediaImage = imageProxy.image
         if (mediaImage != null) {
-            val image = InputImage.fromMediaImage(mediaImage, imageProxy.imageInfo.rotationDegrees)
+            try {
+                val originalBitmap = imageProxy.toBitmap()
+                val matrix = android.graphics.Matrix().apply {
+                    postRotate(imageProxy.imageInfo.rotationDegrees.toFloat())
+                }
+                val rotatedBitmap = android.graphics.Bitmap.createBitmap(
+                    originalBitmap,
+                    0, 0,
+                    originalBitmap.width, originalBitmap.height,
+                    matrix,
+                    true
+                )
 
-            recognizer.process(image)
-                .addOnSuccessListener { visionText ->
-                    val text = visionText.text
-                    val digits = text.replace(kotlin.text.Regex("[^0-9]"), "")
-                    if (digits.isNotEmpty()) {
-                        onDigitsDetected(digits)
+                val cropWidth = (rotatedBitmap.width * 0.8f).toInt()
+                val cropHeight = (cropWidth / 2.66f).toInt()
+                val startX = (rotatedBitmap.width - cropWidth) / 2
+                val startY = (rotatedBitmap.height - cropHeight) / 2
+
+                val croppedBitmap = android.graphics.Bitmap.createBitmap(
+                    rotatedBitmap,
+                    startX, startY,
+                    cropWidth, cropHeight
+                )
+
+                val image = InputImage.fromBitmap(croppedBitmap, 0)
+
+                recognizer.process(image)
+                    .addOnSuccessListener { visionText ->
+                        val text = visionText.text
+                        val digits = text.replace(kotlin.text.Regex("[^0-9]"), "")
+                        if (digits.isNotEmpty()) {
+                            onDigitsDetected(digits)
+                        }
                     }
-                }
-                .addOnCompleteListener {
-                    imageProxy.close()
-                }
+                    .addOnCompleteListener {
+                        imageProxy.close()
+                    }
+            } catch (e: Exception) {
+                imageProxy.close()
+            }
         } else {
             imageProxy.close()
         }
