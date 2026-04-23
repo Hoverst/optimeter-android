@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -75,6 +76,8 @@ fun ScannerScreen(
         }
     }
 
+    var debugBitmap by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+
     val cameraPermissionState = com.google.accompanist.permissions.rememberPermissionState(
         android.Manifest.permission.CAMERA
     )
@@ -110,11 +113,16 @@ fun ScannerScreen(
                         .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                         .build()
                         .also { analysis ->
-                            analysis.setAnalyzer(cameraExecutor, TextAnalyzer { digits ->
-                                coroutineScope.launch(Dispatchers.Main) {
-                                    viewModel.onDigitsDetected(digits)
+                            analysis.setAnalyzer(cameraExecutor, TextAnalyzer(
+                                onDigitsDetected = { digits ->
+                                    coroutineScope.launch(Dispatchers.Main) {
+                                        viewModel.onDigitsDetected(digits)
+                                    }
+                                },
+                                onImageProcessed = { bitmap ->
+                                    debugBitmap = bitmap
                                 }
-                            })
+                            ))
                         }
 
                     try {
@@ -145,6 +153,18 @@ fun ScannerScreen(
                     color = if (uiState.isStable) Color.Green else Color.White
                 )
         )
+
+        debugBitmap?.let { bmp ->
+            androidx.compose.foundation.Image(
+                bitmap = bmp.asImageBitmap(),
+                contentDescription = "Debug Crop",
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 16.dp)
+                    .fillMaxWidth(0.6f)
+                    .aspectRatio(bmp.width.toFloat() / bmp.height.toFloat())
+            )
+        }
 
         Button(
             onClick = { onNavigateToManual(meterType) },
