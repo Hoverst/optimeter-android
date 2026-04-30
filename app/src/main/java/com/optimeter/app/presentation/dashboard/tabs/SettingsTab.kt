@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -49,6 +50,7 @@ fun SettingsTab(
     viewModel: SettingsViewModel = hiltViewModel(),
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
+    val activeIconColor = if (isSystemInDarkTheme()) Color.White else Color.Black
     val themeConfig by viewModel.themeConfig.collectAsState()
     val pushEnabled by viewModel.pushNotificationsEnabled.collectAsState()
     val notificationDay by viewModel.notificationDay.collectAsState()
@@ -549,7 +551,7 @@ fun SettingsTab(
                                         .background(Color.Transparent)
                                         .then(
                                             if (isActive) {
-                                                Modifier.border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(8.dp))
+                                                Modifier.border(width = 1.dp, color = activeIconColor, shape = RoundedCornerShape(8.dp))
                                             } else {
                                                 Modifier
                                             }
@@ -559,7 +561,7 @@ fun SettingsTab(
                                     Icon(
                                         imageVector = Icons.Outlined.Home,
                                         contentDescription = "Select Home",
-                                        tint = if (isActive) Color.White else Color(0xFF9E9E9E),
+                                        tint = if (isActive) activeIconColor else Color(0xFF9E9E9E),
                                         modifier = Modifier.size(if (isActive) 28.dp else 24.dp)
                                     )
                                 }

@@ -24,6 +24,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -42,6 +43,10 @@ fun BottomNavBar(
     onTabSelected: (DashboardTab) -> Unit
 ) {
     val context = LocalContext.current
+    // Derive active color from the actual theme, not the system setting.
+    // In dark mode (low luminance background) -> pure white; light mode -> black.
+    val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
+    val activeIconColor = if (isDark) Color.White else Color.Black
     
     androidx.compose.foundation.layout.Column {
         Divider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f), thickness = 1.dp)
@@ -69,7 +74,7 @@ fun BottomNavBar(
                     icon = {
                         val iconModifier = if (isSelected) {
                             Modifier
-                                .border(width = 1.dp, color = Color.White, shape = RoundedCornerShape(50))
+                                .border(width = 1.dp, color = activeIconColor, shape = RoundedCornerShape(50))
                                 .padding(horizontal = 20.dp, vertical = 4.dp)
                         } else {
                             Modifier
@@ -89,8 +94,8 @@ fun BottomNavBar(
                         ) 
                     },
                     colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Color.White,
-                        selectedTextColor = Color.White,
+                        selectedIconColor = activeIconColor,
+                        selectedTextColor = activeIconColor,
                         indicatorColor = Color.Transparent,
                         unselectedIconColor = if (isAddTab) disabledColor else Color(0xFF9E9E9E),
                         unselectedTextColor = if (isAddTab) disabledColor else Color(0xFF9E9E9E)
