@@ -127,11 +127,7 @@ private fun UtilityTypeItem(
         }
         Spacer(modifier = Modifier.width(12.dp))
         Text(
-            text = when (type) {
-                MeterType.WATER -> stringResource(R.string.water)
-                MeterType.GAS -> stringResource(R.string.gas)
-                MeterType.ELECTRICITY -> stringResource(R.string.electricity)
-            },
+            text = type.getLocalizedName(),
             style = MaterialTheme.typography.bodyLarge,
             color = if (isSelected) typeColor else MaterialTheme.colorScheme.onSurface
         )

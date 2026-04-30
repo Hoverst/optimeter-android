@@ -41,9 +41,9 @@ fun MeterCard(
 ) {
     // Map Meter Type to Icon, Title, Unit, and Color based on React Design
     val props = when (meterType) {
-        MeterType.ELECTRICITY -> MeterUiProps(Icons.Default.Bolt, stringResource(R.string.electricity), "kWh", Chart1)
-        MeterType.GAS -> MeterUiProps(Icons.Default.LocalFireDepartment, stringResource(R.string.gas), "m³", Chart2)
-        MeterType.WATER -> MeterUiProps(Icons.Default.WaterDrop, stringResource(R.string.water), "m³", Chart4) // Blue
+        MeterType.ELECTRICITY -> MeterUiProps(Icons.Default.Bolt, meterType.getLocalizedName(), stringResource(R.string.unit_kwh), Chart1)
+        MeterType.GAS -> MeterUiProps(Icons.Default.LocalFireDepartment, meterType.getLocalizedName(), stringResource(R.string.unit_m3), Chart2)
+        MeterType.WATER -> MeterUiProps(Icons.Default.WaterDrop, meterType.getLocalizedName(), stringResource(R.string.unit_m3), Chart4) // Blue
     }
 
     Card(

@@ -73,7 +73,7 @@
     <string name="choose_theme">Обрати тему</string>
     <string name="notifications">Сповіщення</string>
     <string name="push_notifications">Push-сповіщення</string>
-    <string name="push_notifications_subtitle">Отримувати нагадування про подачу показників</string>
+    <string name="push_notifications_subtitle">Отримувати нагадування про подання</string>
     <string name="reminder_date">Дата нагадування</string>
     <string name="reminder_day_subtitle">День %1$d кожного місяця</string>
     <string name="set_reminder_day">Встановити день нагадування</string>
@@ -109,6 +109,11 @@
     <string name="water">Вода</string>
     <string name="gas">Газ</string>
     <string name="electricity">Світло</string>
+    <string name="meter_type_water">Вода</string>
+    <string name="meter_type_gas">Газ</string>
+    <string name="meter_type_electricity">Світло</string>
+    <string name="unit_kwh">кВт⋅год</string>
+    <string name="unit_m3">м³</string>
     <string name="add_new_reading">Додати показник</string>
 
     <!-- Dashboard & Analytics extracted -->
@@ -117,7 +122,7 @@
     <string name="this_period">%1$s за цей період</string>
     <string name="average">В середньому</string>
     <string name="per_period">за період</string>
-    <string name="trend_label">Тренд</string>
+    <string name="trend_label">Приріст</string>
     <string name="vs_last">до минулого</string>
     <string name="meter_readings_over_time">Історія показників</string>
     <string name="previous_reading">Попередній показник</string>
@@ -130,6 +135,43 @@
 
     <!-- Settings extracted -->
     <string name="my_homes">Мої будинки</string>
+    <string name="my_home_default">Мій будинок</string>
     <string name="add_home_button">+ Додати будинок</string>
-    <string name="track_utility_consumption">Легко відстежуйте споживання комунальних послуг</string>
+    <string name="track_utility_consumption">Легко відстежуйте комунальне споживання</string>
+
+    <!-- Common Actions -->
+    <string name="action_cancel">Скасувати</string>
+    <string name="action_delete">Видалити</string>
+    <string name="action_add">Додати</string>
+    <string name="action_logout_button">Вийти</string>
+
+    <!-- Delete Reading Dialog -->
+    <string name="dialog_delete_reading_title">Видалити показник?</string>
+    <string name="dialog_delete_reading_message">Ви впевнені, що хочете видалити показник %1$s %2$s? Цю дію неможливо скасувати.</string>
+
+    <!-- Delete Home Dialog -->
+    <string name="dialog_delete_home_title">Видалити будинок?</string>
+    <string name="dialog_delete_home_message">Ви впевнені? Це назавжди видалить будинок \'%1$s\' та всі пов\'язані з ним дані.</string>
+    <string name="dialog_type_to_confirm">Будь ласка, введіть %1$s для підтвердження.</string>
+    <string name="dialog_delete_home_hint">Введіть назву будинку</string>
+
+    <!-- Delete Account Dialog -->
+    <string name="dialog_delete_account_title">Видалити акаунт</string>
+    <string name="dialog_delete_account_message">Ви впевнені? Це назавжди видалить ваш акаунт та всі ваші дані. Цю дію неможливо скасувати.</string>
+    <string name="dialog_delete_account_hint">Введіть ваш email</string>
+
+    <!-- Log Out Dialog -->
+    <string name="dialog_logout_title">Вийти з акаунта</string>
+    <string name="dialog_logout_message">Ви впевнені, що хочете вийти?</string>
+
+    <!-- Add New Home Dialog -->
+    <string name="dialog_add_home_title">Додати новий будинок</string>
+    <string name="dialog_add_home_name">Назва будинку</string>
+    <string name="dialog_add_home_address">Адреса</string>
+    
+    <!-- Edit Home Dialog -->
+    <string name="dialog_edit_home_title">Редагувати будинок</string>
+    
+    <string name="no_homes_yet">Ще немає будинків</string>
+    <string name="no_homes_desc">Ви ще не додали жодного будинку. Перейдіть до налаштувань, щоб додати свій перший будинок.</string>
 </resources>

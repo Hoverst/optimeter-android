@@ -62,9 +62,9 @@ fun StatisticsTab(
     }
 
     val meterTypes = listOf(
-        MeterType.WATER to "Water",
-        MeterType.ELECTRICITY to "Electricity",
-        MeterType.GAS to "Gas"
+        MeterType.WATER to stringResource(R.string.meter_type_water),
+        MeterType.ELECTRICITY to stringResource(R.string.meter_type_electricity),
+        MeterType.GAS to stringResource(R.string.meter_type_gas)
     )
 
     // Filter and Sort Data Dynamically
@@ -104,7 +104,7 @@ fun StatisticsTab(
         0f
     }
 
-    val unit = if (selectedMeterType == MeterType.ELECTRICITY) "kWh" else "m³"
+    val unit = if (selectedMeterType == MeterType.ELECTRICITY) stringResource(R.string.unit_kwh) else stringResource(R.string.unit_m3)
     val themeColor = when(selectedMeterType) {
         MeterType.ELECTRICITY -> Chart1
         MeterType.GAS -> Chart2

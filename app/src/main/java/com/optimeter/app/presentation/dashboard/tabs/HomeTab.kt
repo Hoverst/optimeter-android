@@ -70,14 +70,14 @@ fun HomeTab(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "No Homes Yet",
+                        text = stringResource(R.string.no_homes_yet),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Medium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(8.dp))
                     Text(
-                        text = "You haven't added any homes yet. Go to Settings to add your first home.",
+                        text = stringResource(R.string.no_homes_desc),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
@@ -97,7 +97,7 @@ fun HomeTab(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = selectedHome?.name ?: homes.firstOrNull()?.name ?: "My Home",
+                        text = selectedHome?.name ?: homes.firstOrNull()?.name ?: stringResource(R.string.my_home_default),
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,
@@ -138,60 +138,38 @@ fun HomeTab(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Quick Actions Card
-            Card(
-                shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-                modifier = Modifier.fillMaxWidth()
+            Button(
+                onClick = {
+                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
+                    onAddNewReadingCamera(homeId)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = Color.White
+                ),
+                shape = RoundedCornerShape(8.dp),
+                contentPadding = PaddingValues(vertical = 12.dp)
             ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(20.dp)
-                ) {
-                    Text(
-                        stringResource(R.string.quick_actions),
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Button(
-                        onClick = {
-                            val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                            onAddNewReadingCamera(homeId)
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary,
-                            contentColor = Color.White
-                        ),
-                        shape = RoundedCornerShape(8.dp),
-                        contentPadding = PaddingValues(vertical = 12.dp)
-                    ) {
-                        Text(stringResource(R.string.add_new_reading_button), fontWeight = FontWeight.SemiBold)
-                    }
-                    
-                    Spacer(modifier = Modifier.height(12.dp))
-                    
-                    Button(
-                        onClick = {
-                            val homeId = selectedHomeId ?: homes.firstOrNull()?.id
-                            onAddNewReadingGallery(homeId)
-                        },
-                        modifier = Modifier.fillMaxWidth(),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = MaterialTheme.colorScheme.primary,
-                            contentColor = Color.White
-                        ),
-                        shape = RoundedCornerShape(8.dp),
-                        contentPadding = PaddingValues(vertical = 12.dp)
-                    ) {
-                        Text(stringResource(R.string.choose_from_gallery), fontWeight = FontWeight.SemiBold)
-                    }
-                }
+                Text(stringResource(R.string.add_new_reading_button), fontWeight = FontWeight.SemiBold)
+            }
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            Button(
+                onClick = {
+                    val homeId = selectedHomeId ?: homes.firstOrNull()?.id
+                    onAddNewReadingGallery(homeId)
+                },
+                modifier = Modifier.fillMaxWidth(),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.primary,
+                    contentColor = Color.White
+                ),
+                shape = RoundedCornerShape(8.dp),
+                contentPadding = PaddingValues(vertical = 12.dp)
+            ) {
+                Text(stringResource(R.string.choose_from_gallery), fontWeight = FontWeight.SemiBold)
             }
 
             Spacer(modifier = Modifier.height(20.dp))

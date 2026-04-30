@@ -20,6 +20,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.ui.res.stringResource
+import com.optimeter.app.R
 import com.optimeter.app.domain.model.MeterType
 import com.optimeter.app.ui.theme.*
 import java.text.SimpleDateFormat
@@ -53,15 +55,15 @@ fun ReadingsHistoryScreen(
     var readingToDelete by remember { mutableStateOf<com.optimeter.app.domain.model.MeterReading?>(null) }
 
     val meterTypes = listOf(
-        MeterType.WATER to "Water",
-        MeterType.ELECTRICITY to "Electricity",
-        MeterType.GAS to "Gas"
+        MeterType.WATER to stringResource(R.string.meter_type_water),
+        MeterType.ELECTRICITY to stringResource(R.string.meter_type_electricity),
+        MeterType.GAS to stringResource(R.string.meter_type_gas)
     )
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("History") },
+                title = { Text(stringResource(R.string.history)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
@@ -112,7 +114,7 @@ fun ReadingsHistoryScreen(
 
             if (filteredReadings.isEmpty()) {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text("No readings found.", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(stringResource(R.string.no_readings), color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             } else {
                 LazyColumn(
@@ -120,7 +122,8 @@ fun ReadingsHistoryScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
                     items(filteredReadings) { reading ->
-                        val unit = if (reading.type == MeterType.ELECTRICITY) "kWh" else "m³"
+                        val unitRes = if (reading.type == MeterType.ELECTRICITY) R.string.unit_kwh else R.string.unit_m3
+                        val unit = stringResource(unitRes)
                         val dateFormat = SimpleDateFormat("d MMM yyyy, HH:mm", Locale.getDefault())
                         val dateStr = dateFormat.format(Date(reading.readingDate))
 
@@ -176,14 +179,15 @@ fun ReadingsHistoryScreen(
 
     if (showDeleteDialog && readingToDelete != null) {
         val reading = readingToDelete!!
-        val unit = if (reading.type == MeterType.ELECTRICITY) "kWh" else "m³"
+        val unitRes = if (reading.type == MeterType.ELECTRICITY) R.string.unit_kwh else R.string.unit_m3
+        val unit = stringResource(unitRes)
         AlertDialog(
             onDismissRequest = { 
                 showDeleteDialog = false
                 readingToDelete = null
             },
-            title = { Text("Delete Reading?") },
-            text = { Text("Are you sure you want to delete the reading of ${reading.value} $unit? This action cannot be undone.") },
+            title = { Text(stringResource(R.string.dialog_delete_reading_title)) },
+            text = { Text(stringResource(R.string.dialog_delete_reading_message, reading.value.toString(), unit)) },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -193,7 +197,7 @@ fun ReadingsHistoryScreen(
                     },
                     colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
                 ) {
-                    Text("Delete")
+                    Text(stringResource(R.string.action_delete))
                 }
             },
             dismissButton = {
@@ -203,7 +207,7 @@ fun ReadingsHistoryScreen(
                         readingToDelete = null
                     }
                 ) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.action_cancel))
                 }
             }
         )

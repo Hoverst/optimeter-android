@@ -109,6 +109,11 @@
     <string name="water">Water</string>
     <string name="gas">Gas</string>
     <string name="electricity">Electricity</string>
+    <string name="meter_type_water">Water</string>
+    <string name="meter_type_gas">Gas</string>
+    <string name="meter_type_electricity">Electricity</string>
+    <string name="unit_kwh">kWh</string>
+    <string name="unit_m3">m³</string>
     <string name="add_new_reading">Add new reading</string>
 
     <!-- Dashboard & Analytics extracted -->
@@ -130,6 +135,43 @@
     
     <!-- Settings extracted -->
     <string name="my_homes">My Homes</string>
+    <string name="my_home_default">My Home</string>
     <string name="add_home_button">+ Add Home</string>
     <string name="track_utility_consumption">Track your utility consumption with ease</string>
+
+    <!-- Common Actions -->
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_add">Add</string>
+    <string name="action_logout_button">Log Out</string>
+
+    <!-- Delete Reading Dialog -->
+    <string name="dialog_delete_reading_title">Delete Reading?</string>
+    <string name="dialog_delete_reading_message">Are you sure you want to delete the reading of %1$s %2$s? This action cannot be undone.</string>
+
+    <!-- Delete Home Dialog -->
+    <string name="dialog_delete_home_title">Delete Home?</string>
+    <string name="dialog_delete_home_message">Are you sure? This will permanently delete the home \'%1$s\' and all its associated data.</string>
+    <string name="dialog_type_to_confirm">Please type %1$s to confirm.</string>
+    <string name="dialog_delete_home_hint">Type home name to confirm</string>
+
+    <!-- Delete Account Dialog -->
+    <string name="dialog_delete_account_title">Delete Account</string>
+    <string name="dialog_delete_account_message">Are you sure? This will permanently delete your account and all your data. This cannot be undone.</string>
+    <string name="dialog_delete_account_hint">Type your email to confirm</string>
+
+    <!-- Log Out Dialog -->
+    <string name="dialog_logout_title">Log Out</string>
+    <string name="dialog_logout_message">Are you sure you want to log out?</string>
+
+    <!-- Add New Home Dialog -->
+    <string name="dialog_add_home_title">Add New Home</string>
+    <string name="dialog_add_home_name">Home Name</string>
+    <string name="dialog_add_home_address">Address</string>
+    
+    <!-- Edit Home Dialog -->
+    <string name="dialog_edit_home_title">Edit Home</string>
+    
+    <string name="no_homes_yet">No Homes Yet</string>
+    <string name="no_homes_desc">You haven\'t added any homes yet. Go to Settings to add your first home.</string>
 </resources>

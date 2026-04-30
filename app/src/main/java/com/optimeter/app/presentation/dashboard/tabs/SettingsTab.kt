@@ -1,5 +1,6 @@
 package com.optimeter.app.presentation.dashboard.tabs
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -70,13 +71,13 @@ fun SettingsTab(
     if (showThemeDialog) {
         AlertDialog(
             onDismissRequest = { showThemeDialog = false },
-            title = { Text("Choose Theme") },
+            title = { Text(stringResource(R.string.choose_theme)) },
             text = {
                 Column {
                     listOf(
-                        ThemeConfig.FOLLOW_SYSTEM to "System Default",
-                        ThemeConfig.LIGHT to "Light",
-                        ThemeConfig.DARK to "Dark"
+                        ThemeConfig.FOLLOW_SYSTEM to stringResource(R.string.system_default),
+                        ThemeConfig.LIGHT to stringResource(R.string.light),
+                        ThemeConfig.DARK to stringResource(R.string.dark)
                     ).forEach { (config, label) ->
                         Row(
                             modifier = Modifier
@@ -102,7 +103,7 @@ fun SettingsTab(
                 }
             },
             confirmButton = {
-                TextButton(onClick = { showThemeDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showThemeDialog = false }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -110,7 +111,7 @@ fun SettingsTab(
     if (showLanguageDialog) {
         AlertDialog(
             onDismissRequest = { showLanguageDialog = false },
-            title = { Text("Choose Language") },
+            title = { Text(stringResource(R.string.choose_language)) },
             text = {
                 Column {
                     listOf(
@@ -122,7 +123,12 @@ fun SettingsTab(
                                 .fillMaxWidth()
                                 .clickable {
                                     viewModel.setLanguageCode(code)
+                                    androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(
+                                        androidx.core.os.LocaleListCompat.forLanguageTags(code)
+                                    )
                                     showLanguageDialog = false
+                                    
+                                    val activity = (context as? android.app.Activity) ?: (context as? android.content.ContextWrapper)?.baseContext as? android.app.Activity
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
@@ -131,7 +137,12 @@ fun SettingsTab(
                                 selected = languageCode == code,
                                 onClick = {
                                     viewModel.setLanguageCode(code)
+                                    androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(
+                                        androidx.core.os.LocaleListCompat.forLanguageTags(code)
+                                    )
                                     showLanguageDialog = false
+                                    
+                                    val activity = (context as? android.app.Activity) ?: (context as? android.content.ContextWrapper)?.baseContext as? android.app.Activity
                                 }
                             )
                             Spacer(modifier = Modifier.width(8.dp))
@@ -141,7 +152,7 @@ fun SettingsTab(
                 }
             },
             confirmButton = {
-                TextButton(onClick = { showLanguageDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showLanguageDialog = false }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -150,15 +161,15 @@ fun SettingsTab(
         var dayText by remember { mutableStateOf(notificationDay.toString()) }
         AlertDialog(
             onDismissRequest = { showReminderDayDialog = false },
-            title = { Text("Set Reminder Day") },
+            title = { Text(stringResource(R.string.set_reminder_day)) },
             text = {
                 Column {
-                    Text("Enter a day (1-28) for monthly reminder:")
+                    Text(stringResource(R.string.reminder_day_hint))
                     Spacer(modifier = Modifier.height(8.dp))
                     OutlinedTextField(
                         value = dayText,
                         onValueChange = { if (it.length <= 2) dayText = it },
-                        label = { Text("Day of Month") },
+                        label = { Text(stringResource(R.string.day_of_month)) },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         singleLine = true
                     )
@@ -169,10 +180,10 @@ fun SettingsTab(
                     val day = dayText.toIntOrNull()?.coerceIn(1, 28) ?: notificationDay
                     viewModel.setNotificationDay(day)
                     showReminderDayDialog = false
-                }) { Text("Save") }
+                }) { Text(stringResource(R.string.save)) }
             },
             dismissButton = {
-                TextButton(onClick = { showReminderDayDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showReminderDayDialog = false }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -180,8 +191,8 @@ fun SettingsTab(
     if (showLogoutDialog) {
         AlertDialog(
             onDismissRequest = { showLogoutDialog = false },
-            title = { Text(stringResource(R.string.log_out)) },
-            text = { Text(stringResource(R.string.logout_confirmation_text)) },
+            title = { Text(stringResource(R.string.dialog_logout_title)) },
+            text = { Text(stringResource(R.string.dialog_logout_message)) },
             confirmButton = {
                 TextButton(
                     onClick = {
@@ -196,12 +207,12 @@ fun SettingsTab(
                         }
                     }
                 ) {
-                    Text(stringResource(R.string.log_out))
+                    Text(stringResource(R.string.action_logout_button))
                 }
             },
             dismissButton = {
                 TextButton(onClick = { showLogoutDialog = false }) {
-                    Text(stringResource(R.string.cancel))
+                    Text(stringResource(R.string.action_cancel))
                 }
             }
         )
@@ -214,15 +225,15 @@ fun SettingsTab(
         
         AlertDialog(
             onDismissRequest = { showDeleteConfirmDialog = false },
-            title = { Text("Delete Account") },
+            title = { Text(stringResource(R.string.dialog_delete_account_title)) },
             text = { 
                 Column {
-                    Text("Are you sure? This will permanently delete your account and all your data. This cannot be undone.\n\nPlease type $actualEmail to confirm.")
+                    Text(stringResource(R.string.dialog_delete_account_message) + "\n\n" + stringResource(R.string.dialog_type_to_confirm, actualEmail))
                     Spacer(modifier = Modifier.height(16.dp))
                     OutlinedTextField(
                         value = confirmEmailInput,
                         onValueChange = { confirmEmailInput = it },
-                        label = { Text("Type your email to confirm") },
+                        label = { Text(stringResource(R.string.dialog_delete_account_hint)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -248,10 +259,10 @@ fun SettingsTab(
                     },
                     enabled = isEmailMatch,
                     colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
-                ) { Text(stringResource(R.string.delete)) }
+                ) { Text(stringResource(R.string.action_delete)) }
             },
             dismissButton = {
-                TextButton(onClick = { showDeleteConfirmDialog = false }) { Text(stringResource(R.string.cancel)) }
+                TextButton(onClick = { showDeleteConfirmDialog = false }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -261,13 +272,13 @@ fun SettingsTab(
         var newHomeAddress by remember { mutableStateOf("") }
         AlertDialog(
             onDismissRequest = { showAddHomeDialog = false },
-            title = { Text("Add New Home") },
+            title = { Text(stringResource(R.string.dialog_add_home_title)) },
             text = {
                 Column {
                     OutlinedTextField(
                         value = newHomeName,
                         onValueChange = { newHomeName = it },
-                        label = { Text("Home Name") },
+                        label = { Text(stringResource(R.string.dialog_add_home_name)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -275,7 +286,7 @@ fun SettingsTab(
                     OutlinedTextField(
                         value = newHomeAddress,
                         onValueChange = { newHomeAddress = it },
-                        label = { Text("Address") },
+                        label = { Text(stringResource(R.string.dialog_add_home_address)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -292,11 +303,11 @@ fun SettingsTab(
                     },
                     enabled = newHomeName.isNotBlank() && newHomeAddress.isNotBlank()
                 ) {
-                    Text("Add")
+                    Text(stringResource(R.string.action_add))
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showAddHomeDialog = false }) { Text("Cancel") }
+                TextButton(onClick = { showAddHomeDialog = false }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -307,13 +318,13 @@ fun SettingsTab(
         var editHomeAddress by remember(home) { mutableStateOf(home.address) }
         AlertDialog(
             onDismissRequest = { homeToEdit = null },
-            title = { Text("Edit Home") },
+            title = { Text(stringResource(R.string.dialog_edit_home_title)) },
             text = {
                 Column {
                     OutlinedTextField(
                         value = editHomeName,
                         onValueChange = { editHomeName = it },
-                        label = { Text("Home Name") },
+                        label = { Text(stringResource(R.string.dialog_add_home_name)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -321,7 +332,7 @@ fun SettingsTab(
                     OutlinedTextField(
                         value = editHomeAddress,
                         onValueChange = { editHomeAddress = it },
-                        label = { Text("Address") },
+                        label = { Text(stringResource(R.string.dialog_add_home_address)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -340,11 +351,11 @@ fun SettingsTab(
                     },
                     enabled = editHomeName.isNotBlank() && editHomeAddress.isNotBlank()
                 ) {
-                    Text("Save")
+                    Text(stringResource(R.string.save))
                 }
             },
             dismissButton = {
-                TextButton(onClick = { homeToEdit = null }) { Text("Cancel") }
+                TextButton(onClick = { homeToEdit = null }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -354,17 +365,20 @@ fun SettingsTab(
         var confirmHomeInput by remember { mutableStateOf("") }
         val isHomeMatch = confirmHomeInput.trim() == home.name.trim()
         
+        val ctx = LocalContext.current
+        Log.d("LOCALE_CHECK", ctx.resources.configuration.locales[0].toString())
+
         AlertDialog(
             onDismissRequest = { showDeleteHomeDialog = null },
-            title = { Text("Delete Home?") },
+            title = { Text(stringResource(R.string.dialog_delete_home_title)) },
             text = {
                 Column {
-                    Text("Are you sure? This will permanently delete the home '${home.name}' and all its associated data.\n\nPlease type ${home.name} to confirm.")
+                    Text(stringResource(R.string.dialog_delete_home_message, home.name) + "\n\n" + stringResource(R.string.dialog_type_to_confirm, home.name))
                     Spacer(modifier = Modifier.height(16.dp))
                     OutlinedTextField(
                         value = confirmHomeInput,
                         onValueChange = { confirmHomeInput = it },
-                        label = { Text("Type home name to confirm") },
+                        label = { Text(stringResource(R.string.dialog_delete_home_hint)) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth()
                     )
@@ -385,11 +399,11 @@ fun SettingsTab(
                     enabled = isHomeMatch,
                     colors = ButtonDefaults.textButtonColors(contentColor = Color(0xFFD32F2F))
                 ) {
-                    Text("Delete")
+                    Text(stringResource(R.string.action_delete))
                 }
             },
             dismissButton = {
-                TextButton(onClick = { showDeleteHomeDialog = null }) { Text("Cancel") }
+                TextButton(onClick = { showDeleteHomeDialog = null }) { Text(stringResource(R.string.action_cancel)) }
             }
         )
     }
@@ -492,7 +506,7 @@ fun SettingsTab(
                             .padding(32.dp)
                     ) {
                         Text(
-                            text = "No Homes Yet",
+                            text = stringResource(R.string.no_homes_yet),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onSurface,
@@ -501,7 +515,7 @@ fun SettingsTab(
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         Text(
-                            text = "You didn't set any homes yet.",
+                            text = stringResource(R.string.no_homes_desc),
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier.fillMaxWidth(),
@@ -529,7 +543,9 @@ fun SettingsTab(
                                 Box(
                                     modifier = Modifier
                                         .padding(end = 8.dp)
-                                        .size(40.dp)
+                                        .size(48.dp)
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .clickable { homeViewModel.selectHome(home.id) }
                                         .background(Color.Transparent)
                                         .then(
                                             if (isActive) {
@@ -542,9 +558,9 @@ fun SettingsTab(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Outlined.Home,
-                                        contentDescription = null,
+                                        contentDescription = "Select Home",
                                         tint = if (isActive) Color.White else Color(0xFF9E9E9E),
-                                        modifier = Modifier.size(if (isActive) 24.dp else 20.dp)
+                                        modifier = Modifier.size(if (isActive) 28.dp else 24.dp)
                                     )
                                 }
 

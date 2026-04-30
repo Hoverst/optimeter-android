@@ -16,34 +16,34 @@ class TextAnalyzer(
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
     private fun preProcessBitmapForOCR(src: android.graphics.Bitmap): android.graphics.Bitmap {
-        val newWidth = (src.width * 0.70).toInt() // Keep left 70% (Integer dials)
-        val startY = (src.height * 0.25).toInt()
-        val newHeight = (src.height * 0.50).toInt()
-
-        val focusedStripBitmap = android.graphics.Bitmap.createBitmap(src, 0, startY, newWidth, newHeight)
-
-        val dest = android.graphics.Bitmap.createBitmap(newWidth, newHeight, android.graphics.Bitmap.Config.ARGB_8888)
-        val canvas = android.graphics.Canvas(dest)
-        val paint = android.graphics.Paint()
-
-        val colorMatrix = android.graphics.ColorMatrix()
-        colorMatrix.setSaturation(0f)
-
-        val contrast = 1.6f
-        val brightness = -35f
+        val width = src.width
+        val height = src.height
+        val pixels = IntArray(width * height)
         
-        val contrastMatrix = android.graphics.ColorMatrix(floatArrayOf(
-            contrast, 0f, 0f, 0f, brightness,
-            0f, contrast, 0f, 0f, brightness,
-            0f, 0f, contrast, 0f, brightness,
-            0f, 0f, 0f, 1f, 0f
-        ))
-        
-        colorMatrix.postConcat(contrastMatrix)
-        paint.colorFilter = android.graphics.ColorMatrixColorFilter(colorMatrix)
-        
-        canvas.drawBitmap(focusedStripBitmap, 0f, 0f, paint)
-        
+        // Load pixels into array for fast processing
+        src.getPixels(pixels, 0, width, 0, 0, width, height)
+
+        // Threshold value: Any pixel where R, G, and B are all below this value is considered "Black".
+        // 100 is a good starting point for dark grey/black digits.
+        val darkThreshold = 100 
+
+        for (i in pixels.indices) {
+            val pixelColor = pixels[i]
+            val r = android.graphics.Color.red(pixelColor)
+            val g = android.graphics.Color.green(pixelColor)
+            val b = android.graphics.Color.blue(pixelColor)
+
+            // If the pixel is dark in all channels, it's our black digit.
+            // Otherwise (if it's bright, or strongly red/colored), turn it white.
+            if (r < darkThreshold && g < darkThreshold && b < darkThreshold) {
+                pixels[i] = android.graphics.Color.BLACK
+            } else {
+                pixels[i] = android.graphics.Color.WHITE
+            }
+        }
+
+        val dest = android.graphics.Bitmap.createBitmap(width, height, src.config ?: android.graphics.Bitmap.Config.ARGB_8888)
+        dest.setPixels(pixels, 0, width, 0, 0, width, height)
         return dest
     }
 
