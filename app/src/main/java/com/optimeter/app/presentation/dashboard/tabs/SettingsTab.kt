@@ -657,7 +657,10 @@ fun SettingsTab(
                 icon = Icons.Default.DevicesOther,
                 title = stringResource(R.string.my_devices),
                 subtitle = stringResource(R.string.manage_smart_meters),
-                onClick = onNavigateToIoTDevices
+                onClick = {
+                    Toast.makeText(context, "This feature will be added in future updates", Toast.LENGTH_SHORT).show()
+                },
+                enabled = false
             )
         }
 
@@ -772,8 +775,10 @@ fun SettingsItem(
     icon: ImageVector,
     title: String,
     subtitle: String? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    enabled: Boolean = true
 ) {
+    val alpha = if (enabled) 1f else 0.38f
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -781,15 +786,24 @@ fun SettingsItem(
             .padding(vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(imageVector = icon, contentDescription = null, modifier = Modifier.size(24.dp))
+        Icon(
+            imageVector = icon, 
+            contentDescription = null, 
+            modifier = Modifier.size(24.dp),
+            tint = androidx.compose.material3.LocalContentColor.current.copy(alpha = alpha)
+        )
         Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
-            Text(text = title, style = MaterialTheme.typography.titleMedium)
+            Text(
+                text = title, 
+                style = MaterialTheme.typography.titleMedium,
+                color = androidx.compose.material3.LocalContentColor.current.copy(alpha = alpha)
+            )
             if (subtitle != null) {
                 Text(
                     text = subtitle,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
                 )
             }
         }
@@ -797,7 +811,7 @@ fun SettingsItem(
             imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
             contentDescription = null,
             modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant
+            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
         )
     }
 }

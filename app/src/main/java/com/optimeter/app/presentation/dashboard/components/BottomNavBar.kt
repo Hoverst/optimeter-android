@@ -1,10 +1,12 @@
 package com.optimeter.app.presentation.dashboard.components
 
+import android.widget.Toast
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.BarChart
-import androidx.compose.material.icons.outlined.CameraAlt
+import androidx.compose.material.icons.outlined.Memory
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -30,7 +32,7 @@ import com.optimeter.app.R
 enum class DashboardTab(val labelResId: Int, val icon: ImageVector) {
     HOME(R.string.home, Icons.Outlined.Home),
     ANALYTICS(R.string.analytics, Icons.Outlined.BarChart),
-    ADD(R.string.add, Icons.Outlined.CameraAlt),
+    ADD(R.string.add, Icons.Outlined.Memory),
     SETTINGS(R.string.settings, Icons.Outlined.Settings)
 }
 
@@ -39,6 +41,8 @@ fun BottomNavBar(
     currentTab: DashboardTab,
     onTabSelected: (DashboardTab) -> Unit
 ) {
+    val context = LocalContext.current
+    
     androidx.compose.foundation.layout.Column {
         Divider(color = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f), thickness = 1.dp)
         NavigationBar(
@@ -50,9 +54,18 @@ fun BottomNavBar(
             DashboardTab.values().forEach { tab ->
                 val tabLabel = stringResource(id = tab.labelResId)
                 val isSelected = currentTab == tab
+                val isAddTab = tab == DashboardTab.ADD
+                val disabledColor = Color.DarkGray.copy(alpha = 0.5f)
+                
                 NavigationBarItem(
                     selected = isSelected,
-                    onClick = { onTabSelected(tab) },
+                    onClick = { 
+                        if (isAddTab) {
+                            Toast.makeText(context, "This feature will be added in future updates", Toast.LENGTH_SHORT).show()
+                        } else {
+                            onTabSelected(tab) 
+                        }
+                    },
                     icon = {
                         val iconModifier = if (isSelected) {
                             Modifier
@@ -62,16 +75,25 @@ fun BottomNavBar(
                             Modifier
                         }
                         Box(modifier = iconModifier, contentAlignment = Alignment.Center) {
-                            Icon(tab.icon, contentDescription = tabLabel)
+                            Icon(
+                                imageVector = tab.icon, 
+                                contentDescription = tabLabel,
+                                tint = if (isAddTab) disabledColor else androidx.compose.material3.LocalContentColor.current
+                            )
                         }
                     },
-                    label = { Text(tabLabel) },
+                    label = { 
+                        Text(
+                            text = tabLabel,
+                            color = if (isAddTab) disabledColor else androidx.compose.ui.graphics.Color.Unspecified
+                        ) 
+                    },
                     colors = NavigationBarItemDefaults.colors(
                         selectedIconColor = Color.White,
                         selectedTextColor = Color.White,
                         indicatorColor = Color.Transparent,
-                        unselectedIconColor = Color(0xFF9E9E9E), // Light gray for visibility
-                        unselectedTextColor = Color(0xFF9E9E9E)
+                        unselectedIconColor = if (isAddTab) disabledColor else Color(0xFF9E9E9E),
+                        unselectedTextColor = if (isAddTab) disabledColor else Color(0xFF9E9E9E)
                     ),
                     modifier = Modifier.padding(top = 4.dp)
                 )
