@@ -19,7 +19,7 @@
     <string name="history">Історія</string>
     <string name="statistics">Статистика</string>
     <string name="analytics">Аналітика</string>
-    <string name="add">Додати</string>
+    <string name="add">Девайси</string>
     <string name="settings">Налаштування</string>
     <string name="good_morning">Доброго ранку</string>
     <string name="your_meters">Ваші лічильники</string>
@@ -181,4 +181,23 @@
     <string name="action_test_notification">Тестове сповіщення</string>
     <string name="notif_channel_name">Нагадування про показники</string>
     <string name="notif_channel_desc">Щомісячні нагадування про подання показників лічильників</string>
+
+    <!-- Toast / Error Messages -->
+    <string name="toast_feature_coming_soon">Ця функція буде додана в майбутніх оновленнях</string>
+    <string name="toast_logout_failed">Не вдалося вийти</string>
+    <string name="toast_delete_failed">Не вдалося видалити</string>
+    <string name="toast_delete_account_failed">Не вдалося видалити акаунт</string>
+    <string name="toast_relogin_required">Будь ласка, вийдіть та увійдіть знову, щоб підтвердити свою особу перед видаленням.</string>
+    <string name="toast_notification_permission_denied">Дозвіл на сповіщення відхилено</string>
+    <string name="unknown_user">Невідомий користувач</string>
+
+    <!-- Content Descriptions -->
+    <string name="cd_select_home">Обрати будинок</string>
+    <string name="cd_edit_home">Редагувати будинок</string>
+    <string name="cd_delete">Видалити</string>
+    <string name="cd_back">Назад</string>
+
+    <!-- Misc UI -->
+    <string name="no_data_available_yet">Даних поки немає</string>
+    <string name="app_version">Optimeter v1.0.0</string>
 </resources>

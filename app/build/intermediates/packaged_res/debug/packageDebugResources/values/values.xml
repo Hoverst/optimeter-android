@@ -8,18 +8,23 @@
     <string name="action_delete">Delete</string>
     <string name="action_logout_button">Log Out</string>
     <string name="action_test_notification">Test Notification</string>
-    <string name="add">Add</string>
+    <string name="add">Devices</string>
     <string name="add_device">Add New Device</string>
     <string name="add_home_button">+ Add Home</string>
     <string name="add_new_reading">Add new reading</string>
     <string name="add_new_reading_button">Add New Reading</string>
     <string name="analytics">Analytics</string>
     <string name="app_name">Optimeter</string>
+    <string name="app_version">Optimeter v1.0.0</string>
     <string name="appearance_localization">Appearance &amp; Localization</string>
     <string name="average">Average</string>
     <string name="battery">Battery</string>
     <string name="camera_permission_required">Camera permission is required to scan meters.</string>
     <string name="cancel">Cancel</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_delete">Delete</string>
+    <string name="cd_edit_home">Edit Home</string>
+    <string name="cd_select_home">Select Home</string>
     <string name="choose_from_gallery">Choose from Gallery</string>
     <string name="choose_language">Choose Language</string>
     <string name="choose_theme">Choose Theme</string>
@@ -87,6 +92,7 @@
     <string name="my_iot_devices">My IoT Devices</string>
     <string name="next_wifi_setup">Next: Wi-Fi Setup</string>
     <string name="no_account">Don\'t have an account? Register</string>
+    <string name="no_data_available_yet">No data available yet</string>
     <string name="no_homes_desc">You haven\'t added any homes yet. Go to Settings to add your first home.</string>
     <string name="no_homes_yet">No Homes Yet</string>
     <string name="no_photo">No photo available</string>
@@ -139,10 +145,17 @@
     <string name="terms_subtitle">View terms and conditions</string>
     <string name="theme">Theme</string>
     <string name="this_period">%1$s this period</string>
+    <string name="toast_delete_account_failed">Delete account failed</string>
+    <string name="toast_delete_failed">Delete failed</string>
+    <string name="toast_feature_coming_soon">This feature will be added in future updates</string>
+    <string name="toast_logout_failed">Logout failed</string>
+    <string name="toast_notification_permission_denied">Notification permission denied</string>
+    <string name="toast_relogin_required">Please log out and log back in to verify your identity before deleting.</string>
     <string name="track_utility_consumption">Track your utility consumption with ease</string>
     <string name="trend_label">Trend</string>
     <string name="unit_kwh">kWh</string>
     <string name="unit_m3">m³</string>
+    <string name="unknown_user">Unknown User</string>
     <string name="validate_reading">Validate Reading</string>
     <string name="view_all_readings">View All Readings</string>
     <string name="vs_last">vs last</string>
@@ -152,5 +165,5 @@
     <string name="wifi_name">Wi-Fi Name (SSID)</string>
     <string name="wifi_password">Wi-Fi Password</string>
     <string name="your_meters">Your Meters</string>
-    <style name="Theme.Optimeter" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Theme.Optimeter" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>

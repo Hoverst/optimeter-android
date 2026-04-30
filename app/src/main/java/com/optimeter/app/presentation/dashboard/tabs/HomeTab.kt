@@ -107,7 +107,7 @@ fun HomeTab(
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
                         imageVector = Icons.Default.ArrowDropDown,
-                        contentDescription = "Select Home",
+                        contentDescription = stringResource(R.string.cd_select_home),
                         tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }

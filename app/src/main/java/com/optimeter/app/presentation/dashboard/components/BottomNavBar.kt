@@ -66,7 +66,7 @@ fun BottomNavBar(
                     selected = isSelected,
                     onClick = { 
                         if (isAddTab) {
-                            Toast.makeText(context, "This feature will be added in future updates", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, context.getString(R.string.toast_feature_coming_soon), Toast.LENGTH_SHORT).show()
                         } else {
                             onTabSelected(tab) 
                         }

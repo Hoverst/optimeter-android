@@ -139,8 +139,6 @@ fun SettingsTab(
                                         androidx.core.os.LocaleListCompat.forLanguageTags(code)
                                     )
                                     showLanguageDialog = false
-                                    
-                                    val activity = (context as? android.app.Activity) ?: (context as? android.content.ContextWrapper)?.baseContext as? android.app.Activity
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
@@ -153,8 +151,6 @@ fun SettingsTab(
                                         androidx.core.os.LocaleListCompat.forLanguageTags(code)
                                     )
                                     showLanguageDialog = false
-                                    
-                                    val activity = (context as? android.app.Activity) ?: (context as? android.content.ContextWrapper)?.baseContext as? android.app.Activity
                                 }
                             )
                             Spacer(modifier = Modifier.width(8.dp))
@@ -218,7 +214,7 @@ fun SettingsTab(
                                 viewModel.logout(context)
                                 onLogout()
                             } catch (e: Exception) {
-                                Toast.makeText(context, e.message ?: "Logout failed", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, e.message ?: context.getString(R.string.toast_logout_failed), Toast.LENGTH_LONG).show()
                             }
                         }
                     }
@@ -265,9 +261,9 @@ fun SettingsTab(
                                 onDeleteAccount()
                             } catch (e: Exception) {
                                 val msg = if (viewModel.isRecentLoginRequiredError(e)) {
-                                    "Please log out and log back in to verify your identity before deleting."
+                                    context.getString(R.string.toast_relogin_required)
                                 } else {
-                                    e.message ?: "Delete account failed"
+                                    e.message ?: context.getString(R.string.toast_delete_account_failed)
                                 }
                                 Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
                             }
@@ -380,9 +376,6 @@ fun SettingsTab(
         val home = showDeleteHomeDialog!!
         var confirmHomeInput by remember { mutableStateOf("") }
         val isHomeMatch = confirmHomeInput.trim() == home.name.trim()
-        
-        val ctx = LocalContext.current
-        Log.d("LOCALE_CHECK", ctx.resources.configuration.locales[0].toString())
 
         AlertDialog(
             onDismissRequest = { showDeleteHomeDialog = null },
@@ -408,7 +401,7 @@ fun SettingsTab(
                             try {
                                 homeViewModel.removeHome(home.id)
                             } catch (e: Exception) {
-                                Toast.makeText(context, e.message ?: "Delete failed", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, e.message ?: context.getString(R.string.toast_delete_failed), Toast.LENGTH_LONG).show()
                             }
                         }
                     },
@@ -470,7 +463,7 @@ fun SettingsTab(
                     ) {
                         Column(modifier = Modifier.weight(1f)) {
                             Text(
-                                text = viewModel.currentUserEmail ?: "Unknown User",
+                                text = viewModel.currentUserEmail ?: stringResource(R.string.unknown_user),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Medium
                             )
@@ -574,7 +567,7 @@ fun SettingsTab(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Outlined.Home,
-                                        contentDescription = "Select Home",
+                                        contentDescription = stringResource(R.string.cd_select_home),
                                         tint = if (isActive) activeIconColor else Color(0xFF9E9E9E),
                                         modifier = Modifier.size(if (isActive) 28.dp else 24.dp)
                                     )
@@ -588,7 +581,7 @@ fun SettingsTab(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Outlined.Edit,
-                                        contentDescription = "Edit Home",
+                                        contentDescription = stringResource(R.string.cd_edit_home),
                                         tint = MaterialTheme.colorScheme.primary,
                                         modifier = Modifier.size(20.dp)
                                     )
@@ -623,7 +616,7 @@ fun SettingsTab(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.DeleteForever,
-                                        contentDescription = "Delete",
+                                        contentDescription = stringResource(R.string.cd_delete),
                                         tint = MaterialTheme.colorScheme.onErrorContainer,
                                         modifier = Modifier.size(20.dp)
                                     )
@@ -653,7 +646,7 @@ fun SettingsTab(
                     )
                     Spacer(modifier = Modifier.height(24.dp))
                     Text(
-                        "Optimeter v1.0.0",
+                        stringResource(R.string.app_version),
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -674,7 +667,7 @@ fun SettingsTab(
                 title = stringResource(R.string.my_devices),
                 subtitle = stringResource(R.string.manage_smart_meters),
                 onClick = {
-                    Toast.makeText(context, "This feature will be added in future updates", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.toast_feature_coming_soon), Toast.LENGTH_SHORT).show()
                 },
                 enabled = false
             )
@@ -708,7 +701,7 @@ fun SettingsTab(
                     viewModel.setPushNotificationsEnabled(true)
                     NotificationScheduler.scheduleMonthlyReminder(context, notificationDay)
                 } else {
-                    Toast.makeText(context, "Notification permission denied", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.toast_notification_permission_denied), Toast.LENGTH_SHORT).show()
                     viewModel.setPushNotificationsEnabled(false)
                 }
             }

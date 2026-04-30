@@ -1,9 +1,7 @@
 package com.optimeter.app
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -23,7 +21,7 @@ import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var settingsRepository: SettingsRepository
@@ -34,7 +32,17 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             val themeConfig by settingsRepository.themeConfig.collectAsState(initial = ThemeConfig.FOLLOW_SYSTEM)
-            val languageCode by settingsRepository.languageCode.collectAsState(initial = "en")
+
+            // Read the initial language from AppCompatDelegate (which persists
+            // the locale across Activity recreations) so that the very first
+            // frame already uses the correct language — not "en".
+            val appLocales = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()
+            val systemLang = if (!appLocales.isEmpty) {
+                appLocales[0]?.language ?: "en"
+            } else {
+                resources.configuration.locales[0].language
+            }
+            val languageCode by settingsRepository.languageCode.collectAsState(initial = systemLang)
 
             val isDarkTheme = when (themeConfig) {
                 ThemeConfig.DARK -> true

@@ -349,7 +349,7 @@ fun CustomLineChart(
 ) {
     if (readings.isEmpty()) {
         Box(modifier = modifier, contentAlignment = Alignment.Center) {
-            Text("No data available yet", color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(stringResource(R.string.no_data_available_yet), color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
         return
     }

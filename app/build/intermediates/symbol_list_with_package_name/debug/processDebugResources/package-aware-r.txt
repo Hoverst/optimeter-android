@@ -1033,6 +1033,7 @@ string android_credentials_TYPE_PASSWORD_CREDENTIAL
 string androidx_credentials_TYPE_PUBLIC_KEY_CREDENTIAL
 string androidx_startup
 string app_name
+string app_version
 string appearance_localization
 string average
 string battery
@@ -1045,6 +1046,10 @@ string call_notification_ongoing_text
 string call_notification_screening_text
 string camera_permission_required
 string cancel
+string cd_back
+string cd_delete
+string cd_edit_home
+string cd_select_home
 string choose_from_gallery
 string choose_language
 string choose_theme
@@ -1199,6 +1204,7 @@ string my_iot_devices
 string navigation_menu
 string next_wifi_setup
 string no_account
+string no_data_available_yet
 string no_homes_desc
 string no_homes_yet
 string no_photo
@@ -1262,12 +1268,19 @@ string terms_privacy
 string terms_subtitle
 string theme
 string this_period
+string toast_delete_account_failed
+string toast_delete_failed
+string toast_feature_coming_soon
+string toast_logout_failed
+string toast_notification_permission_denied
+string toast_relogin_required
 string tooltip_description
 string tooltip_label
 string track_utility_consumption
 string trend_label
 string unit_kwh
 string unit_m3
+string unknown_user
 string validate_reading
 string view_all_readings
 string vs_last

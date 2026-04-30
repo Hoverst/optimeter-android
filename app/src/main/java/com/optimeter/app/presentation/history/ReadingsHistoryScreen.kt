@@ -66,7 +66,7 @@ fun ReadingsHistoryScreen(
                 title = { Text(stringResource(R.string.history)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(R.string.cd_back))
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -164,7 +164,7 @@ fun ReadingsHistoryScreen(
                                 ) {
                                     Icon(
                                         imageVector = Icons.Default.DeleteForever,
-                                        contentDescription = "Delete",
+                                        contentDescription = stringResource(R.string.cd_delete),
                                         tint = MaterialTheme.colorScheme.onErrorContainer,
                                         modifier = Modifier.size(20.dp)
                                     )
