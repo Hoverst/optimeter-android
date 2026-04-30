@@ -55,7 +55,7 @@ fun BottomNavBar(
                 val tabLabel = stringResource(id = tab.labelResId)
                 val isSelected = currentTab == tab
                 val isAddTab = tab == DashboardTab.ADD
-                val disabledColor = Color.DarkGray.copy(alpha = 0.5f)
+                val disabledColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
                 
                 NavigationBarItem(
                     selected = isSelected,

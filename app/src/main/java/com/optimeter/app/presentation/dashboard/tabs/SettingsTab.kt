@@ -778,7 +778,11 @@ fun SettingsItem(
     onClick: () -> Unit,
     enabled: Boolean = true
 ) {
-    val alpha = if (enabled) 1f else 0.38f
+    val iconTint = if (enabled) androidx.compose.material3.LocalContentColor.current else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+    val textColor = if (enabled) androidx.compose.material3.LocalContentColor.current else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+    val subtitleColor = if (enabled) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+    val arrowTint = if (enabled) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -790,20 +794,20 @@ fun SettingsItem(
             imageVector = icon, 
             contentDescription = null, 
             modifier = Modifier.size(24.dp),
-            tint = androidx.compose.material3.LocalContentColor.current.copy(alpha = alpha)
+            tint = iconTint
         )
         Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = title, 
                 style = MaterialTheme.typography.titleMedium,
-                color = androidx.compose.material3.LocalContentColor.current.copy(alpha = alpha)
+                color = textColor
             )
             if (subtitle != null) {
                 Text(
                     text = subtitle,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
+                    color = subtitleColor
                 )
             }
         }
@@ -811,7 +815,7 @@ fun SettingsItem(
             imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
             contentDescription = null,
             modifier = Modifier.size(16.dp),
-            tint = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = alpha)
+            tint = arrowTint
         )
     }
 }
