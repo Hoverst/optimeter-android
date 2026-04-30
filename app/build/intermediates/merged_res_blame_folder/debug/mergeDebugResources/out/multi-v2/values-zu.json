@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.optimeter.app-mergeDebugResources-75:/values-zu/values-zu.xml",
+            "outputFile": "com.optimeter.app-mergeDebugResources-82:/values-zu/values-zu.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Lenovo\\.gradle\\caches\\9.0-milestone-1\\transforms\\78b3e1e7c2b7d915444bdfc66c089d3d\\transformed\\play-services-base-18.3.0\\res\\values-zu\\values.xml",

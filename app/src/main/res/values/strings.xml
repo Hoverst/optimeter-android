@@ -174,4 +174,11 @@
     
     <string name="no_homes_yet">No Homes Yet</string>
     <string name="no_homes_desc">You haven\'t added any homes yet. Go to Settings to add your first home.</string>
+
+    <!-- Notification Reminders -->
+    <string name="notif_reminder_title">Time for Meter Readings!</string>
+    <string name="notif_reminder_body">Please submit your utility readings for this month to keep your analytics up to date.</string>
+    <string name="action_test_notification">Test Notification</string>
+    <string name="notif_channel_name">Reading Reminders</string>
+    <string name="notif_channel_desc">Monthly reminders to submit utility meter readings</string>
 </resources>

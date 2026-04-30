@@ -6,6 +6,7 @@
     <string name="action_cancel">Скасувати</string>
     <string name="action_delete">Видалити</string>
     <string name="action_logout_button">Вийти</string>
+    <string name="action_test_notification">Тестове сповіщення</string>
     <string name="add">Додати</string>
     <string name="add_device">Додати новий пристрій</string>
     <string name="add_home_button">+ Додати будинок</string>
@@ -84,6 +85,10 @@
     <string name="no_photo">Фото відсутнє</string>
     <string name="no_readings">Показників ще немає</string>
     <string name="not_signed_in">Не здійснено вхід</string>
+    <string name="notif_channel_desc">Щомісячні нагадування про подання показників лічильників</string>
+    <string name="notif_channel_name">Нагадування про показники</string>
+    <string name="notif_reminder_body">Будь ласка, внесіть показники лічильників за цей місяць, щоб оновити аналітику.</string>
+    <string name="notif_reminder_title">Час подавати показники!</string>
     <string name="notifications">Сповіщення</string>
     <string name="offline">Офлайн</string>
     <string name="online">В мережі</string>

@@ -174,4 +174,11 @@
     
     <string name="no_homes_yet">Ще немає будинків</string>
     <string name="no_homes_desc">Ви ще не додали жодного будинку. Перейдіть до налаштувань, щоб додати свій перший будинок.</string>
+
+    <!-- Notification Reminders -->
+    <string name="notif_reminder_title">Час подавати показники!</string>
+    <string name="notif_reminder_body">Будь ласка, внесіть показники лічильників за цей місяць, щоб оновити аналітику.</string>
+    <string name="action_test_notification">Тестове сповіщення</string>
+    <string name="notif_channel_name">Нагадування про показники</string>
+    <string name="notif_channel_desc">Щомісячні нагадування про подання показників лічильників</string>
 </resources>

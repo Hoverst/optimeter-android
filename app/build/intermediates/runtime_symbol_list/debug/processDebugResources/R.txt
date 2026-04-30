@@ -350,6 +350,10 @@ int attr windowMinWidthMinor 0x7f03013d
 int attr windowNoTitle 0x7f03013e
 int bool abc_action_bar_embed_tabs 0x7f040000
 int bool abc_config_actionMenuItemAllCaps 0x7f040001
+int bool enable_system_alarm_service_default 0x7f040002
+int bool enable_system_foreground_service_default 0x7f040003
+int bool enable_system_job_service_default 0x7f040004
+int bool workmanager_test_configuration 0x7f040005
 int color abc_background_cache_hint_selector_material_dark 0x7f050000
 int color abc_background_cache_hint_selector_material_light 0x7f050001
 int color abc_btn_colored_borderless_text_material 0x7f050002
@@ -1017,6 +1021,7 @@ int string action_add 0x7f0e001d
 int string action_cancel 0x7f0e001e
 int string action_delete 0x7f0e001f
 int string action_logout_button 0x7f0e0020
+int string action_test_notification 0x7f0e011b
 int string add 0x7f0e0021
 int string add_device 0x7f0e0022
 int string add_home_button 0x7f0e0023
@@ -1199,6 +1204,10 @@ int string no_photo 0x7f0e00d3
 int string no_readings 0x7f0e00d4
 int string not_selected 0x7f0e00d5
 int string not_signed_in 0x7f0e00d6
+int string notif_channel_desc 0x7f0e011c
+int string notif_channel_name 0x7f0e011d
+int string notif_reminder_body 0x7f0e011e
+int string notif_reminder_title 0x7f0e011f
 int string notifications 0x7f0e00d7
 int string off 0x7f0e00d8
 int string offline 0x7f0e00d9

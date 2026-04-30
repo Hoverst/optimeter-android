@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -34,12 +34,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.ui.res.stringResource
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.launch
 import com.optimeter.app.R
 import com.optimeter.app.domain.model.ThemeConfig
 import com.optimeter.app.domain.model.Home
 import androidx.compose.ui.graphics.Color
+import com.optimeter.app.notification.NotificationScheduler
 import com.optimeter.app.presentation.dashboard.tabs.HomeViewModel
 
 @Composable
@@ -50,7 +57,10 @@ fun SettingsTab(
     viewModel: SettingsViewModel = hiltViewModel(),
     homeViewModel: HomeViewModel = hiltViewModel()
 ) {
-    val activeIconColor = if (isSystemInDarkTheme()) Color.White else Color.Black
+    // Derive colors from the actual MaterialTheme, not the system setting.
+    // In dark mode (low luminance background) -> pure white (#FFFFFF); light mode -> black.
+    val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
+    val activeIconColor = if (isDark) Color.White else Color.Black
     val themeConfig by viewModel.themeConfig.collectAsState()
     val pushEnabled by viewModel.pushNotificationsEnabled.collectAsState()
     val notificationDay by viewModel.notificationDay.collectAsState()
@@ -181,6 +191,10 @@ fun SettingsTab(
                 TextButton(onClick = {
                     val day = dayText.toIntOrNull()?.coerceIn(1, 28) ?: notificationDay
                     viewModel.setNotificationDay(day)
+                    // Schedule the monthly reminder for the new day
+                    if (pushEnabled) {
+                        NotificationScheduler.scheduleMonthlyReminder(context, day)
+                    }
                     showReminderDayDialog = false
                 }) { Text(stringResource(R.string.save)) }
             },
@@ -686,6 +700,19 @@ fun SettingsTab(
 
         item { SettingsSectionTitle(stringResource(R.string.notifications)) }
         item {
+            // Permission launcher for Android 13+ POST_NOTIFICATIONS
+            val permissionLauncher = rememberLauncherForActivityResult(
+                contract = ActivityResultContracts.RequestPermission()
+            ) { granted ->
+                if (granted) {
+                    viewModel.setPushNotificationsEnabled(true)
+                    NotificationScheduler.scheduleMonthlyReminder(context, notificationDay)
+                } else {
+                    Toast.makeText(context, "Notification permission denied", Toast.LENGTH_SHORT).show()
+                    viewModel.setPushNotificationsEnabled(false)
+                }
+            }
+
             Row(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
@@ -698,7 +725,28 @@ fun SettingsTab(
                 }
                 Switch(
                     checked = pushEnabled,
-                    onCheckedChange = { viewModel.setPushNotificationsEnabled(it) }
+                    onCheckedChange = { enabled ->
+                        if (enabled) {
+                            // On Android 13+, request POST_NOTIFICATIONS permission first
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                val hasPermission = ContextCompat.checkSelfPermission(
+                                    context, Manifest.permission.POST_NOTIFICATIONS
+                                ) == PackageManager.PERMISSION_GRANTED
+                                if (hasPermission) {
+                                    viewModel.setPushNotificationsEnabled(true)
+                                    NotificationScheduler.scheduleMonthlyReminder(context, notificationDay)
+                                } else {
+                                    permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                                }
+                            } else {
+                                viewModel.setPushNotificationsEnabled(true)
+                                NotificationScheduler.scheduleMonthlyReminder(context, notificationDay)
+                            }
+                        } else {
+                            viewModel.setPushNotificationsEnabled(false)
+                            NotificationScheduler.cancelReminder(context)
+                        }
+                    }
                 )
             }
         }

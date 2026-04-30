@@ -7,6 +7,7 @@
     <string name="action_cancel">Cancel</string>
     <string name="action_delete">Delete</string>
     <string name="action_logout_button">Log Out</string>
+    <string name="action_test_notification">Test Notification</string>
     <string name="add">Add</string>
     <string name="add_device">Add New Device</string>
     <string name="add_home_button">+ Add Home</string>
@@ -91,6 +92,10 @@
     <string name="no_photo">No photo available</string>
     <string name="no_readings">No readings yet</string>
     <string name="not_signed_in">Not signed in</string>
+    <string name="notif_channel_desc">Monthly reminders to submit utility meter readings</string>
+    <string name="notif_channel_name">Reading Reminders</string>
+    <string name="notif_reminder_body">Please submit your utility readings for this month to keep your analytics up to date.</string>
+    <string name="notif_reminder_title">Time for Meter Readings!</string>
     <string name="notifications">Notifications</string>
     <string name="offline">Offline</string>
     <string name="online">Online</string>

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.optimeter.app-mergeDebugResources-75:/values-it/values-it.xml",
+            "outputFile": "com.optimeter.app-mergeDebugResources-82:/values-it/values-it.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Lenovo\\.gradle\\caches\\9.0-milestone-1\\transforms\\9110e7895824124b19af96fbce45988e\\transformed\\credentials-1.2.0-rc01\\res\\values-it\\values-it.xml",

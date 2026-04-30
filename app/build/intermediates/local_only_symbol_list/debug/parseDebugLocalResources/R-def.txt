@@ -11,6 +11,7 @@ string action_add
 string action_cancel
 string action_delete
 string action_logout_button
+string action_test_notification
 string add
 string add_device
 string add_home_button
@@ -95,6 +96,10 @@ string no_homes_yet
 string no_photo
 string no_readings
 string not_signed_in
+string notif_channel_desc
+string notif_channel_name
+string notif_reminder_body
+string notif_reminder_title
 string notifications
 string offline
 string online
