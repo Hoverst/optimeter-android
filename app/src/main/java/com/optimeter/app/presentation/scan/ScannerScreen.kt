@@ -60,7 +60,7 @@ fun ScannerScreen(
         if (uiState.isStable && !uiState.showValidation) {
             val photoFile = File(context.cacheDir, "meter_${System.currentTimeMillis()}.jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-            
+
             imageCapture.takePicture(
                 outputOptions,
                 ContextCompat.getMainExecutor(context),
@@ -95,87 +95,153 @@ fun ScannerScreen(
         }
     }
 
+    // Діалог: Таймаут
+    if (uiState.showTimeoutDialog) {
+        AlertDialog(
+            onDismissRequest = { viewModel.dismissDialogs() },
+            title = { Text("Не вдалося зчитати показник") },
+            text = { Text("Не вдалося автоматично зчитати показник. Можливо, одне з коліщаток лічильника стоїть між цифрами. Спробуйте ще раз або введіть показник вручну.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.dismissDialogs()
+                    onNavigateToManual(meterType)
+                }) {
+                    Text("Ввести вручну")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = {
+                    viewModel.dismissDialogs()
+                    onNavigateBack()
+                }) {
+                    Text("Скасувати")
+                }
+            }
+        )
+    }
+
+    // Діалог: Нереалістичне значення
+    if (uiState.showUnrealisticDialog) {
+        AlertDialog(
+            onDismissRequest = { viewModel.dismissDialogs() },
+            title = { Text("Підозрілий показник") },
+            text = {
+                val detected = uiState.detectedDigits
+                val prev = uiState.lastKnownValue?.let {
+                    if (it % 1.0 == 0.0) it.toLong().toString() else it.toString()
+                } ?: "Невідомо"
+
+                Text("Розпізнаний показник виглядає нереалістично. Будь ласка, перевірте значення.\n\n" +
+                        "Розпізнано: $detected\n" +
+                        "Попередній показник: $prev")
+            },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.acceptUnrealisticValue()
+                }) {
+                    Text("Все одно продовжити")
+                }
+            },
+            dismissButton = {
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    TextButton(onClick = {
+                        viewModel.dismissDialogs()
+                        onNavigateBack()
+                    }) {
+                        Text("Скасувати")
+                    }
+                    TextButton(onClick = {
+                        viewModel.dismissDialogs()
+                        onNavigateToManual(meterType)
+                    }) {
+                        Text("Ввести вручну")
+                    }
+                }
+            }
+        )
+    }
+
     Box(modifier = Modifier.fillMaxSize()) {
         if (cameraPermissionState.status.isGranted) {
-        AndroidView(
-            factory = { ctx ->
-                val previewView = PreviewView(ctx)
-                val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
+            AndroidView(
+                factory = { ctx ->
+                    val previewView = PreviewView(ctx)
+                    val cameraProviderFuture = ProcessCameraProvider.getInstance(ctx)
 
-                cameraProviderFuture.addListener({
-                    val cameraProvider = cameraProviderFuture.get()
+                    cameraProviderFuture.addListener({
+                        val cameraProvider = cameraProviderFuture.get()
 
-                    val preview = Preview.Builder().build().also {
-                        it.setSurfaceProvider(previewView.surfaceProvider)
-                    }
-
-                    val imageAnalyzer = ImageAnalysis.Builder()
-                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                        .build()
-                        .also { analysis ->
-                            analysis.setAnalyzer(cameraExecutor, TextAnalyzer(
-                                onDigitsDetected = { digits ->
-                                    coroutineScope.launch(Dispatchers.Main) {
-                                        viewModel.onDigitsDetected(digits)
-                                    }
-                                },
-                                onImageProcessed = { bitmap ->
-                                    debugBitmap = bitmap
-                                }
-                            ))
+                        val preview = Preview.Builder().build().also {
+                            it.setSurfaceProvider(previewView.surfaceProvider)
                         }
 
-                    try {
-                        cameraProvider.unbindAll()
-                        cameraProvider.bindToLifecycle(
-                            lifecycleOwner,
-                            CameraSelector.DEFAULT_BACK_CAMERA,
-                            preview,
-                            imageCapture,
-                            imageAnalyzer
-                        )
-                    } catch (exc: Exception) {
-                        // Ignore bind exceptions
-                    }
-                }, ContextCompat.getMainExecutor(ctx))
-                previewView
-            },
-            modifier = Modifier.fillMaxSize()
-        )
+                        val imageAnalyzer = ImageAnalysis.Builder()
+                            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                            .build()
+                            .also { analysis ->
+                                analysis.setAnalyzer(cameraExecutor, TextAnalyzer(
+                                    onDigitsDetected = { digits ->
+                                        coroutineScope.launch(Dispatchers.Main) {
+                                            viewModel.onDigitsDetected(digits)
+                                        }
+                                    },
+                                    onImageProcessed = { bitmap ->
+                                        debugBitmap = bitmap
+                                    }
+                                ))
+                            }
 
-        Box(
-            modifier = Modifier
-                .fillMaxWidth(0.8f)
-                .height(120.dp)
-                .align(Alignment.Center)
-                .border(
-                    width = 4.dp,
-                    color = if (uiState.isStable) Color.Green else Color.White
-                )
-        )
-
-        debugBitmap?.let { bmp ->
-            androidx.compose.foundation.Image(
-                bitmap = bmp.asImageBitmap(),
-                contentDescription = "Debug Crop",
-                modifier = Modifier
-                    .align(Alignment.TopCenter)
-                    .padding(top = 16.dp)
-                    .fillMaxWidth(0.6f)
-                    .aspectRatio(bmp.width.toFloat() / bmp.height.toFloat())
+                        try {
+                            cameraProvider.unbindAll()
+                            cameraProvider.bindToLifecycle(
+                                lifecycleOwner,
+                                CameraSelector.DEFAULT_BACK_CAMERA,
+                                preview,
+                                imageCapture,
+                                imageAnalyzer
+                            )
+                        } catch (exc: Exception) {
+                            // Ignore bind exceptions
+                        }
+                    }, ContextCompat.getMainExecutor(ctx))
+                    previewView
+                },
+                modifier = Modifier.fillMaxSize()
             )
-        }
 
-        Button(
-            onClick = { onNavigateToManual(meterType) },
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(32.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = activeUtilityColor, contentColor = Color.White)
-        ) {
-            Text(stringResource(R.string.enter_manually))
-        }
-       
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth(0.8f)
+                    .height(120.dp)
+                    .align(Alignment.Center)
+                    .border(
+                        width = 4.dp,
+                        color = if (uiState.isStable) Color.Green else Color.White
+                    )
+            )
+
+            debugBitmap?.let { bmp ->
+                androidx.compose.foundation.Image(
+                    bitmap = bmp.asImageBitmap(),
+                    contentDescription = "Debug Crop",
+                    modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .padding(top = 16.dp)
+                        .fillMaxWidth(0.6f)
+                        .aspectRatio(bmp.width.toFloat() / bmp.height.toFloat())
+                )
+            }
+
+            Button(
+                onClick = { onNavigateToManual(meterType) },
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(32.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = activeUtilityColor, contentColor = Color.White)
+            ) {
+                Text(stringResource(R.string.enter_manually))
+            }
+
         } else {
             Column(
                 modifier = Modifier.align(Alignment.Center),
